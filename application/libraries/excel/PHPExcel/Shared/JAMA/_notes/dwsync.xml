@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dwsync>
+<file name="CHANGELOG.TXT" server="172.17.1.50//var/www/html/CallCenter/" local="129432694700000000" remote="129773958340000000" />
+<file name="CholeskyDecomposition.php" server="172.17.1.50//var/www/html/CallCenter/" local="129432694700000000" remote="129773958340000000" />
+<file name="EigenvalueDecomposition.php" server="172.17.1.50//var/www/html/CallCenter/" local="129432694720000000" remote="129773958350000000" />
+<file name="LUDecomposition.php" server="172.17.1.50//var/www/html/CallCenter/" local="129432694720000000" remote="129773958350000000" />
+<file name="Matrix.php" server="172.17.1.50//var/www/html/CallCenter/" local="129432694720000000" remote="129773958350000000" />
+<file name="QRDecomposition.php" server="172.17.1.50//var/www/html/CallCenter/" local="129432694720000000" remote="129773958350000000" />
+<file name="SingularValueDecomposition.php" server="172.17.1.50//var/www/html/CallCenter/" local="129432694720000000" remote="129773958350000000" />
+<file name="CHANGELOG.TXT" server="172.17.1.16//var/www/html/CallCenter/" local="129808491220000000" remote="130012422040000000" />
+<file name="CholeskyDecomposition.php" server="172.17.1.16//var/www/html/CallCenter/" local="129808491220000000" remote="130012422040000000" />
+<file name="EigenvalueDecomposition.php" server="172.17.1.16//var/www/html/CallCenter/" local="129808491230000000" remote="130012422080000000" />
+<file name="LUDecomposition.php" server="172.17.1.16//var/www/html/CallCenter/" local="129808491250000000" remote="130012422080000000" />
+<file name="Matrix.php" server="172.17.1.16//var/www/html/CallCenter/" local="129808491250000000" remote="129993200510000000" />
+<file name="QRDecomposition.php" server="172.17.1.16//var/www/html/CallCenter/" local="129808491250000000" remote="130012422080000000" />
+<file name="SingularValueDecomposition.php" server="172.17.1.16//var/www/html/CallCenter/" local="129808491250000000" remote="130012422080000000" />
+<file name="CHANGELOG.TXT" server="172.17.1.51//var/www/html/CallCenter/" local="129808491220000000" remote="129865745850000000" />
+<file name="CholeskyDecomposition.php" server="172.17.1.51//var/www/html/CallCenter/" local="129808491220000000" remote="129865745850000000" />
+<file name="EigenvalueDecomposition.php" server="172.17.1.51//var/www/html/CallCenter/" local="129808491230000000" remote="129865745870000000" />
+<file name="LUDecomposition.php" server="172.17.1.51//var/www/html/CallCenter/" local="129808491250000000" remote="129865745900000000" />
+<file name="Matrix.php" server="172.17.1.51//var/www/html/CallCenter/" local="129808491250000000" remote="129865745900000000" />
+<file name="QRDecomposition.php" server="172.17.1.51//var/www/html/CallCenter/" local="129808491250000000" remote="129865745910000000" />
+<file name="SingularValueDecomposition.php" server="172.17.1.51//var/www/html/CallCenter/" local="129808491250000000" remote="129865745910000000" />
+<file name="CHANGELOG.TXT" server="172.17.1.26//var/www/html/CallCenter/" local="129808491220000000" remote="130011560570000000" />
+<file name="CholeskyDecomposition.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491220000000" remote="130011560570000000" />
+<file name="EigenvalueDecomposition.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491230000000" remote="130011560580000000" />
+<file name="LUDecomposition.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491250000000" remote="130011560580000000" />
+<file name="Matrix.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491250000000" remote="130011560580000000" />
+<file name="QRDecomposition.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491250000000" remote="130011560590000000" />
+<file name="SingularValueDecomposition.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491250000000" remote="130011560590000000" />
+</dwsync>
