@@ -64,6 +64,10 @@ $(document).ready(function() {
 				var externData={"name": "filterString", "value": ""};
 				externData.value=filterString;
 				aoData.push(externData);
+				if($("#chkIsAllCount").attr("checked"))
+		 			aoData.push({"name":"isAllCount","value":"true"});
+				else
+					aoData.push({"name":"isAllCount","value":"false"});
 			},
 			"sAjaxSource": "<?php echo site_url('report/ajaxReportCallCount')?>",
 			"oLanguage": {
@@ -87,12 +91,15 @@ $(document).ready(function() {
 	
 	//导出文件
 	$("#btnExport").click(function(){
-		 var req={"filterString":[]};
+		 var req={"filterString":[],"isAllCount":"false"};
+		 if($("#chkIsAllCount").attr("checked")){
+		 	req.isAllCount="true";
+		 }
 		 req.filterString=getSearchString();
-		 
+		 $("#csvUrl").html("");
 		 $.post("<?php echo site_url('export/ajaxCallCountExport')?>",req,function(res){	
 			$("#csvUrl").attr("href", res.path);
-			$("#csvUrl").html("下载");					  							
+			$("#csvUrl").html(res.fileName);					  							
 		});  	
 	});
 	//给时间控件付初值
@@ -118,15 +125,17 @@ $(document).ready(function() {
 	</div>
 	<div class="func-panel">
 			 <div class="left">
-			 	<input type="button" id="btnSearch" value="搜索" class="btnSearch"/>
-                <input type="button" id="btnExport" value="导出" class="btnSearch"/>
-                 <a id="csvUrl" href='export_datas/callountDefault.csv'></a>
 			     从
                 <input type="text" name="start_ymd"   id="start_ymd" value="" style="width:80px"/>
 				<?php echo form_dropdown('s_hour',$beginTime['hourOptions'],$beginTime['hourDef'],'id="s_hour"')?><?php echo form_dropdown('s_min',$beginTime['minOptions'],$beginTime['minDef'],'id="s_min"')?>
                 到
                 <input type="text" name="end_ymd"   id="end_ymd" value="" style="width:80px"/>
   <?php echo form_dropdown('e_hour',$endTime['hourOptions'],$endTime['hourDef'],'id="e_hour"')?><?php echo form_dropdown('e_min',$endTime['minOptions'],$endTime['minDef'],'id="e_min"')?>
+  			  
+              是否总计<input type="checkbox" class="btnSearch" id="chkIsAllCount"/>
+  			  <input type="button" id="btnSearch" value="搜索" class="btnSearch"/>
+              <input type="button" id="btnExport" value="导出" class="btnSearch"/>
+              <a id="csvUrl" href='export_datas/callountDefault.csv'></a>
 			 </div>
 			 <div align='right' class="right">
              	

@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="css/main.css" type="text/css" media="screen" />
 
 <script src="js/jquery-1.6.4.js" type="text/javascript"></script>
-<script src="js/pub_func.js"  type="text/javascript"></script>
+<script src="js/Public.js"  type="text/javascript"></script>
 <script src="js/work.js"  type="text/javascript"></script>
 <script src="js/call.js"  type="text/javascript"></script>
 <script>

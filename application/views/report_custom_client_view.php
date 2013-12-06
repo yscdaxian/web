@@ -13,7 +13,10 @@
 <script type='text/javascript' src='www/lib/extenal.js'></script>
 <script type='text/javascript' src='www/lib/myDynamicUI/dynamicUI.js'></script>
 <script type='text/javascript' src='www/lib/jquery/jquery.json-2.3.min.js'></script>
-
+<script type='text/javascript' src='www/lib/json2.js'></script>
+<script type="text/javascript" src="www/lib/jquery.ztree.core-3.0.min.js"></script>
+<link rel="stylesheet" href="www/css/zTree.css" type="text/css">
+<link rel="stylesheet" href="www/css/ztree/zTreeStyle/zTreeStyle.css" type="text/css">
 <style type="text/css" title="currentStyle">
 			@import "www/lib/dataTable/css/demo_page.css";
 			@import "www/lib/dataTable/css/demo_table.css";
@@ -26,6 +29,15 @@ function onCallClick(name,url){
 	location.href=url;	
 }
 $(document).ready(function() {
+	//给时间控件付初值
+	var ctime=new Date();
+	$("#s_hour").get(0).selectedIndex="00";//index为索引值
+	$("#s_min").get(0).selectedIndex="00"	
+	$("#start_ymd").attr('value', ctime.format('yyyy-MM-dd'));	
+	$("#e_hour").get(0).selectedIndex="23";//index为索引值
+	$("#e_min").get(0).selectedIndex="59"
+	$("#end_ymd").attr('value', ctime.format('yyyy-MM-dd'));
+	
 	$('#searchPanelTable').dynamicui(<?php echo json_encode($searchPanelTableData);?>);
 	//招生状态赋值
 	function getDateString(ymd, hour, minut){
@@ -54,7 +66,7 @@ $(document).ready(function() {
 				onSearchItem.push(node.dbtype);
 				onSearchItem.push(node.id);
 				onSearchItem.push($("#"+node.id).val());
-				if(node.type ===2 && $("#"+node.id).val() != '未填写'){
+				if(node.type ===2 && $("#"+node.id).val() != '全部' && $("#"+node.id).val() != '未填写' ){
 					searchStr.push(onSearchItem);
 				}	
 				if(node.type ===1 && $("#"+node.id).value != ''){
@@ -62,8 +74,9 @@ $(document).ready(function() {
 				}			
 			});	
 		});
-		return $.toJSON(searchStr);
+		return (searchStr);
 	}
+	
 	createTables=function (filterString){
 		$('#dataList').dataTable( {
 			"bProcessing": true,
@@ -81,9 +94,9 @@ $(document).ready(function() {
     	}); 
 	}	
 	
-	createTables(getSearchString());
+	createTables($.toJSON(getSearchString()));
 	$("#btnSearch").click(function(){
-		filterString=getSearchString();
+		filterString=$.toJSON(getSearchString());
 		var oTable = $('#dataList').dataTable();
 		oTable.fnDestroy();	
 		createTables(filterString);	
@@ -94,23 +107,18 @@ $(document).ready(function() {
 		oTable.fnDestroy();	
 		createTables(getSearchString());
 	}
-	
-	//给时间控件付初值
-	var ctime=new Date();
-	$("#s_hour").get(0).selectedIndex="00";//index为索引值
-	$("#s_min").get(0).selectedIndex="00"	
-	$("#start_ymd").attr('value', ctime.format('yyyy-MM-dd'));	
-	$("#e_hour").get(0).selectedIndex="23";//index为索引值
-	$("#e_min").get(0).selectedIndex="59"
-	$("#end_ymd").attr('value', ctime.format('yyyy-MM-dd'));	
 		
 	//导出文件
-	$("#btnExport").click(function(){
-		 var req={"filterString":""};
-		 req.filterString=getSearchString();
+	$("#btnExport").click(function(){	
+		 var req={"filterString":""}
+		 var reqParam={"searchType":1,"agentId":"","searchText":[]};
+		 reqParam.agentId=$('#agentId').attr('value');
+		 reqParam.searchText=getSearchString();
+		 req.filterString=JSON.stringify(reqParam);
+		 $("#csvUrl").html("");
 		 $.post("<?php echo site_url('export/ajaxClientExport')?>",req,function(res){	
 			$("#csvUrl").attr("href", res.path);
-			$("#csvUrl").html("下载");					  							
+			$("#csvUrl").html(res.fileName);					  							
 		});  	
 	});	
 	
@@ -130,15 +138,14 @@ $(document).ready(function() {
 	</div>
     <div class="func-panel">
 			 <div class="left">
-			 	<input type="button" id="btnSearch" value="搜索" class="btnSearch"/>
-                <input type="button" id="btnExport" value="导出" class="btnSearch"/>
                 从
                 <input type="text" name="start_ymd"   id="start_ymd" value="" style="width:80px"/>
 				<?php echo form_dropdown('s_hour',$beginTime['hourOptions'],$beginTime['hourDef'],'id="s_hour"')?><?php echo form_dropdown('s_min',$beginTime['minOptions'],$beginTime['minDef'],'id="s_min"')?>
                 到
                 <input type="text" name="end_ymd"   id="end_ymd" value="" style="width:80px"/>
   <?php echo form_dropdown('e_hour',$endTime['hourOptions'],$endTime['hourDef'],'id="e_hour"')?><?php echo form_dropdown('e_min',$endTime['minOptions'],$endTime['minDef'],'id="e_min"')?>
-                
+                <input type="button" id="btnSearch" value="搜索" class="btnSearch"/>
+                <input type="button" id="btnExport" value="导出" class="btnSearch"/>
                 <a id="csvUrl" href='export_datas/clients_09Apr12.csv'></a>
 			 </div>
 			 <div align='right' class="right">

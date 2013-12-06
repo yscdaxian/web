@@ -15,6 +15,10 @@ class Pbx extends CI_Controller{
 		$data['agentId']=$agent;
 		$this->load->view("pbx_transfer_view",$data);		
 	}
+	function monitor($agent){
+		$data['agentId']=$agent;
+		$this->load->view('report_live_look_view',$data);
+	}
 	function ajaxTransferTable(){
 		header('Content-type: Application/json',true);
 		$sEcho=$this->input->get('sEcho');

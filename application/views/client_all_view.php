@@ -12,6 +12,10 @@
 <script type='text/javascript' src='www/lib/jquery/jquery-ui-1.8.16.custom.js'></script>
 <script type='text/javascript' src='www/lib/extenal.js'></script>
 <script type='text/javascript' src='www/js/call.js'></script>
+<script type='text/javascript' src='www/js/work.js'></script>
+<script type='text/javascript' src='www/lib/myDynamicUI/dynamicUI.js'></script>
+<script type='text/javascript' src='www/lib/jquery/jquery.json-2.3.min.js'></script>
+<script type='text/javascript' src='www/lib/json2.js'></script>
 
 <style type="text/css" title="currentStyle">
 			@import "www/lib/dataTable/css/demo_page.css";
@@ -30,31 +34,72 @@ function onCallClick(name,url){
 	//location.href=url;	
 }
 
-$(document).ready(function() {	
-	createSelect('#sZsjd',"<?php echo $dySearch["fir"]["source"]?>","<?php echo site_url('dictionary/ajaxGetKeyValue')?>");
-	createSelect('#sAgent',$('#agentId').attr('value'),"<?php echo site_url('role/ajaxGetCAgentsCanShow')?>");
-	createSelect('#client_gtzt',"<?php echo $dySearch["sec"]["source"]?>","<?php echo site_url('dictionary/ajaxGetKeyValue')?>");
-	
+$(document).ready(function() {		
 	//招生状态赋值
 	function getDateString(ymd, hour, minut){
 	 	return ymd+" "+hour+":"+minut+":00";
 	}
+	
 	setDatePickerLanguageCn();
+	//给时间控件付初值
+	var ctime=new Date();
+	$("#s_hour").get(0).selectedIndex="00";//index为索引值
+	$("#s_min").get(0).selectedIndex="00"	
+	$("#start_ymd").attr('value', ctime.format('yyyy-MM-dd'));	
+	$("#e_hour").get(0).selectedIndex="23";//index为索引值
+	$("#e_min").get(0).selectedIndex="59"
+	$("#end_ymd").attr('value', ctime.format('yyyy-MM-dd'));	
 	$("#start_ymd").datepicker(); 
-	$("#end_ymd").datepicker();   
+	$("#end_ymd").datepicker(); 
+	 
+	var gSearchPaenlData=<?php echo json_encode($searchPanelTableData);?>;
+	$('#searchPanelTable').dynamicui(gSearchPaenlData);
 
-	function getSearchString(){		
-		if($("#searchPanel").css("display") == "none")
-			filterString='{"searchType":0,"agentId":\"'+$('#agentId').attr('value')+'\","searchText":\"'+$("#searchText").attr("value")+'\"}';
-		else{			
-			filterString='{"searchType":1,"agentId":\"'+$('#agentId').attr('value')+'\","searchText":[["and","varchar","client_name",\"'+$("#sName").attr("value")+'\"],["and","varchar","client_phone",\"'+$("#sPhone").attr("value")+'\"],["or","varchar","client_cell_phone",\"'+$("#sPhone").attr("value")+'\"],["and","varchar","client_person_card",\"'+$("#sCard").attr("value")+'\"],["and","varchar","client_agent",\"'+$("#sAgent").val()+'\"],';
-			if($('#stimeType').val() == 0){
-				filterString+='["and","datetime","client_ctime",\"'+getDateString($('#start_ymd').attr('value'), $('#s_hour').val(),$('#s_min').val())+'\",\"'+getDateString($('#end_ymd').attr('value'), $('#e_hour').val(),$('#e_min').val())+'\"]]}';
-			}else{
-				filterString+='["and","datetime","client_modify_time",\"'+getDateString($('#start_ymd').attr('value'), $('#s_hour').val(),$('#s_min').val())+'\",\"'+getDateString($('#end_ymd').attr('value'), $('#e_hour').val(),$('#e_min').val())+'\"]]}';
-			}
+	function getSearchString(){	
+		var searchStr=[];
+		var timeSearch=[];
+		timeSearch.push("and");
+		timeSearch.push("datetime");
+		if($('#stimeType').val() === "0")
+			timeSearch.push("client_ctime");
+		else
+			timeSearch.push("client_modify_time");
+			
+		timeSearch.push(getDateString($('#start_ymd').attr('value'), $('#s_hour').val(),$('#s_min').val()));
+		timeSearch.push(getDateString($('#end_ymd').attr('value'), $('#e_hour').val(),$('#e_min').val()));
+	
+		
+		filterString={"searchType":1,"agentId":"","searchText":""};
+		filterString.agentId=$("#agentId").attr("value");
+		if($("#searchPanel").css("display") == "none"){
+			var searchValue=$("#searchText").attr("value");
+			var likeSearch=["and","set","like",["client_name","client_person_card","client_address","client_phone","client_cell_phone"],""];
+			likeSearch[4]=searchValue;
+			searchStr.push(likeSearch);
+			searchStr.push(timeSearch);
+			filterString.searchText=searchStr;	
 		}
-		return filterString;
+		else{		
+			$.each(gSearchPaenlData.elements,function(index,row){
+				$.each(row,function(rowIndex,node){		 
+					var onSearchItem=[];
+					onSearchItem.push("and");
+					onSearchItem.push(node.dbtype);
+					onSearchItem.push(node.id);
+					onSearchItem.push($("#"+node.id).val());
+					if(node.type ===2 && $("#"+node.id).val() != '全部'){
+						searchStr.push(onSearchItem);
+					}	
+					if(node.type ===1 && $("#"+node.id).value != ''){
+						searchStr.push(onSearchItem);
+					}			
+				});	
+			});
+			searchStr.push(timeSearch);
+			filterString.searchText=searchStr;
+		}
+		
+		return JSON.stringify(filterString);
 	}
 	
 	createTables=function (filterString){
@@ -87,7 +132,7 @@ $(document).ready(function() {
 				{"mDataProp":"3"},{"mDataProp":"4"},{"mDataProp":"5"},{"mDataProp":"6"},
 				{"mDataProp":"7"},{"mDataProp":"8"},{"mDataProp":"9"}
 			],
-			"iDisplayLength": 16,
+			"iDisplayLength": 14,
 			"fnServerParams": function (aoData) {
 				var externData={ "name": "filterString", "value": "my_value" };
 				externData.value=filterString;
@@ -102,7 +147,16 @@ $(document).ready(function() {
 	}	
 	
 	createTables(getSearchString());
-	
+	$req={agent:''};
+	$req.agent=$('#agentId').attr('value');
+	$.post("<?php echo site_url('role/ajaxGetRoleByAgent')?>",$req,function(ret){	
+		if(ret.isOk && ret.delete_client == false){
+			
+			$('#btnDelAll').css('display','none');
+			$('#btnDel').css('display','none');
+		}													
+	});  
+			
 	$("#btnSearch").click(function(){
 		filterString=getSearchString();
 		var oTable = $('#dataList').dataTable();
@@ -115,14 +169,7 @@ $(document).ready(function() {
 		createTables(getSearchString());
 	}
 	
-	//给时间控件付初值
-	var ctime=new Date();
-	$("#s_hour").get(0).selectedIndex="00";//index为索引值
-	$("#s_min").get(0).selectedIndex="00"	
-	$("#start_ymd").attr('value', ctime.format('yyyy-MM-dd'));	
-	$("#e_hour").get(0).selectedIndex="23";//index为索引值
-	$("#e_min").get(0).selectedIndex="59"
-	$("#end_ymd").attr('value', ctime.format('yyyy-MM-dd'));	
+	
 	
 	//高级搜索
 	$("#btnAdvance").click(function(){		
@@ -134,11 +181,13 @@ $(document).ready(function() {
 	
 	//导出文件
 	$("#btnExport").click(function(){
-		 var req={"filterString":""};
+		// var dbMap=openClientExportDialog();
+		 var req={"filterString":"","dbMap":[]};
 		 req.filterString=getSearchString();
+		 $("#csvUrl").html("");			
 		 $.post("<?php echo site_url('export/ajaxClientExport')?>",req,function(res){	
 			$("#csvUrl").attr("href", res.path);
-			$("#csvUrl").html("下载");					  							
+			$("#csvUrl").html(res.fileName);					  							
 		});  	
 	});
 	
@@ -153,6 +202,18 @@ $(document).ready(function() {
 		 }
 	});
 	
+	$("#btnAddWaitComm").click(function(){
+		if(confirm("确定要添加选中的客户吗？")){		 
+			$ids=[];
+			var datas=getSelectedItem();		
+			$req={'ids':[]};
+			$req.ids=datas;
+			$.post("<?php echo site_url('client/ajaxAddWaitComm')?>",$req,function(res){
+				if(res.ok)	
+					alert("添加成功");								
+			}); 		 
+		 }
+	});
 	$("#btnDel").click(function(){
 		 if(confirm("确定要删除选中的客户吗？")){		 
 			$ids=[];
@@ -176,7 +237,7 @@ $(document).ready(function() {
 });
 </script>    
 </head>
-<body>
+<body scroll="auto">
 <input id='agentId' type="hidden" value="<?php  echo $agentId;?>">
 <div class="page_main page_tops">
 	<div class="page_nav">
@@ -186,38 +247,36 @@ $(document).ready(function() {
 	</div>
     <div class="func-panel">
 			 <div class="left"><input type="text" id="searchText">
+             时间类型<select id="stimeType" name="select"><option value="0">导入时间</option><option value="1">最后沟通时间</option></select>
+          从
+          <input type="text" name="start_ymd"   id="start_ymd" value="" style="width:80px"/>
+         <?php echo form_dropdown('s_hour',$beginTime['hourOptions'],$beginTime['hourDef'],'id="s_hour"')?><?php echo form_dropdown('s_min',$beginTime['minOptions'],$beginTime['minDef'],'id="s_min"');?>
+       	 到<input type="text" name="end_ymd"   id="end_ymd" value="" style="width:80px"/>
+  <?php echo form_dropdown('e_hour',$endTime['hourOptions'],$endTime['hourDef'],'id="e_hour"');?><?php echo form_dropdown('e_min',$endTime['minOptions'],$endTime['minDef'],'id="e_min"'); ?>
+          
 			 	<input type="button" id="btnSearch" value="搜索" class="btnSearch"/>
                 <input type="button" id="btnAdvance" value="高级" class="btnSearch"/>
                 <input type="button" id="btnExport" value="导出" class="btnSearch"/>
                 <a id="csvUrl" href='export_datas/clients_09Apr12.csv'></a>
 			 </div>
 			 <div align='right' class="right">
+             	 <input  id='btnAddWaitComm' type="button" name="btnSearch" value="待沟通添加 " class="btnDel" />
 				 <input  id='btnDel' type="button" name="btnSearch" value="删除 " class="btnDel" />
                  <input  id='btnDelAll' type="button" name="btnSearch" value="删除所有 " class="btnDel" />&nbsp;
 			 </div>		
 			 <div style="clear:both;"></div>  
 	</div>	
    <div id="searchPanel" style="display:none;margin-top:5px;margin-bottom:5px">
-    <table>
-    	<tr><td width="80">电话号码：</td><td width="100"><input type="text" id="sPhone" style="width:100px"></td><td width="80">身份证:</td><td><input type="text" id="sCard" style="width:100px"/></td><td>时间类型</td><td><select id="stimeType" name="select">
-          <option value="0">导入时间</option>
-          <option value="1">最后沟通时间</option>
-        </select></td><td width="16">从</td><td><input type="text" name="start_ymd"   id="start_ymd" value="" style="width:80px"/>
-        <?php echo form_dropdown('s_hour',$beginTime['hourOptions'],$beginTime['hourDef'],'id="s_hour"')?><?php echo form_dropdown('s_min',$beginTime['minOptions'],$beginTime['minDef'],'id="s_min"')?></td>
-    	  
-      </tr>        		
-      <tr><td>姓名：</td><td><input type="text" id="sName" style="width:100px" /></td>
-      <td width="72">所属坐席：</td><td width="38"><select  name="sAgent" id="sAgent" style="width:100px"></select></td>
-<td>&nbsp;</td><td></td><td>到</td><td><input type="text" name="end_ymd"   id="end_ymd" value="" style="width:80px"/>
-  <?php echo form_dropdown('e_hour',$endTime['hourOptions'],$endTime['hourDef'],'id="e_hour"')?><?php echo form_dropdown('e_min',$endTime['minOptions'],$endTime['minDef'],'id="e_min"')?></td></tr>
-    </table>	
+    	<table  id="searchPanelTable" width="100%">
+        <tbody></tbody>	
+		</table>	
     </div>
    <div id="example" style='display:block'>
           <table width="100%" cellpadding="0" cellspacing="0" border="0"  id="dataList" >
           		<thead>
                 	<tr>
                 	<th align="left" id="cbAll" width="20px"><input   type="checkbox" value="全选" /></td>
-                    <th align="left" width="50px">姓名</th>
+                    <th align="left" width="100px">姓名</th>
                     <th align="left" width="40px">性别</th>
                     <th align="left" width="100px">手机</th>
                     <th align="left" width="100px">固话</th>

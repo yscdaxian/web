@@ -50,22 +50,39 @@
 		foreach($notes as $item){		
 			if($item[0] == "and"){
 				if($item[1] == "varchar"){
-					if($item[3] != '' && $item[3] != '-1')
+					if($item[3] == '未填写')
+						$sWhere=$sWhere."and ($item[2]='' or $item[2]='未填写' or $item[2] is null) ";
+					else if($item[3] != '' && $item[3] != '-1')
 						$sWhere=$sWhere."and $item[2]='$item[3]' ";
+				 	
 				}else if($item[1] == "int"){
 					if($item[3] != '' && $item[3] != '-1')
 						$sWhere=$sWhere."and $item[2]=$item[3] ";
 				}else if($item[1] == "datetime"){
-					$sWhere=$sWhere."and  $item[2] between '$item[3]' and '$item[4]' ";
+					$sWhere=$sWhere."and  ($item[2] between '$item[3]' and '$item[4]') ";
 				}else if($item[1] == 'set'){
-					if(count($item[3])>0){
-						 $sWhere.="and (";
-						 $subStr="";
-						 foreach($item[3] as $nitem){
-						  $subStr.=" $item[2]='$nitem' or";
-						 }
-						$sWhere.=substr_replace($subStr, "", -2);
-						$sWhere.=")";		
+					if($item[2] == "like"){
+						if(count($item[3])>0){
+							if($item[4] != ""){
+								 $sWhere.="and (";
+								 $subStr="";
+								 foreach($item[3] as $nitem){
+								  $subStr.=" $nitem like '%$item[4]%' or";
+								 }
+								$sWhere.=substr_replace($subStr, "", -2);
+								$sWhere.=")";		
+							}
+						}
+					}else{
+						if(count($item[3])>0){
+							 $sWhere.="and (";
+							 $subStr="";
+							 foreach($item[3] as $nitem){
+							  $subStr.=" $item[2]='$nitem' or";
+							 }
+							$sWhere.=substr_replace($subStr, "", -2);
+							$sWhere.=")";		
+						}
 					}
 				}
 			}else if($item[0] == "or"){
@@ -83,23 +100,32 @@
 					if($item[3] != '' && $item[3] != '-1')
 					$sWhere=$sWhere."and $item[2]<>'$item[3]' ";
 				}		
+			}else if($item[0] == "likeand"){
+				if($item[1] == "varchar"){
+					if($item[3] != '' && $item[3] != '-1')
+					  $sWhere=$sWhere."and $item[2] like '%$item[3]%' ";
+				}		
+			}else if($item[0] == "likeor"){
+				if($item[1] == "varchar"){
+					if($item[3] != '' && $item[3] != '-1')
+					$sWhere=$sWhere."or $item[2] like '%$item[3]%' ";
+				}		
 			}
 		}
 		
+		//去掉where 前的and或者or
 		if(substr($sWhere, 0, 2) == 'or')
 			$sWhere ="where ".substr_replace($sWhere, "", 0,2);
-		else if(substr($sWhere, 0, 2) == 'an')
+		else if(substr($sWhere, 0, 3) == 'and')
 			$sWhere ="where ".substr_replace($sWhere, "", 0,3);
-		else if(substr($sWhere, 0, 2) == 'na'){
-			$sWhere ="where ".substr_replace($sWhere, "", 0,4);
-		}		
+		
 		return $sWhere;
 	}
 	
 	
 	function getOrderSql($req,$aColumns,$defCol='',$defOrder='desc'){
 		$sOrder="";
-		if(isset( $req['iSortCol_0'] ) ){
+		if(isset($req['iSortCol_0'] ) ){
 			$sOrder = "ORDER BY  ";
 			for ( $i=0 ; $i<intval( $req['iSortingCols'] ) ; $i++ ){
 				if ( $req[ 'bSortable_'.intval($req['iSortCol_'.$i]) ] == "true" ){
@@ -107,22 +133,60 @@
 						".mysql_real_escape_string( $req['sSortDir_'.$i] ) .", ";
 				}
 			}
-				
-			$sOrder = substr_replace( $sOrder, "", -2 );
-			if ( $sOrder == "ORDER BY" ){
+						
+			$sOrder = substr_replace($sOrder, "", -2 );
+			if ($sOrder == "ORDER BY" ){
 				$sOrder = "";
-				if( $defCol != ''){
+				if($defCol != ''){
 					$sOrder="ORDER BY $defCol $defOrder ";
 				}
 			}
 		}
 		return $sOrder;
 	}
+	function reverseResultBind(&$ret,&$rResult,$aColumns,$bindFields,$key="client_id"){
+			
+		$keysIndex=array_keys($aColumns,$key,true);
+	    $keyIndex=$keysIndex[0];
+		
+		$bindKeysIndex=array();
+		for($i=0; $i<count($aColumns); $i++){
+			if(in_array($aColumns[$i],$bindFields)){
+				array_push($bindKeysIndex,$i);
+			}
+		}
+		
+		$lastItemIndex=-1;
+		
+		foreach ($rResult as  $aRow){
+			$row = array();
+			for( $i=0 ; $i<count($aColumns) ; $i++ ){
+				if ( $aColumns[$i] == "version" ){
+					/* Special output formatting for 'version' column */
+					$row[] = ($aRow[ $aColumns[$i] ]=="0") ? '-' : $aRow[ $aColumns[$i] ];
+				}
+				else if ( $aColumns[$i] != ' ' ){
+					/* General output */
+					$row[] = $aRow[ $aColumns[$i] ];
+				}
+			}
+				
+			if($lastItemIndex !=-1 && $ret[$lastItemIndex][$keyIndex] == $row[$keyIndex]){		
+				//合并
+				foreach($bindKeysIndex as $bindIndex){ 
+					$ret[$lastItemIndex][$bindIndex].="\n".$row[$bindIndex];
+				}
+					
+			}else{
+				$ret[] = $row;	
+				$lastItemIndex++;		
+			}			
+		}
+	}
 	
-	function reverseResult($rResult,$aColumns,$idColName='client_id'){
+	function reverseResult(&$rResult,$aColumns,$idColName='client_id'){
 		$ret=array();
-		foreach ($rResult as  $aRow)
-		{
+		foreach ($rResult as  $aRow){
 			$row = array();
 			for ( $i=0 ; $i<count($aColumns) ; $i++ )
 			{

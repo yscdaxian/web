@@ -1,19 +1,36 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 class Role_model extends CI_Model
 {
-	function __construct()
-	{
+	function __construct(){
 		parent::__construct();
 		//header("context-type: text/html; charset=uft-8");
 		
 	}
 	
-	function get_role_byid($id)
-	{
+	function get_role_byid($id){
 		return $this->db->select('*')->from('role')->where('id', $id)->get()->result();
 	}
-	function get($columns, $limit,$offset,$sort_by,$sort_order)
-	{
+	function getFunIdsByNames($names){
+		$this->db->where_in('text', $names);
+		$result=$this->db->select("id")->from("function_panel")->get()->result_array();
+		$ret=array();
+		foreach($result as $row){
+			array_push($ret,$row["id"]);
+		}
+		return $ret;
+		
+	}
+	function getAgentIdsByNames($names){
+		$this->db->where_in('name', $names);
+		$result=$this->db->select("code")->from("agents")->get()->result_array();
+		$ret=array();
+		foreach($result as $row){
+			array_push($ret,$row["code"]);
+		}
+		return $ret;	
+	}
+	
+	function get($columns, $limit,$offset,$sort_by,$sort_order){
 		$fields=array();
 		foreach($columns as $key=>$value){
 			array_push($fields, $value);
@@ -54,12 +71,14 @@ class Role_model extends CI_Model
 		$role_item['role_stime']=date("Y-m-d H:i:s");
 		$role_item['look_client']=$this->input->post('look_client_check');
 		$role_item['show_func']=$this->input->post('look_record_check');
+		$role_item['delete_client']=$this->input->post('delete_agent_check');
 		
 		//事务开始
 		$this->db->trans_start();
 		$this->db->update('role',$role_item,array('id' => $id));
 		$this->db->delete('role_agent', array('role_id' => $id));
 		$this->db->delete('role_func', array('role_id'  => $id)); 
+		
 		  
 		//插入权限关系look_client
 		$this->insert_associate_agent($id, $this->input->post('look_client_agnet_data'),0);
@@ -72,18 +91,17 @@ class Role_model extends CI_Model
 	function insert_associate_func($id, $data)
 	{
 		$items=explode(',',$data);
-		foreach($items as $item)
-		{
+		$items=$this->getFunIdsByNames($items);
+		foreach($items as $item){
 			$row['role_id']=$id;
 			$row['func_id']=$item;
 			$this->db->insert('role_func',$row);
 		}
 	}
-	function insert_associate_agent($id, $data,$type=0)
-	{
+	function insert_associate_agent($id, $data,$type=0){
 			$items=explode(',',$data);
-			foreach($items as $item)
-			{
+			$items=$this->getAgentIdsByNames($items);
+			foreach($items as $item){
 				$row['role_id']=$id;
 				$row['con_type']=$type;
 				$row['agent_code']=$item;
@@ -91,20 +109,17 @@ class Role_model extends CI_Model
 			}
 	}
 	
-	function get_associate_agent_byid($id,$type)
-	{
-		$sql="select agent_code from role_agent where role_id=? and con_type=?";	
+	function get_associate_agent_byid($id,$type){
+		$sql="select agent_code,name from role_agent left join agents on code=agent_code where role_agent.role_id=? and con_type=?";	
 		$q=$this->db->query($sql, array($id,$type));
 		return $q;
 	}
 	
-	function get_associate_agent_array($id,$type)
-	{
+	function get_associate_agent_array($id,$type){
 		$q=$this->get_associate_agent_byid($id,$type);
 		$ret=array();
-		foreach( $q->result() as $row)
-		{
-			array_push($ret, $row->agent_code);
+		foreach( $q->result() as $row){
+			array_push($ret, $row->name);
 		}
 		return $ret;
 	}
@@ -113,9 +128,8 @@ class Role_model extends CI_Model
 	{
 		$ret=array();
 		$q=$this->get_associate_agent_byid($id,$type);
-		foreach($q->result() as $row)
-		{
-			array_push($ret, $row->agent_code);	
+		foreach($q->result() as $row){
+			array_push($ret, $row->name);	
 		}
 	
 		return implode(',',$ret);
@@ -153,32 +167,27 @@ class Role_model extends CI_Model
 		$q=$this->db->select('*')->from('role_func')->where('role_id',$id)->get()->result();
 		$data_values=array();
 		$data_names=array();
-		foreach($q as $item)
-		{
+		foreach($q as $item){
 			array_push($data_values,$item->func_id);
 			
 		}
 		
 		$this->db->where_in('id', $data_values);
 		$q=$this->db->select('*')->from('function_panel')->get()->result();
-		foreach($q as $item)
-		{
-			array_push($data_names,$item->text);
-			
+		foreach($q as $item){
+			array_push($data_names,$item->text);	
 		}
 		$data['values']=implode(',', $data_values);
 		$data['names']=implode(',', $data_names);
 		return $data;
 	}
 	
-	function get_assocatie_func_allinfo($id)
-	{
+	function get_assocatie_func_allinfo($id){
 		$sql='select * from role_func  left join function_panel  on func_id=function_panel.id where role_id=?';
 		return $this->db->query($sql, array($id));
 	}
 	
-	function delete_roles($ids)
-	{
+	function delete_roles($ids){
 		//事务开始
 		$this->db->trans_start();	
 		$this->db->where_in('role_id', $ids);
@@ -208,5 +217,15 @@ class Role_model extends CI_Model
 	function getAgentAttrByRoleId($roleId){
 	   $sql="select agent_code as name_value,name as name_text from role_agent left join agents on agent_code=agents.code  where role_agent.role_id=".$roleId." and con_type=0 and (name<>'everyone'  or name<>'self')";
 		return $this->db->query($sql)->result_array();			
+	}
+	
+	function isCallDelClient($id){
+		$sql="select delete_client from role where id=$id";
+		$ret=$this->db->query($sql)->result_array();
+		if($ret && $ret[0]['delete_client'] == 1)
+			return TRUE;
+		else
+			return FALSE;
+		
 	}
 }

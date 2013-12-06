@@ -7,6 +7,7 @@ class Role extends CI_Controller
 		parent::__construct();
 		$this->load->model('Role_model');
 		$this->load->library('pagination');
+		date_default_timezone_set('Asia/Shanghai');
 	}
 	public function navLook($agentId){
 		$this->look();
@@ -43,11 +44,9 @@ class Role extends CI_Controller
 	}
 	
 	//插入role的信息到数据库
-	public function insert()
-	{	
+	public function insert(){	
 		$this->set_rules();
-		if ($this->form_validation->run() == FALSE || $this->Role_model->insert() == FALSE)
-		{
+		if ($this->form_validation->run() == FALSE || $this->Role_model->insert() == FALSE){
 			//失败留在role_detail_view
 			$this->add();
 		}
@@ -66,7 +65,7 @@ class Role extends CI_Controller
 		
 		$role_info=$this->Role_model->get_role_byid($id);
 		$data['role_name']=$role_info[0]->role_name;
-		
+		$data['isCallDelClient']=$this->Role_model->isCallDelClient($id);
 		$data['look_client_agent_data']=$this->Role_model->get_asscocati_agnet_string($id,0);//0查询客户时可显示的用户信息
 		$data['look_record_agent_data']=$this->Role_model->get_asscocati_agnet_string($id,1);//1查询通话记录时可显示的用户信息
 		$data['look_func_data']=$this->Role_model->get_assocati_func($id);
@@ -74,16 +73,13 @@ class Role extends CI_Controller
 		$this->load->view('role_detail_view', $data);
 	}
 	
-	public function update($id)
-	{
+	public function update($id){
 		$this->set_rules();
-		if ($this->form_validation->run() == FALSE || $this->Role_model->update_byid($id) == FALSE)
-		{
+		if ($this->form_validation->run() == FALSE || $this->Role_model->update_byid($id) == FALSE){
 			//失败留在role_detail_view
 			$this->modify($id);
 		}
-		else
-		{
+		else{			
 			//成功，转到role_look_view 页面
 			redirect(site_url('role/look'));	
 		}
@@ -100,12 +96,10 @@ class Role extends CI_Controller
 	*/
 	public function select_items($type=0,$role_id=-1)
 	{
-		if($type == 0 || $type == 1)
-		{
+		if($type == 0 || $type == 1){
 			$this->show_select_agents($type,$role_id);
 		}
-		else if($type == 3)
-		{
+		else if($type == 3){
 			
 			$this->show_select_func($role_id, $type);
 		}
@@ -134,9 +128,7 @@ class Role extends CI_Controller
 	public function show_select_func($role_id, $type)
 	{
 		$this->load->library('Role_helper',array('role_id'=>$role_id));
-		
 		$this->role_ids=$this->role_helper->get_assocatie_func_ids();
-		
 		$this->load->library('Func_helper_ztree');
 		$tree_nodes=$this->func_helper_ztree->get_items($this);
 		
@@ -151,16 +143,12 @@ class Role extends CI_Controller
 	{	
 		$this->load->model('Users_model');
 		$tree_nodes=$this->Users_model->get_tree();
-	
 		$checked_data=$this->Role_model->get_associate_agent_array($role_id,$type);
 
-		foreach($tree_nodes as &$item)
-		{
-			 if(in_array($item['name'], $checked_data))
-			 {
+		foreach($tree_nodes as &$item){
+			 if(in_array($item['name'], $checked_data)){
 				 $item['checked']='true';
-			 }
-			 	
+			 }	 	
 		}	
 		$data['tree_nodes']=json_encode($tree_nodes);
 		$data['role_id']=$role_id;
@@ -185,19 +173,35 @@ class Role extends CI_Controller
 		 $this->load->library('firephp');
 		 $this->firephp->info($data["ids"]);
 		 if(count($data["ids"])>0)
-		 	//$this->Role_model->delete_roles($data["ids"]);	
+		 	$this->Role_model->delete_roles($data["ids"]);	
 		 
 		 $res["ok"]=true;
 		 $this->firephp->info($res);
   		 echo json_encode($res);
 	}
-	
+		
 	public function ajaxGetCAgentsCanShow(){
 		header('Content-Type: application/json',true);
 		$this->load->library('firephp');
 		$req=$this->input->post();
+		$this->load->model('Users_model');
 		$this->load->library('Agent_helper',array('agent_id'=>$req['text']));
-		$ret=$this->agent_helper->getAssocatieAgentsCanShow();
+		$agents=$this->agent_helper->getClientAgentsCanShow();
+		$ret=$this->Users_model->getNameValueByIds($agents[3]);
 	    echo json_encode($ret);	
+	}
+	function ajaxGetRoleByAgent(){
+		header('Content-Type: application/json',true);
+		$req=$this->input->post();
+		$this->load->library('firephp');
+		$this->firephp->info($req);
+		$sql="select delete_client from role left join agents on role.id=role_id where code='".$req['agent']."' limit 0,1";
+		$rs=$this->db->query($sql)->result_array();
+		$ret['isOk']=false;
+		foreach($rs as $row){
+			$ret['isOk']=true;
+			$ret['delete_client']=$row['delete_client'] == 1?true:false;
+		}
+		echo json_encode($ret);
 	}
 }

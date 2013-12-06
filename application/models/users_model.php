@@ -23,8 +23,7 @@ class Users_model extends CI_Model{
 		$sql="select p_agent from agents where code=$agentId";
 		$ret=$this->db->query($sql)->result_array();
 		if($ret){
-			foreach($ret as $sub){
-					
+			foreach($ret as $sub){				
 				if($sub['p_agent']){			
 					array_push($pagents,$sub['p_agent']);		
 					$this->getAllParentAgents($pagents,$sub['p_agent']);		
@@ -34,24 +33,33 @@ class Users_model extends CI_Model{
 			return;
 		}
 	}
-	function getAllBrotherAgents(&$agents,$agentId){
-		
+	
+	function getAllAgentsByRole($agentId,$roleType=0){	
+		$sql="select agent_code,code from role_agent left join agents on role_agent.role_id=agents.role_id where code='$agentId' and con_type=$roleType";
+		$agents=array();
+		$ret=$this->db->query($sql)->result_array();
+		foreach($ret as $row){						
+			array_push($agents,$row['agent_code']);				
+		}			
+		return $agents;
+	}
+	
+	function getAllBrotherAgents(&$agents,$agentId){		
 		if($agentId != ''){
-		
 			$sql="select p_agent from agents where code='$agentId'";
 			$ret=$this->db->query($sql)->result_array();			
 			if($ret && $ret[0]['p_agent'] && $ret[0]['p_agent'] !=''){
-				$this->getAllChildrenAgents($agents,$ret[0]['p_agent']);
-			
+				$this->getAllChildrenAgents($agents,$ret[0]['p_agent']);		
 			}else{
 				array_push($agents,$agentId);
 			}
 		}
 	}
+	
 	public function check(){
 		$this->db->where('code', $this->input->post('name'));
 		$this->db->where('passwd',$this->input->post('passwd'));
-		$this->db->or_where('name', $this->input->post('name'));
+		//$this->db->or_where('name', $this->input->post('name'));
 		$q=$this->db->get('agents');
 		if ($q->num_rows()>0){
 			return $q->row();
@@ -102,7 +110,11 @@ class Users_model extends CI_Model{
 		$item['role_id']=$this->input->post('role');
 		$titem['agentext']=$this->input->post('ext');
 		$item['phone']=$this->input->post('phone');
+		$item['cell_phone']=$this->input->post('cell_phone');
+		$item['phone_prefix']=$this->input->post('phone_prefix');
+		$item['pbx']=$this->input->post('pbx');
 		$item['department_id']=$this->input->post('department');
+		
 		//事务开始
 		$this->db->trans_start();
 		//更新agents
@@ -160,36 +172,31 @@ class Users_model extends CI_Model{
 			$node['id']=$row->department_id;
 			$node['name']=$row->department_name;
 			$node['open']=true;
-			$node['iconOpen']='images/rsgl.png';
-			$node['iconClose']='images/rsgl.png';
+		
 			array_push($tree, $node);			
 		}
 		return $tree;
 	}
 	
-	private function add_users_node($tree, $users)
-	{
-		foreach($users as $row)
-		{
+	private function add_users_node($tree, $users){
+		foreach($users as $row){
 			$node=array();
 			$node['pId']=$row->department_id;
 			$node['id']=$row->code;
-			$node['name']=$row->code;
-			$node['icon']='images/man.gif';
+			$node['name']=$row->name;
 			array_push($tree, $node);
 		}
 		return $tree;
 	}
 		
-	public function get_tree()
-	{
+	public function get_tree(){
 		$tree=array();
 		//添加department
-		$q=$this->db->select('*')->from('department')->get()->result();
+		$q=$this->db->select("department_id,department_name")->from('department')->get()->result();
 		$tree=$this->add_departments_node($tree, $q);
 		
 		//添加users
-		$q=$this->db->select('*')->from('agents')->get()->result();
+		$q=$this->db->select('code,name,department_id')->from('agents')->get()->result();
 		$tree=$this->add_users_node($tree, $q);
 		
 		return ($tree);

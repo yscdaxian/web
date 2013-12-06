@@ -58,4 +58,7 @@ class Test extends CI_Controller{
 		$data['agentId']=$agent;
 		$this->load->view("new_main_view.php",$data);
 	}
+	function test_ui(){
+		$this->load->view("test_uiitem_view.php");
+	}
 }

@@ -39,11 +39,11 @@ class User extends CI_Controller{
 		$data['bt_func']=site_url('user/update/'.$code.'/'.$agentId);
 		$data['title']='修改坐席';
 		
-		$unarrange=$this->Exten_model->get_unarrange();
-		$already_associate=$this->Exten_model->associate_with($code);
+		//$unarrange=$this->Exten_model->get_unarrange();
+		//$already_associate=$this->Exten_model->associate_with($code);
 		
 		//合并$already_associate和$unarrange $already_associat作为已选项显示
-		$data['ext_items']=array_merge($already_associate, $unarrange);
+		//$data['ext_items']=array_merge($already_associate, $unarrange);
 		//获得与agent关联的role
 		$role_arrange=$this->agent_helper->get_role();
 		

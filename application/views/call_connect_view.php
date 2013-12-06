@@ -36,28 +36,25 @@
     <script type='text/javascript' src='www/lib/jquery.timers.js'></script>
     <script type='text/javascript' src='www/lib/jquery/jquery-ui-1.8.16.custom.js'></script>
     <script type="text/javascript" src="www/lib/dataTable/js/jquery.dataTables.js"  ></script>
-    <script type="text/javascript" src="www/lib/myDynamicUI/dynamicUI.js" ></script>
-    
+    <script type="text/javascript" src="www/lib/myDynamicUI/dynamicUI.js" ></script>  
     <script>	
 		function webCallPhone(id){
-				var number=$('#'+id).attr('value');	
-						
+				var number=$('#'+id).attr('value');						
 			    number=number.replace(/[\D]/g,'');
 				if(number != ''){
 					$('#'+id).attr('value',number);
 					window.parent.iUpdateTabTitle(number);
 					call(number);
 				}
-		}	
-		
+		}		
 		function updateUniqueid(uniqueid){	
 			$('#uniqueid').attr('value',uniqueid);
 		}
-		
 		$(document).ready(function(){
-			$('body').everyTime('10s',function(){
-				$.jGrowl("超过5分钟，请留意时间！",{'theme':'jGrowl bottom-right'});
-			},1);	
+			//$('body').everyTime('10s',function(){
+				//$.jGrowl("超过5分钟，请留意时间！",{'theme':'jGrowl bottom-right'});
+			//},1);	
+			
 			setDatePickerLanguageCn();			
 			$("#yuyue-ymd").datepicker(); 
 			$('#btnYuyue').click(function(){
@@ -87,11 +84,9 @@
 						}
 				});	
 			});
-			
-
-			
+						
 			$('#btnBack').click(function(){
-				window.parent.history.back();
+				window.history.back();
 			});
 				
 			$('#nextClient').click(function(){
@@ -100,7 +95,9 @@
 				req.clientBh=$('#clientBh').attr('value');
 				$.post("<?php echo site_url('communicate/ajaxNextClient')?>",req,function(res){	
 					 if(res.nextUrl != '')	
-					 	location.href=res.nextUrl;	  							
+					 	location.href=res.nextUrl;	
+					 else
+					 	alert("无待沟通客户");  							
 				});  
 			});
 			
@@ -148,19 +145,20 @@
 			"bStateSave" : false,
 			"fnCreatedRow": function( nRow, aData, iDataIndex ) {
 			  // Bold the grade for all 'A' grade browsers
-			  if(aData[1] == 0)
-			 	 $('td:eq(1)', nRow).html("呼入");
+			  if(aData[2] == 0)
+			 	 $('td:eq(2)', nRow).html("呼入");
 			  else
-			  	 $('td:eq(1)', nRow).html("呼出");
+			  	 $('td:eq(2)', nRow).html("呼出");
 			 
-			  $('td:eq(4)', nRow).html("<a href='javascript:listenRecord(\""+aData[4]+"\")'>收听</a>");
+			  $('td:eq(5)', nRow).html("<a href='javascript:listenRecord(\""+aData[5]+"\")'>收听</a>");
 			  
     		},"aoColumns": [
 				{"bSortable":false,"mDataProp":"0"},
 				{"mDataProp":"1"},
 				{"mDataProp":"2"},
 				{"mDataProp":"3"},
-				{"mDataProp":"4"}
+				{"mDataProp":"4"},
+				{"mDataProp":"5"}
 			],"fnServerParams": function (aoData) {
 				var externData={ "name": "agentId", "value": "my_value" };
 				var externPhoneData={"name": "phone", "value": "<?php echo isset($clientItem[0]['client_phone'])?$clientItem[0]['client_phone']:'';?>" };
@@ -209,7 +207,7 @@
                    <div style="clear:both"></div>						
     </div> 
     
-        <div class='content'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名: <span class="person-info"><?php echo isset($clientItem[0])?$clientItem[0]['client_name']:''; ?></span>&nbsp;所属坐席：<span class="person-info"><?php echo isset($clientItem[0])?$clientItem[0]['client_agent']:''; ?></span> &nbsp;电话：<span class="person-info"><?php echo isset($clientItem[0])?$clientItem[0]['client_phone']:''; ?> </span> &nbsp; 地址： <span class="person-info"><?php echo isset($clientItem[0]['client_address'])?$clientItem[0]['client_address']:'';?></span></div>
+        <div class='content'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;姓名: <span class="person-info"><?php echo isset($clientItem[0])?$clientItem[0]['client_name']:''; ?></span>&nbsp;所属坐席：<span class="person-info"><?php echo isset($clientItem[0]['client_agent'])?$clientItem[0]['client_agent']:''; ?></span> &nbsp;电话：<span class="person-info"><?php echo isset($clientItem[0])?$clientItem[0]['client_phone']:''; ?> </span> &nbsp; 地址： <span class="person-info"><?php echo isset($clientItem[0]['client_address'])?$clientItem[0]['client_address']:'';?></span></div>
 
 		<div class='work-list'>			
 			<div class='tabs' style="padding-left:40px">		
@@ -230,10 +228,11 @@
 			</div> 
             <div id="connectInfo" class='panelOne'>
             	<table width="100%" id="connectInfoTable"><thead><tr align="left" class="dataHead">
+                <td width="100px">坐席</td>
                 <td width="120px" >对方电话</td>
                 <td width="80px">通话类型</td>
                 <td width="120px">沟通时间</td>
-                <td>坐席</td>
+                <td>通话内容</td>
                 <td width="60px">录音</td>
               </tr></thead></table>
 			</div>

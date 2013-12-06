@@ -8,20 +8,20 @@ class Plan extends CI_Controller{
 	public function navClock($agentId){
 		$this->clock();
 	}
-	public function clock($offset=0,$sort_by='name', $sort_order='desc')
-	{	
+	public function clock($offset=0,$sort_by='name', $sort_order='desc'){	
 		$limit=10;
 		$result=$this->Plan_model->getClocks($limit,$offset,$sort_by,$sort_order);		
 		$config['base_url']=site_url('plan/clock/');	
 		$config['per_page']=$limit;	
 		$config['uri_segment']=3;		
 		$config['total_rows']=$result['total_rows'];
+	
 		$this->pagination->initialize($config);	
 		
 		$data['pagination']=$this->pagination->create_links();	
 		$data['list_data']=$result['total_datas'];
 		$data['sort_order']=$sort_order;
-		
+	
 		$this->load->view('plan_clock_view',$data);
 	
 	}

@@ -111,16 +111,16 @@
 		
 		//预约到期提醒
 		$('body').everyTime('30s',function(){
+			
 			var req={'agentId':''};
-		l
 			req.agentId="<?php echo $agentId;?>"	
 			$.post('<?php echo site_url("prompt/ajaxYuyue")?>',req,function($res){
 				$.each($res,function(entryIndex,entry){
 					if(entry['expire'] === false){
-						$tips=entry['client_name']+" 预约时间： "+entry['client_yuyue_time']+" 过期未回访";
+						$tips=entry['client_name']+" 预约时间： "+entry['yuyue_time']+" 过期未回访";
 					}
 					else{
-						$tips=entry['client_name']+" 预约时间： "+entry['client_yuyue_time']+" 预约内容:"+entry['client_yuyue_content'];
+						$tips=entry['client_name']+" 预约时间： "+entry['yuyue_time']+" 预约内容:"+entry['yuyue_note'];
 					}		
 					$tips='<a href="javascript:iAddTab(\'预约外呼\',\''+'<?php echo site_url('communicate/connected')?>/manulClick/'+$('#agentId').attr('value')+'/'+entry['client_id']+'\')">'+$tips+'</a>';
 					
@@ -128,7 +128,7 @@
 				});
 			});
 			/*
-			$.post('<?php echo site_url("prompt/ajaxMissCall")?>',req,function($res){
+			$.post('<?php //echo site_url("prompt/ajaxMissCall")?>',req,function($res){
 				$.each($res,function(entryIndex,entry){
 					$tips="来电号码:"+entry['phone_number']+"来电时间："+entry['link_stime'];
 					$tips='<a href="javascript:missCallProcessClick(\''+entry['call_id']+'\',\'漏电回访\',\''+'<?php //echo site_url('communicate/connected')?>/callEvent/'+$('#agentId').attr('value')+'/0/'+entry['phone_number']+'/'+entry['call_id']+'\')">'+$tips+'</a>';		
@@ -141,7 +141,7 @@
 	});
 	</script>
 </head>	
-<body>
+<body scroll="no">
 
 <div id="demo" >
 	<div id="tabs">
@@ -149,7 +149,7 @@
 			<li><a href="#tabs-0">首页</a> <span class="ui-icon ui-icon-close">Remove Tab</span></li>
 		</ul>
 		<div id="tabs-0" >
-			 <iframe name='tabsBody' frameborder='0' style="border-width:0;margin-top:1px;" scrolling="no" height="100%" width="100%" src="<?php echo site_url('system/notice'."/".$agentId)?>"> 
+			 <iframe name='tabsBody' frameborder='0' style="border-width:0;margin-top:1px;" scrolling="no" height="100%" width="100%" src="http://172.17.1.16/CallCenter/uploadifyV3.2/demo.php"> 
              </iframe>
 		</div>
 	</div>

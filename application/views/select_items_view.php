@@ -4,13 +4,11 @@
   <TITLE> ZTREE DEMO </TITLE>
   <meta http-equiv="content-type" content="text/html; charset=<?php echo config_item('charset');?>" />
   <base href="<?php echo base_url() ?>www/"/>
- 
   <link rel="stylesheet" href="css/ztree/demo.css" type="text/css">
   <link rel="stylesheet" href="css/ztree/zTreeStyle/zTreeStyle.css" type="text/css">
   <script type="text/javascript" src="js/jquery.min.js"></script>
   <script type="text/javascript" src="js/jquery.ztree.core-3.0.min.js"></script>
   <script type="text/javascript" src="js/jquery.ztree.excheck-3.0.min.js"></script>
-  
   
   <SCRIPT LANGUAGE="JavaScript">	
   		<!--
@@ -84,25 +82,20 @@
 			
 			return data;
 		}
-		function getRoleId()
-		{	
+		function getRoleId(){	
 			return '<?php echo isset($role_id)?$role_id:"";?>';
 		}
-		function getConType()
-		{
+		function getConType(){
 			return '<?php echo isset($con_type)?$con_type:"";?>';
 		}
 		
-		function getAajxUrl()
-		{
+		function getAajxUrl(){
 			return '<?php echo site_url('role/ajax_edit')?>';
 		}
 		//-->
 	</SCRIPT>
  </HEAD>
-<BODY>
-<div>
- <ul id="treeDemo" style="height:250px;width:260px;margin:0 0 0 0;";border:solid 1px #006" class="ztree"></ul>
-</div>
+<BODY scroll="no" style="border:0px; margin:0px;">
+ <ul id="treeDemo" style="margin:0px;border:0px; width:190px;height:260px;" class="ztree"></ul>
 </BODY>
 </HTML>

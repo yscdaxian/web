@@ -16,60 +16,175 @@
 <script src="lib/dataTable/js/jquery.dataTables.js" type="text/javascript"  ></script>
 <script>
 var data=Array();
+var agentId="<?php echo $agentId;?>";
+function transfer(agent,targetAgent){
+	window.external.AgentTransfer(agent,targetAgent,1);
+}
+
+function forceInsert(agent,targetAgent){
+	window.external.AgentForceInsert(agent,targetAgent);
+}
+function hangupCall(agent,targetAgent){
+	window.external.AgentHangupCall(agent,targetAgent);
+}
+
+function spyCall(agent,targetAgent){
+	agent='8002';
+	window.external.AgentSpyCall(agent,targetAgent);
+}
+
 function updateMonitorView(msg){
 	if(msg.eventId === 8){
 		data=pushAgentStatusItem(data,msg);	
 	}else{
 		data=pushLiveCallItem(data,msg);
 	}
-	
 	$('#liveAgent').dataTable({
 		"bDestroy":true,
 		"aaData": data,
+		"fnCreatedRow": function(nRow, aData, iDataIndex){	
+			 var showbusyStime=Date.parse(aData[4]);
+			 var linkStime=	Date.parse(aData[7]);
+			 var loginStime=Date.parse(aData[2]);
+			 var etime=new Date();
+			 var showBusyTimeLen=etime.getTime()-showbusyStime;
+			 var linkTimeLen=etime.getTime()-linkStime;
+			 var loginTimeLen=etime.getTime()-loginStime;
+			 	
+			 $('td:eq(2)', nRow).html(loginTimeLen/1000);
+		 	 $('td:eq(4)', nRow).html(showBusyTimeLen/1000);
+			 $('td:eq(7)', nRow).html(linkTimeLen/1000);
+			 
+			 var doPanelHtml="<div ><a href='javascript:transfer(\""+agentId+"\",\""+aData[0]+"\")'>转接</a>&nbsp;&nbsp;<a href='javascript:forceInsert(\""+agentId+"\",\""+aData[0]+"\")'>强插</a>&nbsp;&nbsp;<a href='javascript:treeCall(\""+agentId+"\",\""+aData[0]+"\")'>三方通话</a>&nbsp;&nbsp;<a href='javascript:spyCall(\""+agentId+"\",\""+aData[0]+"\")'>监听</a>&nbsp;&nbsp;<a href='javascript:hangupCall(\""+agentId+"\",\""+aData[0]+"\")'>强拆</a></div>";
+			 
+			 $('td:eq(8)', nRow).html(doPanelHtml);
+		 },
 		"oLanguage": {"sUrl": "<?php echo $this->config->item('base_url') ?>/www/lib/dataTable/de_DE.txt"}			
 	});
 	
 }
 
-function pushAgentStatusItem(data,msg){	
-	data=Array();
+function pushAgentStatusItem(data,msg){
+	data=clearNotLoginAgentData(data,msg);
 	$.each(msg.eventEx,function(index,msgValue){
-		data[index]=Array();
-		data[index][0]=msgValue[0];
-		data[index][1]=msgValue[2];
-		if(msgValue[3] == "false")
-			data[index][2]="示闲";
-		else
-			data[index][2]="示忙";
-		data[index][3]=msgValue[4];
-	});
+		var ret=agentExsitInData(data,msgValue[0]);
+		if(ret > -1){
+			data[ret][0]=msgValue[0];
+			if(msgValue[1] === "true")
+				data[ret][1]="是";
+			else
+				data[ret][1]="否";
+				
+			data[ret][2]=msgValue[2];
+			if(msgValue[3] == "false")
+				data[ret][3]="是";
+			else
+				data[ret][3]="否";
+			data[ret][4]=msgValue[4];
+		}else{	
+			var newItem=Array();
+			newItem[0]=msgValue[0];
+			if(msgValue[1] === "true")
+				newItem[1]="是";
+			else
+				newItem[1]="否";
+				
+			newItem[2]=msgValue[2];
+			if(msgValue[3] == "false")
+				newItem[3]="是";
+			else
+				newItem[3]="否";
+			newItem[4]=msgValue[4];
+			newItem[5]="";
+			newItem[6]="";
+			newItem[7]="";
+			newItem[8]=agentId;
+			data.push(newItem);
+		}
+	});		
 	return data;
 }
 
 function pushLiveCallItem(data,msg){
+	data=clearNotCallAgentData(data,msg);
 	$.each(msg.eventEx,function(index,msgValue){
-		$.each(data,function(index,dataValue){
-			if(dataValue[0] === msgValue[0]){
-				//data[index][2]=msgValue[1];
-			}
-		});
+			if(msgValue[2] === "1"){
+				var ret=agentExsitInData(data,msgValue[4]);	
+				if(ret > -1){
+					data[ret][5]="呼入";
+					data[ret][6]=msgValue[3];
+					data[ret][7]=msgValue[6];
+				}
+				
+			}	
+			if(msgValue[2] === "0"){
+				var ret=agentExsitInData(data,msgValue[3]);	
+				if(ret > -1){
+					data[ret][5]="呼出";
+					data[ret][6]=msgValue[4];
+					data[ret][7]=msgValue[6];
+				
+				}
+			}	
 	});
+	
 	return data;
 }
-$(document).ready(function(){
-	var json_one={"eventEx":[["1000","true","2012-12-13 14:18:32.0","false","2012-12-13 14:18:32.0",null,null],["8004","true","2012-12-13 13:37:58.0","false","2012-12-13 13:37:58.0",null,null],["8001","true","2012-12-13 11:32:08.0","true","2012-12-13 11:32:30.0",null,null]],"eventId":8,"eventName":"ProxyAgentStatusEvent"};
-	var json_two={"eventEx":[],"eventId":11,"eventName":"ProxyLiveCallEvent"};
-	
-	data=pushAgentStatusItem(data,json_one);
-	data=pushLiveCallItem(data,json_two);
-	/*
-	$('#liveAgent').dataTable({
-		"bDestroy":true,
-		"aaData": data,
-		"oLanguage": {"sUrl": "<?php echo $this->config->item('base_url') ?>/www/lib/dataTable/de_DE.txt"}			
+function agentExsitInData(data,e){
+	var ret=-1;
+	$.each(data,function(index,value){
+		if(value[0] === e)
+			ret=index;
 	});
-	*/
-});
+	return ret;
+}
+
+function clearNotLoginAgentData(data,msg){
+	var ret=Array();
+	$.each(data,function(index,value){
+		if(agentInAgentStatusMsg(value[0],msg)){
+			ret.push(value);
+		}
+	});
+	
+	return ret;
+	
+}
+
+function agentInAgentStatusMsg(agentId,msg){
+	var ret=false;
+	$.each(msg.eventEx,function(index,msgValue){
+		if(agentId === msgValue[0])
+			ret=true;
+	});
+	return ret;
+}
+
+
+function clearNotCallAgentData(data,msg){
+
+	$.each(data,function(index,value){
+		if(!agentInAgentCallMsg(value[0],msg)){
+			data[index][5]="";
+			data[index][6]="";
+			data[index][7]="";
+		}
+	});
+	
+	return data;
+}
+
+function agentInAgentCallMsg(agentId,msg){
+	var ret=false;	
+	$.each(msg.eventEx,function(index,msgValue){
+		if(msgValue[2] === "1" && msgValue[4] === agentId)
+				ret=true;
+		if(msgValue[2] === "0" && msgValue[3] === agentId)
+				ret=true;
+	});
+	
+	return ret;
+}
 </script>
 </head>
 <body>
@@ -85,7 +200,16 @@ $(document).ready(function(){
 		</div>
 		<div class='work-list'>
 			<table id="liveAgent" width="100%">
-            	 <thead><th align="left">登陆工号</th><th align="left">登录时间</th><th align="left">示闲示忙</th><th align="left">示闲示忙开始时间</th><thead>       	
+            	 <thead><th align="left" width="60px">登陆工号</th>
+                 		<th align="left" width="40px">登录</th>
+                        <th align="left" width="100px">登陆时长</th>
+                        <th align="left" width="40px">空闲</th>
+                        <th align="left" width="100px">空闲时长</th>
+                        <th align="left" width="60px">呼叫类型</th>
+                        <th align="left" width="100px">通话号码</th>
+                        <th align="left" width="100px">通话时长</th>
+                        <th align="left">操作</th>
+                        </thead>       	
                  <tbody></tbody>
             </table>
 		</div>

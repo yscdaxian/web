@@ -79,14 +79,14 @@ $(document).ready(function(){
            </fieldset>    
            </td>
             <td valign="top" style="width:50%">          
-            <fieldset><legend onClick="show_div('data_table2');">3日内工作量统计</legend>
+            <fieldset><legend onClick="show_div('data_table2');">当日工作量统计</legend>
              <table width="100%" cellpadding="0" cellspacing="0" class="dataTable" id="threedays_table">
                 <thead>
                   <tr align="left" class="dataHead">
                     <td>坐席工号</td>
                     <td >坐席名称</td>
-                    <td >呼出量</td>
                     <td >呼入量</td>
+                    <td >呼出量</td>  
                     <td >总计</td>                 
                 </tr>
                 </thead>

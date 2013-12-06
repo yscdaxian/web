@@ -48,16 +48,16 @@ class Clients_model extends CI_Model
 		foreach($data as $key=>$value)
 		{
 			if($key == 'client_name')
-				$ret[$key]=preg_replace("/[^\x{4E00}-\x{9FFF}]+/u","", $value);
+				$data[$key]=preg_replace("/[^\x{4E00}-\x{9FFF}]+/u","", $value);
 			else if($key == 'client_cell_phone' || $key == 'client_phone')
-				$ret[$key]=preg_replace("/[^0-9]/","", $value); //非数字
+				$data[$key]=preg_replace("/[^0-9]/","", $value); //非数字
 			else if($key=='client_person_card')
-				$ret[$key]=preg_replace("/[^0-9]/","", $value); //非数字
+				$data[$key]=preg_replace("/[^0-9]/","", $value); //非数字
 			else
-				$ret[$key]=$value;			
+				$data[$key]=$value;			
 					
 		}
-		return $ret;
+		
 	}
 	function clearClientTmp()
 	{
@@ -69,12 +69,15 @@ class Clients_model extends CI_Model
 		return $this->db->insert('clients_tmp',$item);
 	}
 	
-	function selectClientByPhone($phone){	
+	function selectClientByPhone($phone, $fileds){	
 		$phone=preg_replace("/[^0-9]/","", $phone);
 		if($phone != "" && substr($phone,0,1) == '0')
 			$phone=substr($phone,1);
-		$sql="SELECT * from clients where client_cell_phone='$phone' 
-or client_phone='$phone' or client_cell_phone='0$phone' or client_phone='0$phone'";		
+			
+		$sql="SELECT ".str_replace(" , ", " ", implode(", ", $fileds))." 
+		from clients 
+		where client_cell_phone='$phone' or client_phone='$phone' or client_cell_phone='0$phone' or client_phone='0$phone' or client_cell_phone_two='$phone' or client_cell_phone_two='0$phone' or client_phone_two='$phone' or client_phone_two='0$phone'";	
+		
 		return $this->db->query($sql)->result_array();
 	}
 	

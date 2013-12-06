@@ -22,8 +22,10 @@
 
 <script>
 function onCallClick(name,url){	
-	//window.parent.iAddTab('外呼',url);
-	location.href=url;
+	if(name !="")
+		window.parent.iAddTab(name,url);
+	else
+		window.parent.iAddTab("未命名",url);
 }
 
 $(document).ready(function() {
@@ -68,7 +70,7 @@ $(document).ready(function() {
 			],
 			"fnCreatedRow": function( nRow, aData, iDataIndex ) {
 			  // Bold the grade for all 'A' grade browsers 
-			  htmlStr='<center><a href="javascript:onCallClick(\''+aData[1]+'\',\'<?php echo site_url('communicate/connected')?>/manulClick/'+$('#agentId').attr('value')+'/'+aData[8]+'\')"><img src="www/images/dxzx.png"></img></a></center>';
+			  htmlStr='<center><a href="javascript:onCallClick(\''+aData[1]+'\',\'<?php echo site_url('communicate/connected')?>/manulClick/'+$('#agentId').attr('value')+'/'+aData[9]+'\')"><img src="www/images/dxzx.png"></img></a></center>';
 			   $('td:eq(9)', nRow).html(htmlStr);
 			    $('td:eq(8)', nRow).html(aData[8]+'['+aData[10]+']');
 			if(aData[3]){
@@ -88,8 +90,7 @@ $(document).ready(function() {
 				{"mDataProp":"6"},
 				{"mDataProp":"7"},
 				{"mDataProp":"8"},
-				{"mDataProp":"9"}
-				
+				{"mDataProp":"9"}	
 			],
 			"iDisplayLength": 16,
 			"fnServerParams": function (aoData) {
@@ -151,26 +152,26 @@ $(document).ready(function() {
 	});
 	
 	$("#btnDel").click(function(){
-		 if(confirm("确定要删除选中的客户吗？")){
-			 
+		 if(confirm("确定要删除选中的客户吗？")){	 
 			$ids=[];
 			var datas=getSelectedItem();
 			for(var i in datas){
-				alert(datas[i]);
 				var $item=[];
 				$item.push('or');
 				$item.push('varchar');
 				$item.push('client_id');
 				$item.push(datas[i]);	
 				$ids.push($item);
-			}
-			
+			}		
 			$req={'ids':[]};
 			$req.ids=$ids;
-			$.post("<?php echo site_url('client/ajaxDeleteOneClient')?>",$req,function(res){	
-													
-			}); 
-			 
+			$.post("<?php echo site_url('client/ajaxDeleteYuyueClient')?>",$req,function(res){	
+				if(res.ok){
+					var oTable = $('#dataList').dataTable();
+					oTable.fnDestroy();	
+					createTables(getSearchString());
+				}										
+			}); 		 
 		 }
 	});
 });
@@ -188,6 +189,7 @@ $(document).ready(function() {
 			 <div class="left"><input type="text" id="searchText">
 			 	<input type="button" id="btnSearch" value="搜索" class="btnSearch"/>
                 <input type="button" id="btnAdvance" value="高级" class="btnSearch"/>
+                <input type="button" id="btnDel" value="删除" class="btnSearch"/>
                 <input type="button" id="btnExport" value="导出" class="btnSearch"/>
                 <a id="csvUrl" href='export_datas/clients_09Apr12.csv'></a>
 			 </div>

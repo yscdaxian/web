@@ -10,15 +10,13 @@
 <style type="text/css" title="currentStyle">
 			@import "www/lib/dataTable/css/demo_page.css";
 			@import "www/lib/dataTable/css/demo_table.css";
-		</style>
-        
-<script type="text/javascript" src="uploadify/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="uploadify/swfobject.js"></script>
-<script type="text/javascript" src="uploadify/jquery.uploadify.v2.1.4.min.js"></script>
+</style>
+      
+<script type="text/javascript" src="www/js/jquery-1.6.4.js"></script>
+
+<script type="text/javascript" src="uploadifyV3.2/jquery.uploadify.js"></script>
 <script type='text/javascript' src='www/lib/jquery/jquery-ui-1.8.16.custom.js'></script>
 <script type='text/javascript' src='www/lib/dataTable/js/jquery.dataTables.js'></script>
-
-
 
 <script type="text/javascript">
 // <![CDATA[
@@ -27,17 +25,18 @@ $(document).ready(function() {
   $rules="0";
   $("#speedbr" ).progressbar({disabled: false });
   $('#file_upload').uploadify({
-    'uploader'  : '<?php echo $this->config->item('base_url') ?>/uploadify/uploadify.swf',
-    'script'    : '<?php echo $this->config->item('base_url') ?>/uploadify/uploadify.php',
-    'cancelImg' : '<?php echo $this->config->item('base_url') ?>/uploadify/cancel.png',
-    'folder'    : '/CallCenter/uploaddir',
-	'buttonText': 'open', 
-	'auto'      : false,
-	'onAllComplete' : function(event,data) {
+   	'swf'           : '<?php echo $this->config->item('base_url');?>/uploadifyV3.2/uploadify.swf',
+    'uploader'      : '<?php echo $this->config->item('base_url');?>/uploadifyV3.2/uploadify.php',
+	'buttonText': '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上传文件', 
+	'auto'      : true,
+	'width'		: 100,
+	'height'    : 29,
+	'onUploadComplete' : function(file) {
 						  var p={'file':''};
-						  p.file=$file;
+						  p.file=file.name;
+						  $file=file.name;
 						  $(".loadLayer").css('display','block');
-						  $.post("<?php echo site_url('client/uploadMap')?>",p,function(res){	
+						  $.post("<?php echo site_url('client/ajaxUploadMap')?>",p,function(res){	
 						      $(".loadLayer").css('display','none');
 							  $("#importMapTable").empty();
 							  var tableStr="<table class='property' ><tr><td class='name'>排重规则:</t><td class='value'> <select id='rules' name='rules' class='rulesSelect'  style='width:100%;height:20px'><option value='0'>根据号码排重</option><option value='1'>根据号码和姓名排重</option></select></td><td class='name'></td><td class='value'></td></tr>";
@@ -59,7 +58,7 @@ $(document).ready(function() {
 							 tableStr+="</table>"				  
 							 $("#importMapTable").append(tableStr); 
 							 
-							 alert(mapField[0]);		
+								
 							 $(".mapSelect").each(function (i) {
 								  $objSelect=$(this);    				
 								  $.each(res['excelColumns'],function(entryIndex,entry){
@@ -72,20 +71,15 @@ $(document).ready(function() {
 							   $('#map').css('display','block'); 
 						   });  
     				 }, 
-	'onSelect' : function(event,ID,fileObj) {				 
-					     $file=fileObj.name;
+	'onSelect' : function(file) {	
 						 $('#map').css('display','none');
 	   					 $('#speedbr').css('display','none');
 						 $('#tablePanel').css('display','none');
 						 $('#successTips').css('display','none');
-						 $('.mapSelect option').remove();
-						
+						 $('.mapSelect option').remove();	
     			     }  
   });
-  $('#btPreDo').click(function(){
-  		$('#file_upload').uploadifyUpload()
-		
-  });
+ 
   $('#btImport').click(function(){
   	   $('#map').css('display','none');
 	   $("#tablePanel").css('display','none');
@@ -98,6 +92,7 @@ $(document).ready(function() {
 	   
 	   $strMap=$strMap.substring(0, $strMap.length-1);
 	   $strMap=$strMap+"}";
+	   $rules=$("#rules").val();
 	   var $req="{'agentId':'"+"<?php echo $agentId;?>"+"','file':'"+$file+"','dataMap':"+$strMap+",'rules':'"+$rules+"'}";  
 	   $json=eval( '(' +$req +')' );
 
@@ -122,10 +117,7 @@ $(document).ready(function() {
 							"sUrl": "<?php echo $this->config->item('base_url') ?>/www/lib/dataTable/de_DE.txt"
 						}						
 					}); 
-				 }
-				 
-				
-				
+				 }		
 	   });
   });
   $('#rules').change(function(){
@@ -158,15 +150,16 @@ $(document).ready(function() {
          <div class="nav_other"></div>
 		</div>
         <div class="layout-middle"></div>
-  <table style="width:100%;margin-top:15px;"><tr><td  width="122px"><input id="file_upload" type="file" name="file_upload"/></td>
-        	<td width="122"><input style="float:left;width:120px;height:30px" id='btPreDo' type="button" value="预处理"/></td><td width="125">
-        <input style="float:left;width:120px;height:30px" id="btImport" type="button" value="导入" /></td><td><div class="loadLayer">数据加载中...</div></td></tr></table>  
+  <table style="width:100%;margin-top:15px;"><tr><td  width="125px">
+  			<input id="file_upload" type="file" name="file_upload"/></td>
+        	<td width="125">
+        	<input style="margin-top:1px;width:120px;height:30px" id="btImport" type="button" value="导入" /></td><td><div class="loadLayer">数据加载中...</div></td></tr></table>  
     <div  id='speedbr' style="display:none"></div>
     <div id="successTips" style="display:none;margin-top:15px"></div>
     <div  id='map' class='panelOne' style="margin-top:10px;display:none">
     <fieldset><legend>设置</legend>
     		<div id="importMapTable"></div>
-        </fieldset>
+    </fieldset>
     </div>
     <div id="tablePanel" style='display:none'><table width="100%" cellpadding="0" cellspacing="0" border="0" class="display" id="dupTable" >
     <thead><tr><td width='40px'>文档编号</td><td>排重反馈信息</td></tr></thead>

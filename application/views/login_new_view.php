@@ -6,6 +6,9 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 <base href="<?php echo $this->config->item('base_url') ?>/www/"/>
 <link href="css/main.css" rel="stylesheet" type="text/css">
+<link rel="icon" href="" mce_href="" type="image/x-icon">
+<link rel="shortcut icon" href="" mce_href="" type="image/x-icon">
+
 <style type="text/css">
 html{height:100%;}
 body{background: url(images/top_bg.jpg) no-repeat center -10px;height:100%}
@@ -48,7 +51,7 @@ body{background: url(images/top_bg.jpg) no-repeat center -10px;height:100%}
         
         </div>
         
-        <div class="login_foot">CopyRight&copy;2010 - 2011  首创科技. All Rights Reserved </div>
+        <div class="login_foot">CopyRight&copy;2010 - 2011  亚铭科技. All Rights Reserved </div>
 
   </form>
 

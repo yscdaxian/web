@@ -78,11 +78,11 @@
 					</tr>
 					<tr>
 						<td class='name'>联系电话:</td><td class='value'><input id='phone' name='phone'  value='<?php echo isset($item[0])?$item[0]->phone:"";?>' style='width:100%' type='text'></td>
-						<td class='name'>手机:</td><td class='value'><input id='cell_phone' style='width:100%' type='text'></td>
+						<td class='name'>手机:</td><td class='value'><input id='cell_phone' name='cell_phone' value='<?php echo isset($item[0])?$item[0]->cell_phone:"";?>' style='width:100%' type='text'></td>
 					</tr>
 					<tr>
-						<td class='name'>邮箱:</td><td class='value'><input id='email' style='width:100%' type='text'></td>
-						<td class='name'>QQ(MSN):</td><td class='value'><input id='qq' style='width:100%' type='text'></td>
+						<td class='name'>号码前缀:</td><td class='value'><input id='phone_prefix' name='phone_prefix' value='<?php echo isset($item[0])?$item[0]->phone_prefix:"";?>' style='width:100%' type='text'></td>
+						<td class='name'>PBX:</td><td class='value'><input id='pbx' name='pbx' value='<?php echo isset($item[0])?$item[0]->pbx:"";?>' style='width:100%' type='text'></td>
 					</tr>
 				</table>
                 </fieldset>

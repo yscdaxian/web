@@ -12,6 +12,7 @@
 <script type='text/javascript' src='www/lib/jquery/jquery-ui-1.8.16.custom.js'></script>
 <script type='text/javascript' src='www/lib/extenal.js'></script>
 <script type='text/javascript' src='www/js/call.js'></script>
+<script type='text/javascript' src='www/lib/json2.js'></script>
 <style type="text/css" title="currentStyle">
 			@import "www/lib/dataTable/css/demo_page.css";
 			@import "www/lib/dataTable/css/demo_table.css";
@@ -30,38 +31,82 @@ $(document).ready(function() {
 	function getDateString(ymd, hour, minut){
 	 	return ymd+" "+hour+":"+minut+":00";
 	}	 
+	
 	$("#start_ymd").datepicker(); 
 	$("#end_ymd").datepicker(); 
 	
 	var ctime=new Date();
 	$("#start_ymd").attr('value', ctime.format('yyyy-MM-dd'));	
 	$("#end_ymd").attr('value', ctime.format('yyyy-MM-dd'));	  
-	
+	var gTargetAgents=<?php echo json_encode($targetAgents);?>;
+	$.each(gTargetAgents,function(index,row){
+		if(row.name_text != '未填写')
+			$('#targetAgent').append("<option value='"+row.name_value+"'>"+row.name_text+"</option>");
+		else
+			$('#targetAgent').append("<option selected='selected' value='"+row.name_value+"'>"+row.name_text+"</option>");
+		
+	});
 	function getSearchString(){		
 		$seachValue=$('#searchText').attr('value');			
+		var searchStr=[];
+		var timeSearch=[];
+		timeSearch.push("and");
+		timeSearch.push("datetime");
+		timeSearch.push("link_stime");
+			
+		timeSearch.push(getDateString($('#start_ymd').attr('value'), $('#s_hour').val(),$('#s_min').val()));
+		timeSearch.push(getDateString($('#end_ymd').attr('value'), $('#e_hour').val(),$('#e_min').val()));
+		filterString={"searchType":0,"agentId":"","searchText":""};
 		
-		filterString='{"searchType":0,"agentId":\"'+$('#agentId').attr('value')+'\","searchText":[["or","varchar","agent","'+$seachValue+'"],["or","varchar","name","'+$seachValue+'"],["or","varchar","phone_number","'+$seachValue+'"],["and","datetime","link_stime",\"'+getDateString($('#start_ymd').attr('value'), $('#s_hour').val(),$('#s_min').val())+'\",\"'+getDateString($('#end_ymd').attr('value'), $('#e_hour').val(),$('#e_min').val())+'\"]]}';	
+		timeSearch.push(getDateString($('#start_ymd').attr('value'), $('#s_hour').val(),$('#s_min').val()));
+		timeSearch.push(getDateString($('#end_ymd').attr('value'), $('#e_hour').val(),$('#e_min').val()));
+		filterString={"searchType":1,"agentId":"","searchText":""};
+		filterString.agentId=$("#agentId").attr("value");
 		
-		return filterString;
+		var phoneNumberSearch=["likeand","varchar","phone_number",""];	
+		phoneNumberSearch[3]=$("#phoneNumberText").attr("value");
+		var callTypeSearch=["and","varchar","call_type","callout"];
+		if($("#callType").val() != "-1")
+			callTypeSearch[3]=$("#callType").val();
+			
+		if($("#callStatus").val() != "ALL"){
+			if($("#callStatus").val() === "CONNECTED")
+				searchStr.push(["and","varchar","status","CONNECTED"]);
+			else
+				searchStr.push(["nand","varchar","status","CONNECTED"]);
+		}
+		
+		if($("#targetAgent").val() != "全部" && $("#targetAgent").val() != "未填写"){
+			var agentSearch=["and","varchar","agent",""];
+			agentSearch[3]=$("#targetAgent").val();
+			searchStr.push(agentSearch);
+		}
+		searchStr.push(callTypeSearch);
+		searchStr.push(phoneNumberSearch);
+		searchStr.push(timeSearch);
+		filterString.searchText=searchStr;
+		return JSON.stringify(filterString);
 	}
 	
 	createTables=function (filterString){
+		
 		$('#dataList').dataTable( {
 			"bProcessing": true,
 			"bServerSide": true,
 			"bStateSave" : false,
 			"fnCreatedRow": function( nRow, aData, iDataIndex ) {
 			  // Bold the grade for all 'A' grade browsers 
-			  if(aData[3] == 0)
-			  	$('td:eq(3)', nRow).html('呼入');
+			  if(aData[4] == "callin")
+			  	$('td:eq(4)', nRow).html('呼入');
 			  else
-			  	$('td:eq(3)', nRow).html('呼出');
-			  if(aData[4] == 'CONNECTED')
-			  	$('td:eq(4)', nRow).html('接通');
+			  	$('td:eq(4)', nRow).html('呼出');
+				
+			  if(aData[5] == 'CONNECTED')
+			  	$('td:eq(5)', nRow).html('接通');
 			  else 
-			  	$('td:eq(4)', nRow).html('未接通');	
-			 
-			  $('td:eq(8)', nRow).html("<a href='javascript:listenRecord(\""+aData[8]+"\")'>收听</a>");
+			  	$('td:eq(5)', nRow).html('未接通');	
+			  
+			  $('td:eq(9)', nRow).html("<a href='javascript:listenRecord(\""+aData[9]+"\")'>收听</a>&nbsp;<a href='"+aData[9]+"'>下载</a>");
     		},
 			"aoColumns": [
 				{"bSortable":false,"mDataProp":"0"},
@@ -72,9 +117,10 @@ $(document).ready(function() {
 				{"mDataProp":"5"},
 				{"mDataProp":"6"},
 				{"mDataProp":"7"},
-				{"mDataProp":"8"}
+				{"mDataProp":"8"},
+				{"mDataProp":"9"}
 			],
-			"iDisplayLength": 25,
+			"iDisplayLength": 15,
 			"fnServerParams": function (aoData) {
 				var externData={ "name": "filterString", "value": "my_value" };
 				externData.value=filterString;
@@ -144,11 +190,17 @@ $(document).ready(function() {
          <div class="nav_other"></div>
 	</div>
     <div class="func-panel">
-			 <div class="left">
-                <table><tr><td><input type="text" id="searchText"> <input type="button" id="btnSearch" value="搜索" class="btnSearch"/></td><td>从</td><td><input type="text" name="start_ymd"   id="start_ymd" value="" style="width:80px"/>
-        <?php echo form_dropdown('s_hour',$beginTime['hourOptions'],$beginTime['hourDef'],'id="s_hour"')?><?php echo form_dropdown('s_min',$beginTime['minOptions'],$beginTime['minDef'],'id="s_min"')?></td><td>到</td><td><input type="text" name="end_ymd"   id="end_ymd" value="" style="width:80px"/>
-        <?php echo form_dropdown('e_hour',$endTime['hourOptions'],$endTime['hourDef'],'id="e_hour"')?><?php echo form_dropdown('e_min',$endTime['minOptions'],$endTime['minDef'],'id="e_min"')?></td></tr></table>   
+		  <div class="left">
+          	电话号码：<input type="text" id="phoneNumberText"> 
+            呼叫类型: <select id="callType"><option value="-1" selected="selected">全部</option><option value="callout">呼出</option><option value="callin">呼入</option></select> 
+            呼叫状态: <select id="callStatus"><option value="ALL" selected="selected" >全部</option><option value="CONNECTED">接通</option><option value="NOCONNECTED">未接通</option></select>  
+            
+            <input type="button" id="btnSearch" value="搜索" class="btnSearch"/>
+            从<input type="text" name="start_ymd"   id="start_ymd" value="" style="width:80px"/>
+        	<?php echo form_dropdown('s_hour',$beginTime['hourOptions'],$beginTime['hourDef'],'id="s_hour"')?><?php echo form_dropdown('s_min',$beginTime['minOptions'],$beginTime['minDef'],'id="s_min"')?>到<input type="text" name="end_ymd"   id="end_ymd" value="" style="width:80px"/>
+        	<?php echo form_dropdown('e_hour',$endTime['hourOptions'],$endTime['hourDef'],'id="e_hour"')?><?php echo form_dropdown('e_min',$endTime['minOptions'],$endTime['minDef'],'id="e_min"')?>   
 			 </div>
+              坐席：<select id="targetAgent" name="targetAgent"></select>
 			 <div align='right' class="right" ></div>	
 			 <div style="clear:both;"></div>  
 	</div>	
@@ -158,7 +210,8 @@ $(document).ready(function() {
                 	<tr>
                 	<th  align="left" width="80px">坐席工号</th>
                     <th  align="left"  width="80px">坐席名字</th>
-                    <th  align="left" width="80px">对方电话</th>
+                    <th  align="left" width="100px">对方电话</th>
+                     <th  align="left" width="80px">对方姓名</th>
                     <th	align="left" width="40px">类型</th>    
                     <th	align="left">状态</th> 
                     <th align="left" width="120px">开始时间</th>

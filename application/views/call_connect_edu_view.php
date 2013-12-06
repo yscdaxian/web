@@ -107,10 +107,7 @@ $(document).ready(function(){
 						
 			$('#agentId').attr('value','<?php echo $agentId;?>');
 			
-			$('#btnBack').click(function(){
-				window.history.go(-1);
-			});
-				
+		
 			$('#nextClient').click(function(){
 				var req={'agentId':'','clientBh':'0'};
 				req.agentId=$('#agentId').attr('value');
@@ -225,7 +222,7 @@ $(document).ready(function(){
                     <input id="nextClient" type="button" value="下一个">&nbsp 
                     <input id="btnSave" type="button" value="保存">&nbsp;
                     <input id="btnYuyue" type="button" value="预约">&nbsp;
-                    <input id="btnBack" type="button" value="返回"></div>            
+                     
                    <div style="clear:both"></div>						
     </div> 
     

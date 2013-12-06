@@ -15,8 +15,9 @@ class System extends CI_Controller{
 	}
 	
 	public function user($agentId,$offset=0,$sort_by='code', $sort_order='desc'){
-		$limit=20;
+		$limit=15;
 		$columns=array('用户ID'=>'code','用户姓名'=>'name','所属部门'=>'department_name','角色'=>'role_name');	
+		
 		$users=$this->Users_model->get_users($agentId,$columns,$limit,$offset,$sort_by,$sort_order);
 		
 		$config['base_url'] = site_url('system/user/'.$agentId);
@@ -24,6 +25,8 @@ class System extends CI_Controller{
 		$config['per_page'] = $limit;	
 		$config['uri_segment'] = 4;		
 		$this->pagination->initialize($config);	
+		
+		
 		
 		$data['pagination']=$this->pagination->create_links();	
 		$data['columns']=$columns;

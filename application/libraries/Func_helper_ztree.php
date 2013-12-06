@@ -28,8 +28,8 @@ class Func_helper_ztree  {
 		$node['id']=$row->id;
 		$node['name']=$row->text;
 		$node['open']=true;
-		$node['iconOpen']=$row->logo;
-		$node['iconClose']=$row->logo;
+		//$node['iconOpen']=$row->logo;
+		//$node['iconClose']=$row->logo;
 		return $node;
 	}
 	
@@ -38,7 +38,7 @@ class Func_helper_ztree  {
 		$node['pId']=$row->p_id;
 		$node['id']=$row->id;
 		$node['name']=$row->text;
-		$node['icon']=$row->logo;
+		//$node['icon']=$row->logo;
 		if($this->checker && $this->checker->checked($row))
 			$node['checked']=true;
 		return $node;

@@ -2,6 +2,8 @@
 <head>
 <base href="<?php echo $this->config->item('base_url') ?>/www/"/>
 <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+<link rel="icon" href="" mce_href="" type="image/x-icon">
+<link rel="shortcut icon" href="" mce_href="" type="image/x-icon">
 <script src="js/jquery-1.6.4.js"              type="text/javascript"></script>
 <script>
 	function onProxyEvent(type,msg){

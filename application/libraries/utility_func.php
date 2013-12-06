@@ -1,5 +1,10 @@
  <?php if (!defined('BASEPATH')) exit('No direct script access allowed');
  class Utility_func {
+	 
+	 function getClientBatchNumber(){
+	 	return date("YmdHis");
+	 }
+	 
 	 function creatHourMinOptions(){
 		  for($i=0; $i<24; $i++){
 			$value=$i;
