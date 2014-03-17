@@ -148,6 +148,33 @@
 	<name>报表人</name>
 </item>
 </customBodyPanel>
+
+<orderTableSearchPanel>
+	<row>	
+		<item>
+			<id>client_address</id>
+			<dbfield>client_address</dbfield>
+			<dbtype>varchar</dbtype>
+			<type>1</type>
+			<name>地址:</name>
+			<colspan>1</colspan>
+			<lspace>0</lspace>
+			<valuesource>状态</valuesource>
+		</item>	
+   </row>
+</orderTableSearchPanel>
+
+<orderTable>
+<item>
+	<id>client_address</id>
+	<dbfield>client_address</dbfield>
+	<align>left</align>
+	<width>50px</width>
+	<type>varchar</type>
+	<name>地址</name>
+</item>
+</orderTable>
+
 <customClientStatusCount>
 	<item>
 		<dbfield>client_zsstatus</dbfield>
@@ -290,7 +317,7 @@
 		<item>
 			<id>client_cell_phone</id>
 			<dbfield>client_cell_phone</dbfield>
-			<type>1</type>
+			<type>7</type>
 			<name>手机:</name>
 			<colspan>1</colspan>
 			<lspace>0</lspace>
@@ -429,7 +456,10 @@
 		</item>
 		
 	</row>
-	<row>
+	
+</baseInfoTable>
+<bussniessInfoTable>
+<row>
 		<item>
 			<id>client_address</id>
 			<dbfield>client_address</dbfield>
@@ -464,9 +494,5 @@
 			<valuesource></valuesource>
 		</item>
 	</row>
-</baseInfoTable>
-<bussniessInfoTable>
-<row>
-</row>
 </bussniessInfoTable>
 </dynamicui>

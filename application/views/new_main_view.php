@@ -81,7 +81,15 @@ function updateMonitorView(msg){
 		window.frames['liveLook'].updateMonitorView(msg);
 }	
 
-
+function clearPhoneNumberPrefix(phone){
+	var index=phone.indexOf('0');
+	if(index === -1)
+		index=phone.indexOf('');
+	if(index != -1)
+		return phone.substr(index);
+	else
+	 	return phone;
+}
 $(document).ready(function(){
 
 $('.side-switcher').toggle(function(){
@@ -176,7 +184,9 @@ var $tabs = $("#tabs").tabs({
 	  var  json_msg=eval( '( '+msg+' )' ); 	
 	  if(json_msg.eventId === 1){		  
 		  var url="";
-		  var title="";
+		  var title="";	  
+		  
+		   alert("jianli");
 		  //建立连接
 		  if(json_msg.floatInfo != 'callout'){	
 			 //来电
@@ -186,8 +196,9 @@ var $tabs = $("#tabs").tabs({
 				 try{ makeBusy($agentid,true);}catch(e){};
 			  	 updateCallUniqueid(title,json_msg.uniqueid);
 			  }		   
-		  }else{
-		  	 //去电
+		  }else{		  
+		  	  //去电
+			  json_msg.releatedNum=clearPhoneNumberPrefix(json_msg.releatedNum);
 			  url="<?php echo site_url('communicate/connected')?>"+"/callEvent/"+json_msg.exten+"/0/"+json_msg.releatedNum+"/"+json_msg.uniqueid;		
 			  var  $title=json_msg.releatedNum;
 			  if(json_msg.exten == $agentid){
@@ -199,7 +210,8 @@ var $tabs = $("#tabs").tabs({
 			  }			   
 		  }	  
 	   }  
-	   if(json_msg.eventId === 9){		
+	   if(json_msg.eventId === 9){	
+	   		
 	   		var url="<?php echo site_url('communicate/connected')?>"+"/callEvent/"+$agentid+"/0/"+json_msg.callerId+"/0";
 			var title=json_msg.callerId;
 			iAddTab(title,url);

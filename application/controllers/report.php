@@ -63,6 +63,24 @@ class Report extends CI_Controller
 		
 		$this->load->view('report_calllength_count_view',$data);
 	}
+	
+	function callLengthSumCount($agentId){
+		$data['agentId']=$agentId;
+		$this->load->library('Utility_func');
+		$timeOptions=$this->utility_func->creatHourMinOptions();
+		$data['beginTime']=$timeOptions;
+		$data['beginTime']['ymh']=date('Y-m-d');
+		$data['beginTime']['hourDef']='00';
+		$data['beginTime']['minDef']='00';
+		
+		$data['endTime']=$timeOptions;
+		$data['endTime']['ymh']=date('Y-m-d');
+		$data['endTime']['hourDef']='23';
+		$data['endTime']['minDef']='59';
+		
+		$this->load->view('report_calllength_sumcount_view',$data);
+	}
+	
 	function conversionRate($agentId){
 		$data['agentId']=$agentId;
 		$this->load->library('Utility_func');
@@ -172,6 +190,31 @@ class Report extends CI_Controller
 		
 		$data['targetAgents']=$showAgents;
 		$this->load->view('report_misscall_view',$data);
+	}
+	function leavemess($agent){
+		$data['agentId']=$agent;
+		$timeOptions=$this->utility_func->creatHourMinOptions();
+		$data['beginTime']=$timeOptions;
+		$data['beginTime']['ymh']=date('Y-m-d');
+		
+		$data['beginTime']['hourDef']='00';
+		$data['beginTime']['minDef']='00';
+		
+		$data['endTime']=$timeOptions;
+		$data['endTime']['ymh']=date('Y-m-d');
+		$data['endTime']['hourDef']='23';
+		$data['endTime']['minDef']='59';
+		
+		$this->load->library('Agent_helper',array('agent_id'=>$agent));
+		$agents=$this->agent_helper->getClientAgentsCanShow();
+		$showAgents=$this->Users_model->getNameValueByIds($agents[3]);
+		if($showAgents){
+			array_push($showAgents,array("name_value"=>"全部","name_text"=>"全部"));
+			array_push($showAgents,array("name_value"=>"未填写","name_text"=>"未填写"));
+		}
+		
+		$data['targetAgents']=$showAgents;
+		$this->load->view('report_leavemessage_view',$data);
 	}
 	
 	function ajaxReportCustomClientCount(){
@@ -369,9 +412,77 @@ sum(call_times) as  total_times";
 		$sQuery = "SELECT
 		$sField 
 		from  $sTable 
-		$sWhere
-ooyvsz 9
+		$sWhere and call_times>0
+		$sGroup
+		$sLimit";
+	
+		
+		$this->firephp->info($sQuery);
+		$ret=$this->db->query($sQuery);	
+		$aColumns=array('agent','callDate','less_5','more_5_less_10','more_10_less_15','more_15_less_20','more_20_less_25','more_16_less_30','more_30_less_60','more_60_less_90','more_90','total_times');
+		$output["aaData"]=$this->datatabes_helper->reverseResult($ret->result_array(),$aColumns);
+		$sCount="select count(*) as sCount from (select agent,DATE_FORMAT(link_stime,'%Y-%m-%d') 
+		from cc_call_history $sWhere $sGroup) dataTable";
+		
+		$ret=$this->db->query($sCount)->result_array();
+	
+		$output["iTotalRecords"]=$output["iTotalDisplayRecords"]=$ret[0]["sCount"];
+		//$this->firephp->info($output);
+		
+		echo json_encode($output);	
+	}
+	function ajaxReportCallLengthSumCount(){
+		header('Content-type: Application/json',true);
+		$this->load->library('firephp');
+		$sEcho=$this->input->get('sEcho');
+		$req=$this->input->get();
+		$output = array(
+		"sEcho" => intval($sEcho),
+		"iTotalRecords" => 1,
+		"iTotalDisplayRecords" => 1,
+		"aaData" => array()
+		);
+		
+		$searchObject=json_decode($req['filterString']);
+		//$this->firephp->info($req['filterString']);
 
+		$this->load->library('Dynamicui',array("agentId"=>""));
+	    $dyModelName=$this->dynamicui->getDynamicuiModel();
+		$this->load->model($dyModelName);
+		
+		$aColumns =$this->$dyModelName->getCustomClientColumns();
+		
+		$sLimit=$this->datatabes_helper->getPageSql($req);
+		
+		//获得where语句
+		$sWhere="";
+		$sWhere=$this->datatabes_helper->getSearchSql($searchObject);
+		$this->firephp->info($sWhere);
+		$sLimit=$this->datatabes_helper->getPageSql($req);
+		$sTable="cc_call_history";
+		
+		if($req["isAllCount"] == "true")
+			$sGroup="group by agent ,DATE_FORMAT(link_stime,'%Y-%m-%d') with ROLLUP";
+		else
+			$sGroup="group by agent ,DATE_FORMAT(link_stime,'%Y-%m-%d')";
+		$this->firephp->info($req);
+		
+		$sField="agent ,DATE_FORMAT(link_stime,'%Y-%m-%d') as 'callDate',
+sum(case when call_times <=5 then 1 else 0 end) as less_5,
+sum(case when call_times> 5 and   call_times <= 10  then 1 else 0  end)  as more_5_less_10,
+sum(case when call_times> 10 and   call_times <= 15  then 1 else 0  end)  as more_10_less_15,
+sum(case when call_times> 15 and   call_times <= 20  then 1 else 0  end)  as more_15_less_20,
+sum(case when call_times> 20 and   call_times <= 25  then 1 else 0  end)  as more_20_less_25,
+sum(case when call_times> 16 and   call_times <= 30  then 1 else 0  end)  as more_16_less_30,
+sum(case when call_times> 30 and   call_times <= 60  then 1 else 0  end)  as more_30_less_60,
+sum(case when call_times> 60 and call_times <=90 then 1 else 0 end)  as more_60_less_90,
+sum(case when call_times> 90 then 1 else 0 end)  as more_90,
+sum(call_times) as  total_times";
+
+		$sQuery = "SELECT
+		$sField 
+		from  $sTable 
+		$sWhere
 		$sLimit";
 	
 		
@@ -706,6 +817,67 @@ sum(case call_type when 'callin' then 1 else 0 end) as sumCallin";
 		echo json_encode($output);
 	}
 	
+	function ajaxReportLeaveMessage(){
+		header('Content-type: Application/json',true);	
+		$sEcho=$this->input->get('sEcho');
+		$req=$this->input->get();
+		$output = array(
+		"sEcho" => intval($sEcho),
+		"iTotalRecords" => 1,
+		"iTotalDisplayRecords" => 1,
+		"aaData" => array()
+		);
+		
+		$searchObject=json_decode($req['filterString']);
+		
+		$aColumns = array('agent','name','phone_number','call_type' ,'status' ,'link_stime','autoid','location');
+		
+		$sLimit=$this->datatabes_helper->getPageSql($req);
+		//获得where语句
+		$sWhere="";
+		
+		$this->firephp->info($req['filterString']);
+		
+		$this->firephp->info($searchObject);
+		$this->load->library('Agent_helper',array('agent_id'=>$searchObject->agentId));
+	
+		$setData=$this->agent_helper->getReportAgentsCanShow();
+		array_push($setData[3],'0000');
+		array_push($searchObject->searchText,$setData);
+		
+		$sWhere=$this->datatabes_helper->getSearchSql($searchObject->searchText);
+		
+		$this->firephp->info($sWhere);
+
+		
+		$sOrder=$this->datatabes_helper->getOrderSql($req,$aColumns,'link_stime','desc');
+		$sTable="cc_call_history left join agents on cc_call_history.agent=agents.code";
+		$sQuery = "
+		SELECT SQL_CALC_FOUND_ROWS ".str_replace(" , ", " ", implode(", ", $aColumns))."
+		FROM   $sTable
+		$sWhere and is_leavemess=1
+		$sOrder
+		$sLimit ";
+	
+		$this->firephp->info($sQuery);
+		
+		$ret=$this->db->query($sQuery);	
+		
+		$output["aaData"]=$this->datatabes_helper->reverseResult($ret->result_array(),$aColumns,'autoid');
+		
+		$this->firephp->info($output["aaData"]);
+		
+		$sCount="select count(*) as sCount from $sTable $sWhere $sOrder";
+		
+		$this->firephp->info($sCount);
+		
+		$ret=$this->db->query($sCount)->result_array();
+	
+		
+		$output["iTotalRecords"]=$output["iTotalDisplayRecords"]=$ret[0]["sCount"];
+		
+		echo json_encode($output);
+	}
 	function ajaxReportMisscall(){	
 		header('Content-type: Application/json',true);	
 		$sEcho=$this->input->get('sEcho');

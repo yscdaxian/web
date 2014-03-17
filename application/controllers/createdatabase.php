@@ -18,10 +18,23 @@ class Createdatabase extends CI_Controller
 		   if(!in_array($field,$defaultDbField)){
 		   		$this->dbforge->drop_column('clients', $field);
 				$this->dbforge->drop_column('clients_tmp', $field);
-				echo "drop".$field."<br>";
+				echo "drop".$field."<br>";	
+		   }
+		} 
+		
+		$defaultWorkTableField=array('id','owner','dead_line','ctime');
+		$fields = $this->db->list_fields('work');
+		foreach ($fields as $field){
+		 
+		   if(!in_array($field,$defaultWorkTableField)){
+		   		$this->dbforge->drop_column('work', $field);
+				//$this->dbforge->drop_column('clients_tmp', $field);
+				echo "work table drop".$field."<br>";
 				
 		   }
 		} 
+		
+		
 	}
 	
 	private function addDefaultDbField(){
@@ -59,9 +72,38 @@ class Createdatabase extends CI_Controller
 	public function create(){	
 		$this->addDefaultDbField();
 		$this->addDbFieldByDynamicUi();
+		$this->addWorkTableField();
+		
 		
 	}
 	
+	public function addWorkTableField(){
+		$this->load->library('Dynamicui',array("agentId"=>""));
+	  	$dyModelName=$this->dynamicui->getDynamicuiModel();
+		$this->load->model($dyModelName);
+		$allDbField=$this->$dyModelName->getWorkTableFileds();
+		foreach($allDbField as $dbField){
+			echo $dbField."<br>";
+			if ($this->db->field_exists($dbField, 'work')){
+					
+			}else{
+				$addFieldStr="$dbField varchar(255) CHARACTER SET utf8  COLLATE utf8_general_ci ";
+				
+				$fields = array(
+                        $dbField => array(
+                                                 'type' => 'VARCHAR',
+                                                 'constraint' => '255',
+												 'null'=>true
+
+                                          ),
+                );
+			
+				$this->dbforge->add_column('work', $fields);	
+				echo "add".$dbField."<br>";
+			} 
+		}	
+		
+	}
 	public function clear(){
 			$this->clearDbField();
 	}

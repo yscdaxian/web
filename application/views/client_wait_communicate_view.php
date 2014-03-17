@@ -116,11 +116,11 @@ $(document).ready(function() {
 			   $('td:eq(8)', nRow).html(htmlStr);
 			   $('td:eq(7)', nRow).html(aData[7]+'['+aData[9]+']');
 			    if(aData[3]){
-			 $('td:eq(3)',nRow).html('<a href="javascript:onClientUiCall(\''+$('#agentId').attr("value")+'\',\''+aData[3]+'\')">'+aData[3]+'<img src="www/images/dxzx.png"></a>');
-			 }
-			 if(aData[4]){
-			 	$('td:eq(4)',nRow).html('<a href="javascript:onClientUiCall(\''+$('#agentId').attr("value")+'\',\''+aData[4]+'\')">'+aData[4]+'<img src="www/images/dxzx.png"></a>');
-			 }
+			 		$('td:eq(3)',nRow).html('<a href="javascript:onClientUiCall(\''+$('#agentId').attr("value")+'\',\''+aData[3]+'\')">'+aData[3]+'<img src="www/images/dxzx.png"></a>voip<a href="javascript:onClientUiVoipCall(\''+$('#agentId').attr("value")+'\',\''+aData[3]+'\')">'+aData[3]+'<img src="www/images/dxzx.png"></a>');
+				}
+			 	if(aData[4]){
+			 		$('td:eq(4)',nRow).html('<a href="javascript:onClientUiCall(\''+$('#agentId').attr("value")+'\',\''+aData[4]+'\')">'+aData[4]+'<img src="www/images/dxzx.png"></a>voip<a href="javascript:onClientUiVoipCall(\''+$('#agentId').attr("value")+'\',\''+aData[4]+'\')">'+aData[4]+'<img src="www/images/dxzx.png"></a>');
+			 	}
     		},
 			"aoColumns": [
 				{"bSortable":false,"mDataProp":"0"},

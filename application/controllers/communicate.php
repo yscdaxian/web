@@ -152,7 +152,7 @@ class Communicate extends CI_Controller
 		$phone=$req['phone'];
 		$cellPhone=$req['cellPhone'];
 		
-		$aColumns = array('agent','phone_number','call_type','call_stime','call_id','location');
+		$aColumns = array('agent','phone_number','call_type','call_stime','bill_stime','bill_note','location');
 		
 		$sLimit=$this->datatabes_helper->getPageSql($req);
 		$sOrder=$this->datatabes_helper->getOrderSql($req,$aColumns,'call_stime','desc');
@@ -165,7 +165,7 @@ class Communicate extends CI_Controller
 			$phone=substr($phone,1);
 		}
 		
-		$sTable="cc_call_history";
+		$sTable="cc_call_history left join bill on call_id=bill_uniqueid";
 		$sWhere="where status = 'CONNECTED' ";
 		if($phone != "" && $cellPhone != ""){
 			$sWhere.=" and (phone_number='$phone' or phone_number='0$phone' or phone_number='0$cellPhone' or phone_number='$cellPhone')";
@@ -185,7 +185,7 @@ class Communicate extends CI_Controller
 		$this->firephp->info($sQuery);
 		
 		$ret=$this->db->query($sQuery);	
-		
+		/*
 		foreach($ret->result_array() as $row){
 			$sql="select bill_note from bill where bill_uniqueid='".$row['call_id']."'";
 			$billRs=$this->db->query($sql)->result_array();
@@ -193,7 +193,8 @@ class Communicate extends CI_Controller
 				array_push($output["aaData"],array($row['agent'],$row['phone_number'],$row['call_type'],$row['call_stime'],$billRow['bill_note'],$row['location']));
 			
 		}
-		//$output["aaData"]=$this->datatabes_helper->reverseResult($ret->result_array(),$aColumns,'department_id');
+		*/
+		$output["aaData"]=$this->datatabes_helper->reverseResult($ret->result_array(),$aColumns);
 		$this->firephp->info($output["aaData"]);
 		$sCount="select count(*) as sCount from $sTable $sWhere $sOrder";
 		$ret=$this->db->query($sCount)->result_array();

@@ -72,6 +72,7 @@ class Role_model extends CI_Model
 		$role_item['look_client']=$this->input->post('look_client_check');
 		$role_item['show_func']=$this->input->post('look_record_check');
 		$role_item['delete_client']=$this->input->post('delete_agent_check');
+		$role_item['export_client']=$this->input->post('export_client_check');
 		
 		//事务开始
 		$this->db->trans_start();
@@ -223,6 +224,16 @@ class Role_model extends CI_Model
 		$sql="select delete_client from role where id=$id";
 		$ret=$this->db->query($sql)->result_array();
 		if($ret && $ret[0]['delete_client'] == 1)
+			return TRUE;
+		else
+			return FALSE;
+		
+	}
+	
+	function isCanExportClient($id){
+		$sql="select export_client from role where id=$id";
+		$ret=$this->db->query($sql)->result_array();
+		if($ret && $ret[0]['export_client'] == 1)
 			return TRUE;
 		else
 			return FALSE;

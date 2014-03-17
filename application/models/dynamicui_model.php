@@ -31,7 +31,18 @@ class Dynamicui_model extends CI_Model{
 			
 		return $ret;
 	}
-	
+	function getWorkTableFileds(){
+		$ret=array();	
+		$xml = $this->xml;
+		
+		foreach($xml->bussniessInfoTable->children() as $children){
+			$row=array();
+			foreach($children->children() as $item)
+				array_push($ret,(string)$item->dbfield);
+		}	
+		
+		return $ret;
+	}
 	function getCustomClientCountDbField(){	
 		$xml = $this->xml;	
 		$customClientCountDbItem="client_vkhxx";
@@ -73,15 +84,20 @@ class Dynamicui_model extends CI_Model{
 		foreach($xml->bussniessInfoTable->children() as $children){
 				$row=array();
 				foreach($children->children() as $item){
+					
+					array_push($ret["dbField"],(string)$item->dbfield);
+					array_push($ret["tabHeader"],(string)$item->name);
 					if((string)$item->dbfield == "client_note"){
 						array_push($ret["dbField"],"bill_note");
 						array_push($ret["bindField"],"bill_note");
-					}else{
-						array_push($ret["dbField"],(string)$item->dbfield);
+						array_push($ret["tabHeader"],'沟通记录');
 					}
-				array_push($ret["tabHeader"],(string)$item->name);
+					
+				
 			}
-		}		
+		}	
+		array_push($ret["tabHeader"],"创建时间");	
+		array_push($ret["dbField"],"client_ctime");	
 		return $ret;
 	}
 	
@@ -115,9 +131,7 @@ class Dynamicui_model extends CI_Model{
 		}	
 		return $ret;		
 	}
-			
-	
-	
+				
 	function getCustomClientTableHeader(){
 		$xml = $this->xml;
 		$ret=array();
@@ -126,6 +140,46 @@ class Dynamicui_model extends CI_Model{
 				$item["align"]=(string)$children->align;
 				$item["width"]=(string)$children->width;
 				array_push($ret,$item);
+		}
+		return $ret;
+	}
+
+	
+	function getOrderTableSearchPanel(){
+			
+		$xml = $this->xml;
+		$ret["elements"]=array();	
+		
+		foreach($xml->orderTableSearchPanel->children() as $children){
+			$row=array();
+			foreach($children->children() as $item){
+				$itemArray=array("dbtype"=>(string)$item->dbtype, "colspan"=>(int)$item->colspan,"name"=>(string)$item->name,"lspace"=>(int)$item->lspace,"type"=>(int)$item->type,"id"=>(string)$item->id,"value"=>array("defaultValue"=>'',"values"=>array()));	
+				$itemArray["value"]["defaultValue"]=isset($defaultValues[(string)$item->dbfield])?$defaultValues[(string)$item->dbfield]:'';
+				$itemArray["value"]["values"]=$this->getValues((int)$item->type,(string)$item->valuesource,(string)$item["value"]["defaultValue"],true);
+				array_push($row,$itemArray);
+			}
+			array_push($ret["elements"],$row);		
+		}	
+		
+		return $ret;	
+	}
+	
+	function getOrderTableHeader(){
+		$xml = $this->xml;
+		$ret=array();
+		foreach($xml->orderTable->children() as $children){
+				$item["name"]=(string)$children->name;
+				$item["align"]=(string)$children->align;
+				$item["width"]=(string)$children->width;
+				array_push($ret,$item);
+		}
+		return $ret;
+	}
+	function getOrderTableColumns(){
+		$xml = $this->xml;
+		$ret=array();
+		foreach($xml->orderTable->children() as $children){
+				array_push($ret,(string)$children->dbfield);
 		}
 		return $ret;
 	}

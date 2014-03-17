@@ -13,7 +13,15 @@ function on_transfer_prompt()
 	alert('transfer');
 	$.prompt('Example 2',{ buttons: { Ok: true, Cancel: false } });
 }
-
+function clearPhoneNumberPrefix(phone){
+	var index=phone.indexOf('0');
+	if(index === -1)
+		index=phone.indexOf('');
+	if(index != -1)
+		return phone.substr(index);
+	else
+	 	return phone;
+}
 $(document).ready(function(){
 	var $agentid="<?php echo $agent;?>"
 	
@@ -25,7 +33,7 @@ $(document).ready(function(){
 		  var url="";
 		  var title="";
 		  //建立连接
-		  if(json_msg.floatInfo != 'callout'){
+		  if(json_msg.floatInfo != 'callout'){	 
 			 //来电
 			  url="<?php echo site_url('communicate/connected')?>"+"/callEvent/"+json_msg.releatedNum+"/0/"+json_msg.exten+"/"+json_msg.uniqueid;
 			  title=json_msg.exten;

@@ -1,8 +1,5 @@
 // JavaScript Document
-(function($){
-	var gSelectedId="";
-	var gIntItemIds=[];
-	var gTextItem=[];
+(function($){	
 	function debug($obj) {    
 		if (window.console && window.console.log)    
 		  window.console.log($obj);    
@@ -26,23 +23,16 @@
 		return [];
 	};
 	
-	$.fn.dynamicui.getTextDatas=function(){	
+	$.fn.dynamicui.getTextDatas=function(id){	
 			var ret={ids:[],values:[]};
-			$.each(gTextItem,function(index,entry){															
-					 
-					 if(entry.type === 5){	
-						ret.ids.push(entry.id);		
-						var tmpValue=$('#'+entry.id).val();	
-						ret.values.push(tmpValue);
-					 }else{
-					 	ret.ids.push(entry.id);			
-						ret.values.push($('#'+entry.id).attr('value'));
-					 }		
-			});	
-
+			$(id).find(".dui-control").each(function(){
+				ret.ids.push($(this).attr('id'));			
+				ret.values.push($(this).val());
+			});
+			
 			return ret;
 	};
-	 
+	
 	function addOneRow($this,$obj){
 		var htmlText="<tr>";
 		$.each($obj,function(index,element){
@@ -55,18 +45,17 @@
 	function addOneElement($this,$obj){
 		var htmlText="";
 		if($obj.type === 1 || $obj.type === 3){	
-			gTextItem.push($obj);
+		
 			if($obj.id === 'client_phone' || $obj.id === 'client_cell_phone'){
 				//文本
-			htmlText="<td class='dui-name'>"+$obj.name+"<a href='javascript:webCallPhone(\""+$obj.id+"\")'><img src='www/images/dxzx.png'></a></td><td  class='dui-value' colspan='"+$obj.colspan+"'> <input class='dui-control' id='"+$obj.id+"' type='text' value='"+$obj.value.defaultValue+"'></td>";
+				htmlText="<td class='dui-name'>"+$obj.name+"<a href='javascript:webCallPhone(\""+$obj.id+"\")'><img src='www/images/dxzx.png'></a></td><td  class='dui-value' colspan='"+$obj.colspan+"'> <input class='dui-control' id='"+$obj.id+"' type='text' value='"+$obj.value.defaultValue+"'></td>";
 				
 			}else{
-			//文本
-			htmlText="<td class='dui-name'>"+$obj.name+"</td><td  class='dui-value' colspan='"+$obj.colspan+"'> <input class='dui-control' id='"+$obj.id+"' type='text' value='"+$obj.value.defaultValue+"'></td>";
-			}
-				
+				//文本
+				htmlText="<td class='dui-name'>"+$obj.name+"</td><td  class='dui-value' colspan='"+$obj.colspan+"'> <input class='dui-control' id='"+$obj.id+"' type='text' value='"+$obj.value.defaultValue+"'></td>";
+			}			
 		}else if($obj.type === 2){
-			gTextItem.push($obj);
+		
 			//下拉菜单
 			htmlText+="<td class='dui-name'>"+$obj.name+"</td><td class='dui-value' colspan='"+$obj.colspan+"'><select class='dui-control' id='"+$obj.id+"'>";	
 			$.each($obj.value.values,function(index,elem){
@@ -77,7 +66,7 @@
 			});
 			htmlText+="</select></td>";
 		}else if($obj.type === 4){
-			gIntItemIds.push($obj);
+		
 			htmlText+="<td class='dui-name'>"+$obj.name+"</td><td class='dui-value' colspan='"+$obj.colspan+"'>";
 			//单选按键组
 			$.each($obj.value.values,function(entryIndex,entry){
@@ -87,15 +76,17 @@
 				  });
 			htmlText+="</td>";
 		}else if($obj.type === 5 || $obj.type === 6){
-			gTextItem.push($obj);
+			
 			if($obj.width != ""){
-				htmlText+="<td class='dui-name'>"+$obj.name+"</td><td><textarea style='width:"+$obj.width+";height:"+$obj.height+"' id='"+$obj.id+"'>"+$obj.value.defaultValue+"</textarea></td>";
+				htmlText+="<td class='dui-name'>"+$obj.name+"</td><td><textarea class='dui-control' style='width:"+$obj.width+";height:"+$obj.height+"' id='"+$obj.id+"'>"+$obj.value.defaultValue+"</textarea></td>";
 			}else{
-				htmlText+="<td class='dui-name'>"+$obj.name+"</td><td><textarea   id='"+$obj.id+"'>"+$obj.value.defaultValue+"</textarea></td>";
+				htmlText+="<td class='dui-name'>"+$obj.name+"</td><td><textarea class='dui-control'  id='"+$obj.id+"'>"+$obj.value.defaultValue+"</textarea></td>";
 			}
+		}else if($obj.type === 7){
+			htmlText="<td class='dui-name'>"+$obj.name+"<a href='javascript:webCallPhone(\""+$obj.id+"\")'><img src='www/images/dxzx.png'></a>&nbsp;&nbsp;<a href='javascript:webVoipCallPhone(\""+$obj.id+"\")'>voip<img src='www/images/dxzx.png'></a></td><td  class='dui-value' colspan='"+$obj.colspan+"'> <input class='dui-control' id='"+$obj.id+"' type='text' value='"+$obj.value.defaultValue+"'></td>";
 		}
-		
-		for(var i=0; i<$obj.lspace; i++){
+			
+		for(var i=0; i<$obj.lspace; i++){	
 			htmlText+="<td></td>";
 		}
 		
@@ -117,17 +108,18 @@
 	
 	function customTreeElem($obj,$setting){
 		$("body").append('<div id="'+$obj.id+'div" class="menuContent" style="display:none;position: absolute; heigth:200px;"><ul id="'+$obj.id+'tree" class="ztree" style="margin-top:0;"></ul></div>');			
+		
 		$.fn.zTree.init($("#"+$obj.id+"tree"), $setting, $obj.value.values);
 		$("#"+$obj.id).click(function(){
 			debug("click");
-			gSelectedId=$obj.id;
+			$gSelectedId=$obj.id;
 			hideTreeMenu();
 			showTreeMenu($obj.id);
 		});		
 	}
 	
 	function getSelectedId(){
-		return gSelectedId;
+		return $gSelectedId;
 	}	
 	function getTreeSetting(){
 		return {view: {dblClickExpand: false},data:{simpleData: {enable: true}},callback: {beforeClick: beforeClick,onClick: onClick}};

@@ -7,7 +7,7 @@ class Notice_model extends CI_Model{
 	
 	public function get_all($agentId,$columns,$limit=8, $offset=0,$sort_by='notice_ctime', $sort_order='desc'){
 		
-		$sort_order=$sort_order=='asc'?'desc':'asc';
+		$sort_order=$sort_order=='desc'?'desc':'asc';
 		$fields=array();
 		foreach($columns as $key=>$value){
 			array_push($fields, $value);

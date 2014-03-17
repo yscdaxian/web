@@ -64,6 +64,11 @@ function onAddAgentToRole(viewDataId,url){
                             <td colspan="2">               	
                             </td>
                          </tr>
+                         <tr><td>导出客户</td>
+                            <td><?php echo form_checkbox('export_client_check', '1', $isCanExportClient);?></td>
+                            <td colspan="2">               	
+                            </td>
+                         </tr>
                          <tr><td>功能菜单</td>
                             <td><input name='look_client_check' type='checkbox'></td>
                             <td>

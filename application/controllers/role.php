@@ -66,6 +66,7 @@ class Role extends CI_Controller
 		$role_info=$this->Role_model->get_role_byid($id);
 		$data['role_name']=$role_info[0]->role_name;
 		$data['isCallDelClient']=$this->Role_model->isCallDelClient($id);
+		$data['isCanExportClient']=$this->Role_model->isCanExportClient($id);
 		$data['look_client_agent_data']=$this->Role_model->get_asscocati_agnet_string($id,0);//0查询客户时可显示的用户信息
 		$data['look_record_agent_data']=$this->Role_model->get_asscocati_agnet_string($id,1);//1查询通话记录时可显示的用户信息
 		$data['look_func_data']=$this->Role_model->get_assocati_func($id);

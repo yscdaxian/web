@@ -4,12 +4,10 @@ function call(number)
 {
 	//window.parent.frames['TopFrame'].makeCall(number);
 	phone=number.replace(/[\D]/g,'');
-	if(phone != ''){
-	
+	if(phone != ''){	
 		window.external.AgentHangup("");		
 		window.external.AgentCall(phone,phone);
 	}
-	
 }
 
 function makeBusy(agentId,busy){
@@ -29,7 +27,13 @@ function onClientUiCall(agent,phone){
 		window.external.AgentCall(phone,phone);
 	}
 }
-
+function onClientUiVoipCall(agent,phone){
+	phone=phone.replace(/[\D]/g,'');
+	if(phone != ''){
+		window.external.AgentHangup(agent);
+		window.external.AgentCall(phone,'4'+phone);
+	}
+}
 function listenRecord($location){
 			$("<div style='width:300px;height:400px'><center><object id='mplayer' classid='clsid:6BF52A52-394A-11D3-B153-00C04F79FAA6' id='phx' style='border:0px solid #F00;width: 200px; height: 45px; margin-bottom:-8px'><param name='URL' value='"+$location+"'/><param name='AutoStart' value='false' /></object></center></div>").dialog({
 						autoOpen:true,

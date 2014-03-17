@@ -111,8 +111,8 @@ class Notice extends CI_Controller{
 		$sLimit=$this->datatabes_helper->getPageSql($req);
 		//获得where语句
 	
-		$sOrder=$this->datatabes_helper->getOrderSql($req,$aColumns);
-	
+		//$sOrder=$this->datatabes_helper->getOrderSql($req,$aColumns);
+		$sOrder="order by notice_ctime desc";
 		$sTable="notice";
 		$sQuery = "
 		SELECT SQL_CALC_FOUND_ROWS ".str_replace(" , ", " ", implode(", ", $aColumns))."

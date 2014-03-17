@@ -46,6 +46,15 @@
 					window.parent.iUpdateTabTitle(number);
 					call(number);
 				}
+		}	
+		function webVoipCallPhone(id){
+				var number=$('#'+id).attr('value');						
+			    number=number.replace(/[\D]/g,'');
+				if(number != ''){
+					$('#'+id).attr('value',number);
+					window.parent.iUpdateTabTitle(number);
+					call('4'+number);
+				}
 		}		
 		function updateUniqueid(uniqueid){	
 			$('#uniqueid').attr('value',uniqueid);
@@ -84,7 +93,40 @@
 						}
 				});	
 			});
-						
+			
+			$('#btnCreatWorkOrder').click(function(){
+				$("#createWorkOrder-dialog" ).dialog({
+						autoOpen:true,
+						height: 140,
+						width: 300,
+						modal: true,
+						buttons:{
+							"确认": function(){	
+									$req={'reciever':'','lastTime':'','ids':[],'values':[]}
+									$req.reciever=$('#workOrder-reciever').attr('value');
+									$req.lastTime=getYmdhmDateString('workOrder-ymd','workOrder-hour','workOrder-min');	
+									var bessDatas=$('#bussniessInfoTable').dynamicui.getTextDatas('#bussniessInfoTable');
+									$req.ids=bessDatas.ids;
+									$req.values=bessDatas.values;										
+									//设置预约时间
+									$.post('<?php echo site_url("order/createOrder")?>',$req,function(res){
+										if(res.isOk){
+											alert('生成订单成功');
+										}
+									});
+									$(this).dialog('destroy');
+							},
+							"取消": function(){
+								$(this).dialog( "close" );
+							}
+						},
+						close: function(){
+							$(this).dialog('destroy');
+						}
+				});	
+			});
+			
+				
 			$('#btnBack').click(function(){
 				window.history.back();
 			});
@@ -117,16 +159,15 @@
 				datas.clientBh=$('#clientBh').attr('value');
 				datas.phone=$('#phoneNumber').attr('value');
 				datas.uniqueid=$('#uniqueid').attr('value');
+		
+				var baseDatas=$('#baseInfoTable').dynamicui.getTextDatas('#baseInfoTable');	
+				var bessDatas=$('#bussniessInfoTable').dynamicui.getTextDatas('#bussniessInfoTable');
 				
+				datas.columText.colum=baseDatas.ids.concat(bessDatas.ids);
+				datas.columText.datas=baseDatas.values.concat(bessDatas.values);
 				
-				var textDatas=$('#baseInfoTable').dynamicui.getTextDatas();	
-				datas.columText.colum=textDatas.ids;
-			
-				datas.columText.datas=textDatas.values;
-				var intDatas=$('#baseInfoTable').dynamicui.getIntDatas();			
-				
-				datas.columInt.colum=intDatas.ids;
-				datas.columInt.datas=intDatas.values;
+				datas.columInt.colum=[];
+				datas.columInt.datas=[];
 						
 				$.post("<?php echo site_url('communicate/ajaxCommunicateSave')?>",datas,function(res){	
 					 if(res.ok){
@@ -189,7 +230,11 @@
     <br>
 	预约时间:<input id='yuyue-ymd' type="text" style="width:90px" value="<?php echo $yuyue['ymh']?>">&nbsp;<?php echo form_dropdown('s_hour',$yuyue['hourOptions'],$yuyue['hourDef'],'id="yuyue-hour"')?>&nbsp;<?php echo form_dropdown('s_min',$yuyue['minOptions'],$yuyue['minDef'],'id="yuyue-min"')?>
 </div>
-
+<div id="createWorkOrder-dialog"  style="display:none">
+	&nbsp;&nbsp;&nbsp;接收人:<input id="workOrder-reciever" type="text" style="width:180px" value="" />
+    <br>
+	截止时间:<input id='workOrder-ymd' type="text" style="width:90px" value="<?php echo $yuyue['ymh']?>">&nbsp;<?php echo form_dropdown('s_hour',$yuyue['hourOptions'],$yuyue['hourDef'],'id="workOrder-hour"')?>&nbsp;<?php echo form_dropdown('s_min',$yuyue['minOptions'],$yuyue['minDef'],'id="workOrder-min"')?>
+</div>
 <div class="page_main page_tops">
 	<div class="page_nav">
          <div class="nav_ico"><img src="www/images/page_nav_ico.jpg" /></div>
@@ -200,6 +245,7 @@
      <div class="func-panel">
                     <div class='left'>&nbsp;&nbsp;&nbsp;基本信息</div>
                     <div class="right" align="right">
+                    <input id="btnCreatWorkOrder" type="button" value="生成工单">&nbsp
                     <input id="nextClient" type="button" value="下一个">&nbsp 
                     <input id="btnSave" type="button" value="保存">&nbsp;
                     <input id="btnYuyue" type="button" value="预约">&nbsp;
@@ -213,7 +259,7 @@
 			<div class='tabs' style="padding-left:40px">		
 				<ul class="idTabs">   
                 	<li><a href="#personInfo">个人资料</a></li> 	    
-                	<li><a href="#bussniessInfo">报考信息</a></li>	             	          
+                	<li><a href="#bussniessInfo">业务信息</a></li>	             	          
 					<li><a href="#connectInfo">沟通记录</a></li> 	
                     <li><a href="#helprDoc"> 知识库</a></li>  	                   
 				</ul> 
@@ -232,6 +278,7 @@
                 <td width="120px" >对方电话</td>
                 <td width="80px">通话类型</td>
                 <td width="120px">沟通时间</td>
+                <td width="120px">保存时间</td>
                 <td>通话内容</td>
                 <td width="60px">录音</td>
               </tr></thead></table>

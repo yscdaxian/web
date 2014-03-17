@@ -120,10 +120,10 @@ $(document).ready(function() {
 			 $('td:eq(8)', nRow).html(aData[8]+'['+aData[10]+']');
 			 var htmlStr='<center><a href="javascript:onCallClick(\''+aData[1]+'\',\'<?php echo site_url('communicate/connected')?>/manulClick/'+$('#agentId').attr('value')+'/'+aData[9]+'\')"><img src="www/images/dxzx.png"></img></a></center>';
 			 if(aData[3]){
-			 $('td:eq(3)',nRow).html('<a href="javascript:onClientUiCall(\''+$('#agentId').attr("value")+'\',\''+aData[3]+'\')">'+aData[3]+'<img src="www/images/dxzx.png"></a>');
+			 	$('td:eq(3)',nRow).html('<a href="javascript:onClientUiCall(\''+$('#agentId').attr("value")+'\',\''+aData[3]+'\')">'+aData[3]+'<img src="www/images/dxzx.png"></a>voip<a href="javascript:onClientUiVoipCall(\''+$('#agentId').attr("value")+'\',\''+aData[3]+'\')"><img src="www/images/dxzx.png"></a>');
 			 }
 			 if(aData[4]){
-			 	$('td:eq(4)',nRow).html('<a href="javascript:onClientUiCall(\''+$('#agentId').attr("value")+'\',\''+aData[4]+'\')">'+aData[4]+'<img src="www/images/dxzx.png"></a>');
+			 	$('td:eq(4)',nRow).html('<a href="javascript:onClientUiCall(\''+$('#agentId').attr("value")+'\',\''+aData[4]+'\')">'+aData[4]+'<img src="www/images/dxzx.png"></a>voip<a href="javascript:onClientUiVoipCall(\''+$('#agentId').attr("value")+'\',\''+aData[4]+'\')"><img src="www/images/dxzx.png"></a>');
 			 }
 			 $('td:eq(9)', nRow).html(htmlStr);
     		},
@@ -278,8 +278,8 @@ $(document).ready(function() {
                 	<th align="left" id="cbAll" width="20px"><input   type="checkbox" value="全选" /></td>
                     <th align="left" width="100px">姓名</th>
                     <th align="left" width="40px">性别</th>
-                    <th align="left" width="100px">手机</th>
-                    <th align="left" width="100px">固话</th>
+                    <th align="left" width="160px">手机</th>
+                    <th align="left" width="160px">固话</th>
                     <th align="left">地址</th>    
                     <th align="left" width="120px">创建时间</th>
                     <th align="left" width="120px">沟通时间</th>
