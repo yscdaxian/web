@@ -92,6 +92,7 @@ function clearPhoneNumberPrefix(phone){
 }
 $(document).ready(function(){
 
+				
 $('.side-switcher').toggle(function(){
 		$('#frame-side').animate({width: "2px"}, 300);
 		$('#page-main').animate({left:"4px"}, 300);	
@@ -185,10 +186,10 @@ var $tabs = $("#tabs").tabs({
 	  if(json_msg.eventId === 1){		  
 		  var url="";
 		  var title="";	  
-		  
-		   alert("jianli");
 		  //建立连接
 		  if(json_msg.floatInfo != 'callout'){	
+		  	 if(json_msg.exten.substr(0,1) == '4')
+			 	json_msg.exten=json_msg.exten.substr(1);
 			 //来电
 			  url="<?php echo site_url('communicate/connected')?>"+"/callEvent/"+json_msg.releatedNum+"/0/"+json_msg.exten+"/"+json_msg.uniqueid;
 			  title=json_msg.exten;	 

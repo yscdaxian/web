@@ -32,4 +32,20 @@
 <file name="DB_result.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491880000000" remote="130011561280000000" />
 <file name="DB_utility.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491880000000" remote="130011561280000000" />
 <file name="index.html" server="172.17.1.26//var/www/html/CallCenter/" local="129808491900000000" remote="130011561320000000" />
+<file name="DB.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723680000000" />
+<file name="DB_active_rec.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723680000000" />
+<file name="DB_cache.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723690000000" />
+<file name="DB_driver.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723690000000" />
+<file name="DB_forge.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723690000000" />
+<file name="DB_result.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723690000000" />
+<file name="DB_utility.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723690000000" />
+<file name="index.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723710000000" />
+<file name="DB.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179590000000" />
+<file name="DB_active_rec.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179600000000" />
+<file name="DB_cache.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179600000000" />
+<file name="DB_driver.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179600000000" />
+<file name="DB_forge.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179600000000" />
+<file name="DB_result.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179600000000" />
+<file name="DB_utility.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179600000000" />
+<file name="index.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179620000000" />
 </dwsync>

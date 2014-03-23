@@ -16,4 +16,12 @@
 <file name="chapter_demo_2.txt" server="172.17.1.26//var/www/html/CallCenter/" local="129808491280000000" remote="130011560600000000" />
 <file name="table_data_demo.txt" server="172.17.1.26//var/www/html/CallCenter/" local="129808491280000000" remote="130011560600000000" />
 <file name="utf8test.txt" server="172.17.1.26//var/www/html/CallCenter/" local="129808491280000000" remote="130011560600000000" />
+<file name="chapter_demo_1.txt" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723270000000" />
+<file name="chapter_demo_2.txt" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723270000000" />
+<file name="table_data_demo.txt" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723270000000" />
+<file name="utf8test.txt" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723270000000" />
+<file name="chapter_demo_1.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179170000000" />
+<file name="chapter_demo_2.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179170000000" />
+<file name="table_data_demo.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179170000000" />
+<file name="utf8test.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179170000000" />
 </dwsync>

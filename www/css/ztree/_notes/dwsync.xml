@@ -6,4 +6,6 @@
 <file name="demo.css" server="172.17.1.51//var/www/html/CallCenter/" local="129808492060000000" remote="129865747320000000" />
 <file name="demo.css" server="10.2.16.24//var/www/html/CallCenter/" local="129808492060000000" remote="130020167460000000" />
 <file name="demo.css" server="172.17.1.26//var/www/html/CallCenter/" local="129808492060000000" remote="130011561470000000" />
+<file name="demo.css" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723790000000" />
+<file name="demo.css" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179700000000" />
 </dwsync>

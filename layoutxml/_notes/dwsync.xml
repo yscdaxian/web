@@ -14,4 +14,22 @@
 <file name="beijing-gxl.xml" server="172.17.1.16//var/www/html/CallCenter/" local="130098854821796160" remote="130365712510000000" />
 <file name="beijing-longxiang.xml" server="172.17.1.16//var/www/html/CallCenter/" local="130098854821796160" remote="130365712510000000" />
 <file name="beijing-zhongrui.xml" server="172.17.1.16//var/www/html/CallCenter/" local="130146988402526400" remote="130365712520000000" />
+<file name="beijing-dianying.xml" server="192.168.20.171//var/www/html/CallCenter/" local="130098854821796160" remote="130397723670000000" />
+<file name="beijing-dianyingn.xml" server="192.168.20.171//var/www/html/CallCenter/" local="130146988402526400" remote="130397723670000000" />
+<file name="beijing-fanyiyanxiu.xml" server="192.168.20.171//var/www/html/CallCenter/" local="130326035378946266" remote="130397723670000000" />
+<file name="beijing-gxl.xml" server="192.168.20.171//var/www/html/CallCenter/" local="130098854821796160" remote="130397723670000000" />
+<file name="beijing-jiaoyu.xml" server="192.168.20.171//var/www/html/CallCenter/" local="130098854821796160" remote="130397723670000000" />
+<file name="beijing-longxiang.xml" server="192.168.20.171//var/www/html/CallCenter/" local="130098854821796160" remote="130397723670000000" />
+<file name="beijing-zhongrui.xml" server="192.168.20.171//var/www/html/CallCenter/" local="130146988402526400" remote="130397723670000000" />
+<file name="jiaoyu.xml" server="192.168.20.171//var/www/html/CallCenter/" local="130098854821796160" remote="130397723670000000" />
+<file name="layout_config.xml" server="192.168.20.171//var/www/html/CallCenter/" local="130305943764609360" remote="130397723680000000" />
+<file name="beijing-dianying.xml" server="192.168.0.2//var/www/html/CallCenter/" local="130098854821796160" remote="130400179580000000" />
+<file name="beijing-dianyingn.xml" server="192.168.0.2//var/www/html/CallCenter/" local="130146988402526400" remote="130400179580000000" />
+<file name="beijing-fanyiyanxiu.xml" server="192.168.0.2//var/www/html/CallCenter/" local="130326035378946266" remote="130400179580000000" />
+<file name="beijing-gxl.xml" server="192.168.0.2//var/www/html/CallCenter/" local="130098854821796160" remote="130400179580000000" />
+<file name="beijing-jiaoyu.xml" server="192.168.0.2//var/www/html/CallCenter/" local="130098854821796160" remote="130400179580000000" />
+<file name="beijing-longxiang.xml" server="192.168.0.2//var/www/html/CallCenter/" local="130098854821796160" remote="130400179580000000" />
+<file name="beijing-zhongrui.xml" server="192.168.0.2//var/www/html/CallCenter/" local="130146988402526400" remote="130400179580000000" />
+<file name="jiaoyu.xml" server="192.168.0.2//var/www/html/CallCenter/" local="130098854821796160" remote="130400179580000000" />
+<file name="layout_config.xml" server="192.168.0.2//var/www/html/CallCenter/" local="130305943764609360" remote="130400179580000000" />
 </dwsync>

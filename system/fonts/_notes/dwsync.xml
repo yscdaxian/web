@@ -8,4 +8,8 @@
 <file name="texb.ttf" server="172.17.1.51//var/www/html/CallCenter/" local="129808491900000000" remote="129865747130000000" />
 <file name="index.html" server="172.17.1.26//var/www/html/CallCenter/" local="129808491900000000" remote="130011561320000000" />
 <file name="texb.ttf" server="172.17.1.26//var/www/html/CallCenter/" local="129808491900000000" remote="130011561320000000" />
+<file name="index.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723710000000" />
+<file name="texb.ttf" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723710000000" />
+<file name="index.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179620000000" />
+<file name="texb.ttf" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179620000000" />
 </dwsync>

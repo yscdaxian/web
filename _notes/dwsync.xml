@@ -28,4 +28,18 @@
 <file name="js_test.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491740000000" remote="130011561080000000" />
 <file name="license.txt" server="172.17.1.26//var/www/html/CallCenter/" local="129808491870000000" remote="130011561250000000" />
 <file name="main_view.php" server="172.17.1.26//var/www/html/CallCenter/" local="129842205196782301" remote="130011561250000000" />
+<file name=".buildpath" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397721800000000" />
+<file name=".project" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723140000000" />
+<file name="index.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723600000000" />
+<file name="index.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723600000000" />
+<file name="js_test.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723600000000" />
+<file name="license.txt" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723680000000" />
+<file name="main_view.php" server="192.168.20.171//var/www/html/CallCenter/" local="130308705463558159" remote="130397723680000000" />
+<file name=".buildpath" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400177720000000" />
+<file name=".project" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179050000000" />
+<file name="index.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179510000000" />
+<file name="index.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179510000000" />
+<file name="js_test.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179510000000" />
+<file name="license.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179590000000" />
+<file name="main_view.php" server="192.168.0.2//var/www/html/CallCenter/" local="130308705463558159" remote="130400179590000000" />
 </dwsync>

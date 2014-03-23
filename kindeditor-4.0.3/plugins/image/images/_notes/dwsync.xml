@@ -20,4 +20,12 @@
 <file name="align_right.gif" server="172.17.1.26//var/www/html/CallCenter/" local="129808491840000000" remote="130011561220000000" />
 <file name="align_top.gif" server="172.17.1.26//var/www/html/CallCenter/" local="129808491840000000" remote="130011561220000000" />
 <file name="refresh.gif" server="172.17.1.26//var/www/html/CallCenter/" local="129808491840000000" remote="130011561220000000" />
+<file name="align_left.gif" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723660000000" />
+<file name="align_right.gif" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723660000000" />
+<file name="align_top.gif" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723660000000" />
+<file name="refresh.gif" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723660000000" />
+<file name="align_left.gif" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179570000000" />
+<file name="align_right.gif" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179570000000" />
+<file name="align_top.gif" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179570000000" />
+<file name="refresh.gif" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179570000000" />
 </dwsync>

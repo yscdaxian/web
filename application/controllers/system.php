@@ -59,4 +59,11 @@ class System extends CI_Controller{
 		$data['agentId']=$agent;
 		$this->load->view('tabs_view',$data);
 	}
+	
+	public function callControl($agent){
+		$data['agentId']=$agent;
+		$this->load->view('pbx_call_control_view',$data);
+		
+	}
+	
 }

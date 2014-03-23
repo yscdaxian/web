@@ -56,8 +56,10 @@ class Knowledge extends CI_Controller{
 		$tile=$this->input->post('title');
 		$content=$this->input->post('content');	
 		$sql="update knowledge_data set title='".$tile."',html='".$content."' where id=".$id;
+		$item['title']=$tile;
+		$item['html']=$content;
 		$this->firephp->info($sql);
-		$this->db->query($sql);
+		$this->db->update('knowledge_data',$item,array('id'=>$id));
 		$this->modifyLook($id,'');
 	}
 	
@@ -68,7 +70,16 @@ class Knowledge extends CI_Controller{
 		$data['html']=$ret[0]['html'];
 		$this->load->view('knowledge_preview_view', $data);
 	}
-	
+	function ajaxGetHtmlByTreeId(){
+		header('Content-type: Application/json',true);
+		$req=$this->input->post();
+		$sql="select  title,html from knowledge_data where id=".$req["id"];
+		$ret=$this->db->query($sql)->result_array();
+		$data['tilte']=$ret[0]['title'];
+		$data['html']=$ret[0]['html'];
+		
+		echo json_encode($data);
+	}
 	function ajaxGetTreeNode(){
 		$this->load->library('firephp');
 		$req=$this->input->post();

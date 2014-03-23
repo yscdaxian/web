@@ -24,4 +24,16 @@
 <file name="zTree.css" server="172.17.1.26//var/www/html/CallCenter/" local="129808492070000000" remote="130011561480000000" />
 <file name="layout.css" server="172.17.1.16//var/www/html/CallCenter/" local="130027954331873190" remote="130365712900000000" />
 <file name="impromptu.css" server="172.17.1.16//var/www/html/CallCenter/" local="130030584294799020" remote="130365712900000000" />
+<file name="impromptu.css" server="192.168.20.171//var/www/html/CallCenter/" local="130030584294799020" remote="130397723790000000" />
+<file name="layout.css" server="192.168.20.171//var/www/html/CallCenter/" local="130027954331873190" remote="130397723790000000" />
+<file name="left.css" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723790000000" />
+<file name="main.css" server="192.168.20.171//var/www/html/CallCenter/" local="130104796052261290" remote="130397723790000000" />
+<file name="main.cssb" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723790000000" />
+<file name="zTree.css" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723800000000" />
+<file name="impromptu.css" server="192.168.0.2//var/www/html/CallCenter/" local="130030584294799020" remote="130400179690000000" />
+<file name="layout.css" server="192.168.0.2//var/www/html/CallCenter/" local="130027954331873190" remote="130400179690000000" />
+<file name="left.css" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179700000000" />
+<file name="main.css" server="192.168.0.2//var/www/html/CallCenter/" local="130104796052261290" remote="130400179700000000" />
+<file name="main.cssb" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179700000000" />
+<file name="zTree.css" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179700000000" />
 </dwsync>

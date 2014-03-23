@@ -65,7 +65,7 @@ $(document).ready(function() {
 		
 		var phoneNumberSearch=["likeand","varchar","phone_number",""];	
 		phoneNumberSearch[3]=$("#phoneNumberText").attr("value");
-		var callTypeSearch=["and","varchar","call_type","callout"];
+		var callTypeSearch=["and","varchar","call_type",""];
 		if($("#callType").val() != "-1")
 			callTypeSearch[3]=$("#callType").val();
 			

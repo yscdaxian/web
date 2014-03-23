@@ -28,4 +28,18 @@
 <file name="polynomialBestFitClass.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491600000000" remote="130011560920000000" />
 <file name="powerBestFitClass.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491600000000" remote="130011560920000000" />
 <file name="trendClass.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491600000000" remote="130011560920000000" />
+<file name="bestFitClass.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723510000000" />
+<file name="exponentialBestFitClass.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723510000000" />
+<file name="linearBestFitClass.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723510000000" />
+<file name="logarithmicBestFitClass.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723510000000" />
+<file name="polynomialBestFitClass.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723510000000" />
+<file name="powerBestFitClass.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723510000000" />
+<file name="trendClass.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723510000000" />
+<file name="bestFitClass.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179410000000" />
+<file name="exponentialBestFitClass.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179410000000" />
+<file name="linearBestFitClass.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179410000000" />
+<file name="logarithmicBestFitClass.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179410000000" />
+<file name="polynomialBestFitClass.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179410000000" />
+<file name="powerBestFitClass.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179410000000" />
+<file name="trendClass.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179410000000" />
 </dwsync>

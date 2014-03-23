@@ -6,4 +6,6 @@
 <file name="de_DE.txt" server="172.17.1.51//var/www/html/CallCenter/" local="129811086030000000" remote="129865748360000000" />
 <file name="de_DE.txt" server="10.2.16.24//var/www/html/CallCenter/" local="129811086030000000" remote="130020169010000000" />
 <file name="de_DE.txt" server="172.17.1.26//var/www/html/CallCenter/" local="129811086030000000" remote="130011562130000000" />
+<file name="de_DE.txt" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724140000000" />
+<file name="de_DE.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180050000000" />
 </dwsync>

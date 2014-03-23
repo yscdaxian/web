@@ -196,12 +196,13 @@ class Role extends CI_Controller
 		$req=$this->input->post();
 		$this->load->library('firephp');
 		$this->firephp->info($req);
-		$sql="select delete_client from role left join agents on role.id=role_id where code='".$req['agent']."' limit 0,1";
+		$sql="select delete_client,export_client from role left join agents on role.id=role_id where code='".$req['agent']."' limit 0,1";
 		$rs=$this->db->query($sql)->result_array();
 		$ret['isOk']=false;
 		foreach($rs as $row){
 			$ret['isOk']=true;
 			$ret['delete_client']=$row['delete_client'] == 1?true:false;
+			$ret['export_client']=$row['export_client'] == 1?true:false;
 		}
 		echo json_encode($ret);
 	}

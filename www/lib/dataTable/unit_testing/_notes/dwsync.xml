@@ -24,4 +24,12 @@
 <file name="controller.php" server="172.17.1.26//var/www/html/CallCenter/" local="129811086070000000" remote="130011562170000000" />
 <file name="index.html" server="172.17.1.26//var/www/html/CallCenter/" local="129811086070000000" remote="130011562170000000" />
 <file name="unit_test.js" server="172.17.1.26//var/www/html/CallCenter/" local="129811086070000000" remote="130011562360000000" />
+<file name="controller.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724170000000" />
+<file name="controller.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724170000000" />
+<file name="index.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724170000000" />
+<file name="unit_test.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724260000000" />
+<file name="controller.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180070000000" />
+<file name="controller.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180070000000" />
+<file name="index.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180070000000" />
+<file name="unit_test.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180160000000" />
 </dwsync>

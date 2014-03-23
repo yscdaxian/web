@@ -12,4 +12,8 @@
 <file name="api.methods.js" server="10.2.16.24//var/www/html/CallCenter/" local="129811086050000000" remote="130020169050000000" />
 <file name="api.internal.js" server="172.17.1.26//var/www/html/CallCenter/" local="129811086040000000" remote="130011562150000000" />
 <file name="api.methods.js" server="172.17.1.26//var/www/html/CallCenter/" local="129811086050000000" remote="130011562150000000" />
+<file name="api.internal.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724150000000" />
+<file name="api.methods.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724150000000" />
+<file name="api.internal.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180060000000" />
+<file name="api.methods.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180060000000" />
 </dwsync>

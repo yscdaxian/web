@@ -16,4 +16,12 @@
 <file name="eng.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491290000000" remote="130011560610000000" />
 <file name="ger.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491290000000" remote="130011560610000000" />
 <file name="ita.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491290000000" remote="130011560610000000" />
+<file name="bra.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723270000000" />
+<file name="eng.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723270000000" />
+<file name="ger.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723270000000" />
+<file name="ita.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723270000000" />
+<file name="bra.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179170000000" />
+<file name="eng.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179170000000" />
+<file name="ger.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179170000000" />
+<file name="ita.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179170000000" />
 </dwsync>

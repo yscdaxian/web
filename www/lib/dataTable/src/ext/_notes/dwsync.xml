@@ -24,4 +24,12 @@
 <file name="ext.paging.js" server="172.17.1.26//var/www/html/CallCenter/" local="129811086060000000" remote="130011562160000000" />
 <file name="ext.sorting.js" server="172.17.1.26//var/www/html/CallCenter/" local="129811086060000000" remote="130011562160000000" />
 <file name="ext.types.js" server="172.17.1.26//var/www/html/CallCenter/" local="129811086060000000" remote="130011562160000000" />
+<file name="ext.classes.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724160000000" />
+<file name="ext.paging.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724160000000" />
+<file name="ext.sorting.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724160000000" />
+<file name="ext.types.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724160000000" />
+<file name="ext.classes.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180070000000" />
+<file name="ext.paging.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180070000000" />
+<file name="ext.sorting.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180070000000" />
+<file name="ext.types.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180070000000" />
 </dwsync>

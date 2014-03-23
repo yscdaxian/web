@@ -5,4 +5,6 @@
 <file name="insertfile.js" server="172.17.1.16//var/www/html/CallCenter/" local="130026204871621120" remote="130365712460000000" />
 <file name="insertfile.js" server="172.17.1.51//var/www/html/CallCenter/" local="129808491850000000" remote="129865747020000000" />
 <file name="insertfile.js" server="172.17.1.26//var/www/html/CallCenter/" local="129808491850000000" remote="130011561220000000" />
+<file name="insertfile.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723660000000" />
+<file name="insertfile.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179570000000" />
 </dwsync>

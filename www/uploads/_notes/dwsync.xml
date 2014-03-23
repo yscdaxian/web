@@ -20,4 +20,12 @@
 <file name="9-141.xls" server="10.2.16.24//var/www/html/CallCenter/" local="129808492840000000" remote="130020169960000000" />
 <file name="9-142.xls" server="10.2.16.24//var/www/html/CallCenter/" local="129808492840000000" remote="130020169960000000" />
 <file name="test.xlsx" server="10.2.16.24//var/www/html/CallCenter/" local="129808492850000000" remote="130020169970000000" />
+<file name="9-14.xls" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724310000000" />
+<file name="9-141.xls" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724310000000" />
+<file name="9-142.xls" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724310000000" />
+<file name="test.xlsx" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724310000000" />
+<file name="9-14.xls" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180200000000" />
+<file name="9-141.xls" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180200000000" />
+<file name="9-142.xls" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180200000000" />
+<file name="test.xlsx" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180200000000" />
 </dwsync>

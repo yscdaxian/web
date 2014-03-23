@@ -20,4 +20,14 @@
 <file name="oci8_forge.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491890000000" remote="130011561290000000" />
 <file name="oci8_result.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491890000000" remote="130011561290000000" />
 <file name="oci8_utility.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491890000000" remote="130011561290000000" />
+<file name="index.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723700000000" />
+<file name="oci8_driver.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723700000000" />
+<file name="oci8_forge.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723700000000" />
+<file name="oci8_result.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723700000000" />
+<file name="oci8_utility.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723700000000" />
+<file name="index.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179610000000" />
+<file name="oci8_driver.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179610000000" />
+<file name="oci8_forge.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179610000000" />
+<file name="oci8_result.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179610000000" />
+<file name="oci8_utility.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179610000000" />
 </dwsync>

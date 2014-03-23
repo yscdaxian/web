@@ -28,4 +28,18 @@
 <file name="Workbook.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491640000000" remote="130011560960000000" />
 <file name="Worksheet.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491640000000" remote="130011560960000000" />
 <file name="Xf.php" server="172.17.1.26//var/www/html/CallCenter/" local="129808491640000000" remote="130011560970000000" />
+<file name="BIFFwriter.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723530000000" />
+<file name="Escher.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723530000000" />
+<file name="Font.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723530000000" />
+<file name="Parser.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723530000000" />
+<file name="Workbook.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723530000000" />
+<file name="Worksheet.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723530000000" />
+<file name="Xf.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723530000000" />
+<file name="BIFFwriter.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179440000000" />
+<file name="Escher.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179440000000" />
+<file name="Font.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179440000000" />
+<file name="Parser.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179440000000" />
+<file name="Workbook.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179440000000" />
+<file name="Worksheet.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179440000000" />
+<file name="Xf.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179450000000" />
 </dwsync>

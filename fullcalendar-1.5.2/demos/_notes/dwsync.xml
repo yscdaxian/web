@@ -45,4 +45,22 @@
 <file name="json.html" server="172.17.1.26//var/www/html/CallCenter/" local="129808491700000000" remote="130011561040000000" />
 <file name="selectable.html" server="172.17.1.26//var/www/html/CallCenter/" local="129808491700000000" remote="130011561040000000" />
 <file name="theme.html" server="172.17.1.26//var/www/html/CallCenter/" local="129808491700000000" remote="130011561040000000" />
+<file name="agenda-views.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723570000000" />
+<file name="basic-views.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723570000000" />
+<file name="default.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723580000000" />
+<file name="external-dragging.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723580000000" />
+<file name="gcal.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723580000000" />
+<file name="json-events.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723580000000" />
+<file name="json.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723580000000" />
+<file name="selectable.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723580000000" />
+<file name="theme.html" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723580000000" />
+<file name="agenda-views.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179480000000" />
+<file name="basic-views.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179480000000" />
+<file name="default.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179490000000" />
+<file name="external-dragging.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179490000000" />
+<file name="gcal.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179490000000" />
+<file name="json-events.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179490000000" />
+<file name="json.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179490000000" />
+<file name="selectable.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179490000000" />
+<file name="theme.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179490000000" />
 </dwsync>

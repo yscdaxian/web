@@ -22,4 +22,14 @@
 <file name="jquery-ui-1.8.16.custom.js" server="172.17.1.26//var/www/html/CallCenter/" local="129811086210000000" remote="130011562380000000" />
 <file name="jquery.json-2.3.min.js" server="172.17.1.26//var/www/html/CallCenter/" local="129808492630000000" remote="130011562380000000" />
 <file name="jquery-ui-1.9.2.custom.min.js" server="172.17.1.16//var/www/html/CallCenter/" local="130027954331873190" remote="130365714930000000" />
+<file name="jquery-1.5.2.min.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724260000000" />
+<file name="jquery-ui-1.8.11.custom.min.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724260000000" />
+<file name="jquery-ui-1.8.16.custom.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724270000000" />
+<file name="jquery-ui-1.9.2.custom.min.js" server="192.168.20.171//var/www/html/CallCenter/" local="130027954331873190" remote="130397724270000000" />
+<file name="jquery.json-2.3.min.js" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397724270000000" />
+<file name="jquery-1.5.2.min.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180160000000" />
+<file name="jquery-ui-1.8.11.custom.min.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180160000000" />
+<file name="jquery-ui-1.8.16.custom.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180160000000" />
+<file name="jquery-ui-1.9.2.custom.min.js" server="192.168.0.2//var/www/html/CallCenter/" local="130027954331873190" remote="130400180170000000" />
+<file name="jquery.json-2.3.min.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180170000000" />
 </dwsync>

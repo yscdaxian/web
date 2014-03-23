@@ -15,4 +15,10 @@
 <file name="changelog.txt" server="172.17.1.26//var/www/html/CallCenter/" local="129808491690000000" remote="130011561030000000" />
 <file name="GPL-LICENSE.txt" server="172.17.1.26//var/www/html/CallCenter/" local="129808491710000000" remote="130011561050000000" />
 <file name="MIT-LICENSE.txt" server="172.17.1.26//var/www/html/CallCenter/" local="129808491730000000" remote="130011561080000000" />
+<file name="changelog.txt" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723570000000" />
+<file name="GPL-LICENSE.txt" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723590000000" />
+<file name="MIT-LICENSE.txt" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723600000000" />
+<file name="changelog.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179480000000" />
+<file name="GPL-LICENSE.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179490000000" />
+<file name="MIT-LICENSE.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179510000000" />
 </dwsync>

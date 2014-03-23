@@ -22,7 +22,7 @@ function transfer(oldExt,newExt){
 function onClientUiCall(agent,phone){
 	phone=phone.replace(/[\D]/g,'');
 	if(phone != ''){
-		alert(agent);
+		//alert(agent);
 		window.external.AgentHangup(agent);
 		window.external.AgentCall(phone,phone);
 	}

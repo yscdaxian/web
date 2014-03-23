@@ -149,11 +149,18 @@ $(document).ready(function() {
 	createTables(getSearchString());
 	$req={agent:''};
 	$req.agent=$('#agentId').attr('value');
+	
 	$.post("<?php echo site_url('role/ajaxGetRoleByAgent')?>",$req,function(ret){	
-		if(ret.isOk && ret.delete_client == false){
-			
-			$('#btnDelAll').css('display','none');
-			$('#btnDel').css('display','none');
+		
+		if(ret.isOk){
+			if(ret.delete_client){
+				
+				$('#btnDelAll').css('visibility','visible');
+				$('#btnDel').css('visibility','visible');
+			}
+			if(ret.export_client){
+				$('#btnExport').css('visibility','visible');
+			}
 		}													
 	});  
 			
@@ -256,13 +263,13 @@ $(document).ready(function() {
           
 			 	<input type="button" id="btnSearch" value="搜索" class="btnSearch"/>
                 <input type="button" id="btnAdvance" value="高级" class="btnSearch"/>
-                <input type="button" id="btnExport" value="导出" class="btnSearch"/>
+                <input type="button" id="btnExport" value="导出" style="visibility:hidden;" class="btnSearch"/>
                 <a id="csvUrl" href='export_datas/clients_09Apr12.csv'></a>
 			 </div>
 			 <div align='right' class="right">
              	 <input  id='btnAddWaitComm' type="button" name="btnSearch" value="待沟通添加 " class="btnDel" />
-				 <input  id='btnDel' type="button" name="btnSearch" value="删除 " class="btnDel" />
-                 <input  id='btnDelAll' type="button" name="btnSearch" value="删除所有 " class="btnDel" />&nbsp;
+				 <input  id='btnDel' type="button" name="btnSearch" value="删除 " class="btnDel" style="visibility:hidden;" />
+                 <input  id='btnDelAll' type="button" name="btnSearch" value="删除所有 " class="btnDel" style="visibility:hidden;" />&nbsp;
 			 </div>		
 			 <div style="clear:both;"></div>  
 	</div>	

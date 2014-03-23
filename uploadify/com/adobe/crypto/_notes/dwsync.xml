@@ -35,4 +35,18 @@
 <file name="SHA224.as" server="172.17.1.26//var/www/html/CallCenter/" local="129808491960000000" remote="130011561400000000" />
 <file name="SHA256.as" server="172.17.1.26//var/www/html/CallCenter/" local="129808491960000000" remote="130011561400000000" />
 <file name="WSSEUsernameToken.as" server="172.17.1.26//var/www/html/CallCenter/" local="129808491960000000" remote="130011561400000000" />
+<file name="HMAC.as" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723740000000" />
+<file name="MD5.as" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723740000000" />
+<file name="MD5Stream.as" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723740000000" />
+<file name="SHA1.as" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723740000000" />
+<file name="SHA224.as" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723740000000" />
+<file name="SHA256.as" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723740000000" />
+<file name="WSSEUsernameToken.as" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723740000000" />
+<file name="HMAC.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
+<file name="MD5.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
+<file name="MD5Stream.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
+<file name="SHA1.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
+<file name="SHA224.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
+<file name="SHA256.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
+<file name="WSSEUsernameToken.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
 </dwsync>

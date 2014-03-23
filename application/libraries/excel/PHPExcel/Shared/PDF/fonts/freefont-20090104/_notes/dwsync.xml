@@ -24,4 +24,16 @@
 <file name="CREDITS" server="172.17.1.26//var/www/html/CallCenter/" local="129808491440000000" remote="130011560760000000" />
 <file name="INSTALL" server="172.17.1.26//var/www/html/CallCenter/" local="129808491440000000" remote="130011560760000000" />
 <file name="README" server="172.17.1.26//var/www/html/CallCenter/" local="129808491440000000" remote="130011560760000000" />
+<file name="AUTHORS" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723380000000" />
+<file name="ChangeLog" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723380000000" />
+<file name="COPYING" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723380000000" />
+<file name="CREDITS" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723380000000" />
+<file name="INSTALL" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723380000000" />
+<file name="README" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723380000000" />
+<file name="AUTHORS" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179280000000" />
+<file name="ChangeLog" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179280000000" />
+<file name="COPYING" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179290000000" />
+<file name="CREDITS" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179290000000" />
+<file name="INSTALL" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179290000000" />
+<file name="README" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179290000000" />
 </dwsync>

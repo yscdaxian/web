@@ -19,6 +19,8 @@
 			@import "www/lib/dataTable/css/demo_table.css";
 .dataTables_filter{display:none}
 .dataTables_length{display:none}
+html{ height:100%;}
+body { height:100%;}
 </style>
 <script>
 
@@ -32,14 +34,23 @@ var setting = {
 				dblClickExpand: false
 			},	
 			callback: {
-				onDblClick: zTreeOnDblClick
+				onClick: zTreeOnClick
 			}
 		};
 
 		zNodes=<?php echo json_encode($treeData);?>;	
 		
-		function zTreeOnDblClick(event, treeId, treeNode) {
-			window.parent.iAddTab(treeNode.name,"<?php echo site_url('knowledge/preview/');?>"+'/'+treeNode.dId);
+		function zTreeOnClick(event, treeId, treeNode) {
+			if(treeNode.isParent){
+				zTree.expandNode(treeNode);
+				return;	
+			}
+				
+			var req={id:''};
+			req.id=treeNode.dId;
+			$.post("<?php echo site_url('knowledge/ajaxGetHtmlByTreeId')?>",req,function(res){	
+				$('#pcontent').html(res.html);				  							
+			});  		
 		}
 
 		var zTree;
@@ -47,9 +58,9 @@ var setting = {
 			$.fn.zTree.init($("#treeDemo"), setting, zNodes);
 			zTree = $.fn.zTree.getZTreeObj("treeDemo");
 			rMenu = $("#rMenu");
-		});
-		
-</script> 
+		});	
+</script>
+ 
 <style type="text/css">
 div#rMenu {position:absolute; visibility:hidden; top:0; background-color: #555;text-align: left;padding: 2px;}
 div#rMenu ul li{
@@ -60,7 +71,9 @@ div#rMenu ul li{
 	background-color: #DFDFDF;
 }
 #treeDemo{
-	width:500px;
+	width:200px;
+	height:100%;
+	border:0  #FFF;
 }
 	</style>   
 </head>
@@ -72,11 +85,18 @@ div#rMenu ul li{
          <div class="nav_">当前位置：&gt; 所有客户</div>
          <div class="nav_other"></div>
 	</div>
-     <div class="layout-middle"></div>
-    	<div id="example" style='display:block'>
+    <div class="layout-middle"></div>
+    <div id="example" style='float:left; height:100%;'>
        	 	<ul id="treeDemo" class="ztree"></ul>
-    	</ul>
-   </div>
+    		</ul>
+   	</div>
+    <div>
+         <center>  
+           <div id="pcontent"> </div>  
+          </center>
+           
+    </div>
+      
 </div>
 
 </body>
