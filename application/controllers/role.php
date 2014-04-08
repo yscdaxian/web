@@ -68,7 +68,9 @@ class Role extends CI_Controller
 		$data['isCallDelClient']=$this->Role_model->isCallDelClient($id);
 		$data['isCanExportClient']=$this->Role_model->isCanExportClient($id);
 		$data['look_client_agent_data']=$this->Role_model->get_asscocati_agnet_string($id,0);//0查询客户时可显示的用户信息
-		$data['look_record_agent_data']=$this->Role_model->get_asscocati_agnet_string($id,1);//1查询通话记录时可显示的用户信息
+		$data['look_record_agent_data']=$this->Role_model->get_asscocati_agnet_string($id,1);//1查询通话记录时可显示的用户信
+		$data['order_agent_data']=$this->Role_model->get_asscocati_agnet_string($id,2);//2查询工单时可显示的用户信息息
+		
 		$data['look_func_data']=$this->Role_model->get_assocati_func($id);
 		
 		$this->load->view('role_detail_view', $data);
@@ -97,7 +99,7 @@ class Role extends CI_Controller
 	*/
 	public function select_items($type=0,$role_id=-1)
 	{
-		if($type == 0 || $type == 1){
+		if($type == 0 || $type == 1 ||$type == 2){
 			$this->show_select_agents($type,$role_id);
 		}
 		else if($type == 3){
@@ -173,6 +175,7 @@ class Role extends CI_Controller
 		 $data=$this->input->post();	
 		 $this->load->library('firephp');
 		 $this->firephp->info($data["ids"]);
+		 
 		 if(count($data["ids"])>0)
 		 	$this->Role_model->delete_roles($data["ids"]);	
 		 

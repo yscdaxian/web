@@ -36,4 +36,10 @@
 <file name="HTML.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179450000000" />
 <file name="IWriter.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179450000000" />
 <file name="PDF.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179450000000" />
+<file name="CSV.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187210000000" />
+<file name="Excel2007.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187220000000" />
+<file name="Excel5.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187240000000" />
+<file name="HTML.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187240000000" />
+<file name="IWriter.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187240000000" />
+<file name="PDF.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187240000000" />
 </dwsync>

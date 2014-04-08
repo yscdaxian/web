@@ -48,4 +48,12 @@
 <file name="README" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179190000000" />
 <file name="status.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179200000000" />
 <file name="unicover.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179200000000" />
+<file name="AUTHORS" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186960000000" />
+<file name="BUGS" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186960000000" />
+<file name="langcover.txt" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186960000000" />
+<file name="LICENSE" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186960000000" />
+<file name="NEWS" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186960000000" />
+<file name="README" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186970000000" />
+<file name="status.txt" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186970000000" />
+<file name="unicover.txt" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186970000000" />
 </dwsync>

@@ -42,4 +42,11 @@
 <file name="js_test.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179510000000" />
 <file name="license.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179590000000" />
 <file name="main_view.php" server="192.168.0.2//var/www/html/CallCenter/" local="130308705463558159" remote="130400179590000000" />
+<file name=".buildpath" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406185100000000" />
+<file name=".project" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="index.html" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="index.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="js_test.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187320000000" />
+<file name="license.txt" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187410000000" />
+<file name="main_view.php" server="172.17.1.11//var/www/html/CallCenter/" local="130308705463558159" remote="130406187410000000" />
 </dwsync>

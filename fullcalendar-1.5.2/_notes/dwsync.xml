@@ -21,4 +21,7 @@
 <file name="changelog.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179480000000" />
 <file name="GPL-LICENSE.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179490000000" />
 <file name="MIT-LICENSE.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179510000000" />
+<file name="changelog.txt" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187280000000" />
+<file name="GPL-LICENSE.txt" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187300000000" />
+<file name="MIT-LICENSE.txt" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
 </dwsync>

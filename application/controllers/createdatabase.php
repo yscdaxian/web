@@ -10,24 +10,35 @@ class Createdatabase extends CI_Controller
 	}
 	
 	private function clearDbField(){
-		$defaultDbField=array('client_id','client_iswaitcom','client_agent','client_modify_time','client_ctime','client_excel_id','client_creater','client_batch_number','client_address','client_cell_phone','client_phone','client_sex');
+		$defaultDbField=array('client_id','client_iswaitcom','client_agent','client_modify_time','client_ctime','client_excel_id','client_creater','client_batch_number','client_address','client_cell_phone','client_phone','client_sex','client_cell_phone_two','client_phone_two','client_person_card');
 		$fields = $this->db->list_fields('clients');
 		echo "begin";
 		foreach ($fields as $field){
 		 
 		   if(!in_array($field,$defaultDbField)){
 		   		$this->dbforge->drop_column('clients', $field);
+				//$this->dbforge->drop_column('clients_tmp', $field);
+				echo "drop".$field."<br>";	
+		   }
+		} 
+		
+		$fields = $this->db->list_fields('clients_tmp');
+		echo "begin";
+		foreach ($fields as $field){
+		 
+		   if(!in_array($field,$defaultDbField)){
+		   		//$this->dbforge->drop_column('clients', $field);
 				$this->dbforge->drop_column('clients_tmp', $field);
 				echo "drop".$field."<br>";	
 		   }
 		} 
 		
-		$defaultWorkTableField=array('id','owner','dead_line','ctime');
+		$defaultWorkTableField=array('id','owner','dead_line','order_ctime','client_id','order_processer','order_note','order_status');
 		$fields = $this->db->list_fields('work');
 		foreach ($fields as $field){
 		 
 		   if(!in_array($field,$defaultWorkTableField)){
-		   		$this->dbforge->drop_column('work', $field);
+		   		//$this->dbforge->drop_column('work', $field);
 				//$this->dbforge->drop_column('clients_tmp', $field);
 				echo "work table drop".$field."<br>";
 				
@@ -78,10 +89,11 @@ class Createdatabase extends CI_Controller
 	}
 	
 	public function addWorkTableField(){
+		echo "addWorkTableField";
 		$this->load->library('Dynamicui',array("agentId"=>""));
 	  	$dyModelName=$this->dynamicui->getDynamicuiModel();
 		$this->load->model($dyModelName);
-		$allDbField=$this->$dyModelName->getWorkTableFileds();
+		$allDbField=$this->$dyModelName->getOrderTableColumns();
 		foreach($allDbField as $dbField){
 			echo $dbField."<br>";
 			if ($this->db->field_exists($dbField, 'work')){

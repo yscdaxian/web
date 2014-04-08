@@ -62,4 +62,28 @@ class Pbx extends CI_Controller{
 		
 		echo json_encode($output);
 	}
+	
+	public function ajaxGetPbxAttr(){
+		header('Content-type: Application/json',true);
+		
+		$ret=$this->db->query("select pbx_transfer_phone,pbx_is_transfer from pbx")->result_array();
+		echo json_encode($ret);	
+	}
+	
+	public function ajaxSetPbxTransferAttr(){
+		header('Content-type: Application/json',true);
+		$req=$this->input->post();
+		$sql="update pbx set pbx_is_transfer=".$req['pbx_is_transfer'];
+		$this->db->query($sql);
+		
+	}
+	
+	public function ajaxSetPbxTransferPhoneAttr(){
+		header('Content-type: Application/json',true);
+		$req=$this->input->post();
+		$sql="update pbx set pbx_transfer_phone='".$req['pbx_transfer_phone']."'";
+		$this->db->query($sql);
+		
+	}
+	
 }

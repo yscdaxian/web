@@ -104,4 +104,17 @@
 <file name="sort_both.png" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180050000000" />
 <file name="sort_desc.png" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180050000000" />
 <file name="sort_desc_disabled.png" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180050000000" />
+<file name="back_disabled.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="back_enabled.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="back_enabled_hover.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="favicon.ico" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="forward_disabled.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="forward_enabled.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="forward_enabled_hover.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="Sorting icons.psd" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="sort_asc.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187990000000" />
+<file name="sort_asc_disabled.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187990000000" />
+<file name="sort_both.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187990000000" />
+<file name="sort_desc.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187990000000" />
+<file name="sort_desc_disabled.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187990000000" />
 </dwsync>

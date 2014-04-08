@@ -14,14 +14,24 @@
 		$('#bt_del').click(function(){
 			$ids=[];
 			var datas=getSelectedItem();
-			$req={'ids':[]};
-			$req.ids=datas;
-			$.post("<?php echo site_url('role/ajax_delete')?>",$req,function(res){	
-				if(res.ok)
-					location.href="<?php echo site_url('role/look')?>";						
-			}); 
+			//$req={'ids':[]};
+			//$req.ids=datas;
+			$('#example tbody tr').each(function(i){			
+				var id = this.id;
+				if($(this).children("td").children(":checkbox").attr("checked"))
+					$ids.push(id);
+					alert(id);
+				
+			});
+			alert($ids);		
+			//$.post("<?php //echo site_url('role/ajax_delete')?>",$req,function(res){	
+				//if(res.ok)
+					//location.href="<?php //echo site_url('role/look')?>";						
+			//});
+			
 		});
 	});
+
 </script>
 </head>
 <body>

@@ -36,4 +36,10 @@
 <file name="CREDITS" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179290000000" />
 <file name="INSTALL" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179290000000" />
 <file name="README" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179290000000" />
+<file name="AUTHORS" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187060000000" />
+<file name="ChangeLog" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187060000000" />
+<file name="COPYING" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187060000000" />
+<file name="CREDITS" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187060000000" />
+<file name="INSTALL" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187060000000" />
+<file name="README" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187060000000" />
 </dwsync>

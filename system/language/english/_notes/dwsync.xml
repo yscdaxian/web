@@ -72,4 +72,16 @@
 <file name="profiler_lang.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179630000000" />
 <file name="unit_test_lang.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179630000000" />
 <file name="upload_lang.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179630000000" />
+<file name="calendar_lang.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187450000000" />
+<file name="date_lang.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187450000000" />
+<file name="db_lang.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187450000000" />
+<file name="email_lang.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
+<file name="form_validation_lang.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
+<file name="ftp_lang.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
+<file name="imglib_lang.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
+<file name="index.html" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
+<file name="number_lang.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
+<file name="profiler_lang.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
+<file name="unit_test_lang.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
+<file name="upload_lang.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
 </dwsync>

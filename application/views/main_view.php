@@ -16,7 +16,9 @@ function updateMonitorView(msg){
 $(document).ready(function(){
 	var $agentid="<?php echo $agent;?>"	
 	window.external.ExtLogin($agentid,$agentid);
+	
 	makeBusy($agentid,false);
+	
 	onProxyEvent=function(type,msg){
 	  var  json_msg=eval( '( '+msg+' )' ); 	
 	  if(json_msg.eventId === 1){		  

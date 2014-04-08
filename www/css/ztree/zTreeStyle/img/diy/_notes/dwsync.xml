@@ -80,4 +80,14 @@
 <file name="7.png" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179700000000" />
 <file name="8.png" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179700000000" />
 <file name="9.png" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179700000000" />
+<file name="1_close.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187540000000" />
+<file name="1_open.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187540000000" />
+<file name="2.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187540000000" />
+<file name="3.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187540000000" />
+<file name="4.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187540000000" />
+<file name="5.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187540000000" />
+<file name="6.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187540000000" />
+<file name="7.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187540000000" />
+<file name="8.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187540000000" />
+<file name="9.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187540000000" />
 </dwsync>

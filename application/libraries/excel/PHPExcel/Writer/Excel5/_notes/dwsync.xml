@@ -42,4 +42,11 @@
 <file name="Workbook.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179440000000" />
 <file name="Worksheet.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179440000000" />
 <file name="Xf.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179450000000" />
+<file name="BIFFwriter.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187220000000" />
+<file name="Escher.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187220000000" />
+<file name="Font.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187230000000" />
+<file name="Parser.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187230000000" />
+<file name="Workbook.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187230000000" />
+<file name="Worksheet.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187230000000" />
+<file name="Xf.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187230000000" />
 </dwsync>

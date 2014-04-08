@@ -18,4 +18,7 @@
 <file name="aql.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179060000000" />
 <file name="aql_confparser.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179070000000" />
 <file name="third_tool.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179070000000" />
+<file name="aql.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186810000000" />
+<file name="aql_confparser.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186810000000" />
+<file name="third_tool.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186820000000" />
 </dwsync>

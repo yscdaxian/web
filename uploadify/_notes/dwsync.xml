@@ -98,4 +98,18 @@
 <file name="uploadify.fla" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179690000000" />
 <file name="uploadify.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179690000000" />
 <file name="uploadify.swf" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179690000000" />
+<file name="cancel.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187490000000" />
+<file name="check.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187490000000" />
+<file name="demo.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187510000000" />
+<file name="expressInstall.swf" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187510000000" />
+<file name="jquery-1.4.2.min.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187510000000" />
+<file name="jquery.uploadify.v2.1.4.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187520000000" />
+<file name="jquery.uploadify.v2.1.4.min.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187520000000" />
+<file name="swfobject.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187520000000" />
+<file name="uploadify-v2.1.4.zip" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187520000000" />
+<file name="uploadify.allglyphs.swf" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187520000000" />
+<file name="uploadify.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187520000000" />
+<file name="uploadify.fla" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187520000000" />
+<file name="uploadify.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187530000000" />
+<file name="uploadify.swf" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187530000000" />
 </dwsync>

@@ -59,6 +59,7 @@ class Role_model extends CI_Model
 		//插入权限关系look_client
 		$this->insert_associate_agent($id, $this->input->post('look_client_agnet_data'),0);
 		$this->insert_associate_agent($id, $this->input->post('look_record_agnet_data'),1);
+		$this->insert_associate_agent($id, $this->input->post('order_agnet_data'),1);
 		$this->insert_associate_func($id, $this->input->post('look_func_data'));
 		//事务结束
 		$this->db->trans_complete();
@@ -84,7 +85,13 @@ class Role_model extends CI_Model
 		//插入权限关系look_client
 		$this->insert_associate_agent($id, $this->input->post('look_client_agnet_data'),0);
 		$this->insert_associate_agent($id, $this->input->post('look_record_agnet_data'),1);
+		$this->insert_associate_agent($id, $this->input->post('order_agnet_data'),2);
+		
+		
+		
 		$this->insert_associate_func($id, $this->input->post('look_func_data'));
+		
+		
 		$this->db->trans_complete();
 		return $this->db->trans_status();
 	}

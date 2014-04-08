@@ -80,4 +80,14 @@
 <file name="tip_bg_center.gif" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180020000000" />
 <file name="tip_bg_l_r.gif" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180020000000" />
 <file name="tip_bg_min.gif" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180020000000" />
+<file name="pop_border.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187940000000" />
+<file name="pop_border.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187940000000" />
+<file name="pop_bor_l_r.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187950000000" />
+<file name="pop_bor_l_r.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187950000000" />
+<file name="pop_bor_t_b.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187950000000" />
+<file name="pop_bor_t_b.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187950000000" />
+<file name="tip_bg.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187950000000" />
+<file name="tip_bg_center.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187950000000" />
+<file name="tip_bg_l_r.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187950000000" />
+<file name="tip_bg_min.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187950000000" />
 </dwsync>

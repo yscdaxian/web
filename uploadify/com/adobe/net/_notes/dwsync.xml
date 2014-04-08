@@ -35,4 +35,9 @@
 <file name="MimeTypeMap.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
 <file name="URI.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
 <file name="URIEncodingBitmap.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
+<file name="DynamicURLLoader.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187500000000" />
+<file name="IURIResolver.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187500000000" />
+<file name="MimeTypeMap.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187500000000" />
+<file name="URI.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187500000000" />
+<file name="URIEncodingBitmap.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187500000000" />
 </dwsync>

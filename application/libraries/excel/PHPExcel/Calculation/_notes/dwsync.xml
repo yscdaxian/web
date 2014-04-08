@@ -96,4 +96,20 @@
 <file name="MathTrig.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179080000000" />
 <file name="Statistical.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179090000000" />
 <file name="TextData.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179090000000" />
+<file name="Database.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186820000000" />
+<file name="DateTime.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186820000000" />
+<file name="Engineering.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186820000000" />
+<file name="Exception.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186830000000" />
+<file name="ExceptionHandler.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186830000000" />
+<file name="Financial.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186830000000" />
+<file name="FormulaParser.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186830000000" />
+<file name="FormulaToken.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186830000000" />
+<file name="Function.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186830000000" />
+<file name="functionlist.txt" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186830000000" />
+<file name="Functions.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186830000000" />
+<file name="Logical.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186830000000" />
+<file name="LookupRef.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186830000000" />
+<file name="MathTrig.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186830000000" />
+<file name="Statistical.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186840000000" />
+<file name="TextData.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186840000000" />
 </dwsync>

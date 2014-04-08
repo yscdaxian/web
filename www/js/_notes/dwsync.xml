@@ -143,4 +143,22 @@
 <file name="Public.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180040000000" />
 <file name="pub_func.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180040000000" />
 <file name="work.js" server="192.168.0.2//var/www/html/CallCenter/" local="130305955613727090" remote="130400180050000000" />
+<file name="agent.js" server="172.17.1.11//var/www/html/CallCenter/" local="130030584294799020" remote="130406187970000000" />
+<file name="bt.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187970000000" />
+<file name="call.js" server="172.17.1.11//var/www/html/CallCenter/" local="130396909786591577" remote="130406187970000000" />
+<file name="client.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187970000000" />
+<file name="jquery-1.6.4.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187970000000" />
+<file name="jquery-impromptu.3.1.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187970000000" />
+<file name="jquery-impromptu.3.1.min.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187970000000" />
+<file name="jquery.cluetip.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187970000000" />
+<file name="jquery.cluetip.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187970000000" />
+<file name="jquery.idTabs.min.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187970000000" />
+<file name="jquery.min.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187970000000" />
+<file name="jquery.ztree.core-3.0.min.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187970000000" />
+<file name="jquery.ztree.excheck-3.0.min.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="left_view.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="multi-select.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="Public.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="pub_func.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="work.js" server="172.17.1.11//var/www/html/CallCenter/" local="130305955613727090" remote="130406187980000000" />
 </dwsync>

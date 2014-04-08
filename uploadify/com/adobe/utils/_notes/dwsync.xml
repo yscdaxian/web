@@ -49,4 +49,11 @@
 <file name="NumberFormatter.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179670000000" />
 <file name="StringUtil.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179670000000" />
 <file name="XMLUtil.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179670000000" />
+<file name="ArrayUtil.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187510000000" />
+<file name="DateUtil.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187510000000" />
+<file name="DictionaryUtil.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187510000000" />
+<file name="IntUtil.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187510000000" />
+<file name="NumberFormatter.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187510000000" />
+<file name="StringUtil.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187510000000" />
+<file name="XMLUtil.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187510000000" />
 </dwsync>

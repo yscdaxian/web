@@ -31,11 +31,23 @@ class Dynamicui_model extends CI_Model{
 			
 		return $ret;
 	}
-	function getWorkTableFileds(){
+	function getOrderBaseInfoFileds(){
 		$ret=array();	
 		$xml = $this->xml;
 		
 		foreach($xml->bussniessInfoTable->children() as $children){
+			$row=array();
+			foreach($children->children() as $item)
+				array_push($ret,(string)$item->dbfield);
+		}	
+		
+		return $ret;
+	}
+	function getOrderProcessInfoFileds(){
+		$ret=array();	
+		$xml = $this->xml;
+		
+		foreach($xml->orderProcessTable->children() as $children){
 			$row=array();
 			foreach($children->children() as $item)
 				array_push($ret,(string)$item->dbfield);
@@ -181,6 +193,13 @@ class Dynamicui_model extends CI_Model{
 		foreach($xml->orderTable->children() as $children){
 				array_push($ret,(string)$children->dbfield);
 		}
+		
+		foreach($xml->bussniessInfoTable->children() as $children){
+			$row=array();
+			foreach($children->children() as $item)
+				array_push($ret,(string)$item->dbfield);
+		}	
+		
 		return $ret;
 	}
 	
@@ -200,6 +219,23 @@ class Dynamicui_model extends CI_Model{
 				array_push($ret,(string)$children->dbfield);
 		}
 		return $ret;	
+	}
+	function getOrderProcessTableData($defaultValues){
+		$xml = $this->xml;	
+		$items=$xml->baseInfoTable->row;
+		$ret["elements"]=array();	
+		foreach($xml->orderProcessTable->children() as $children){
+			$row=array();
+			foreach($children->children() as $item){
+				$itemArray=array("colspan"=>(int)$item->colspan,"name"=>(string)$item->name,"lspace"=>(int)$item->lspace,"type"=>(int)$item->type,"width"=>(string)$item->width,"height"=>(string)$item->height,"id"=>(string)$item->id,"value"=>array("defaultValue"=>'',"values"=>array()));	
+				$itemArray["value"]["defaultValue"]=isset($defaultValues[(string)$item->dbfield])?$defaultValues[(string)$item->dbfield]:'';
+				$itemArray["value"]["values"]=$this->getValues((int)$item->type,(string)$item->valuesource,(string)$item["value"]["defaultValue"]);
+				array_push($row,$itemArray);
+			}
+			array_push($ret["elements"],$row);		
+		}	
+		
+		return $ret;
 	}
 	
 	function getBussniessInfoTableData($defaultValues){

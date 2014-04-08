@@ -349,7 +349,7 @@ class Client extends CI_Controller{
 		if($rs){
 			foreach($rs as $item){
 				$sQuery="delete from clients where client_id =".$item['client_id'];
-				$this->db->query($sQuery);
+				//$this->db->query($sQuery);
 				$sQuery="delete from clients_wait where client_id =".$item['client_id'];
 				$this->db->query($sQuery);
 			}

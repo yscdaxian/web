@@ -24,4 +24,8 @@
 <file name="footer.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179150000000" />
 <file name="header.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179150000000" />
 <file name="navbar.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179150000000" />
+<file name="credits.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186910000000" />
+<file name="footer.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186910000000" />
+<file name="header.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186910000000" />
+<file name="navbar.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186910000000" />
 </dwsync>

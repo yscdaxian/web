@@ -54,4 +54,13 @@
 <file name="ttf2ufm" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179360000000" />
 <file name="ttf2ufm.exe" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179370000000" />
 <file name="zlib1.dll" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179370000000" />
+<file name="freetype6.dll" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187130000000" />
+<file name="makeallttffonts.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187140000000" />
+<file name="makefont.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187140000000" />
+<file name="pfm2afm" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187140000000" />
+<file name="pfm2afm.exe" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187140000000" />
+<file name="README.TXT" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187140000000" />
+<file name="ttf2ufm" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187140000000" />
+<file name="ttf2ufm.exe" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187150000000" />
+<file name="zlib1.dll" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187150000000" />
 </dwsync>

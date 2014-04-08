@@ -21,4 +21,7 @@
 <file name="1.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179570000000" />
 <file name="2.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179570000000" />
 <file name="3.html" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179570000000" />
+<file name="1.html" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187390000000" />
+<file name="2.html" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187390000000" />
+<file name="3.html" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187390000000" />
 </dwsync>

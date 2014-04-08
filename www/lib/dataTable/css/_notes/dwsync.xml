@@ -40,4 +40,9 @@
 <file name="demo_table_jui.css" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180050000000" />
 <file name="jquery.dataTables.css" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180050000000" />
 <file name="jquery.dataTables_themeroller.css" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180050000000" />
+<file name="demo_page.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="demo_table.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="demo_table_jui.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="jquery.dataTables.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
+<file name="jquery.dataTables_themeroller.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187980000000" />
 </dwsync>

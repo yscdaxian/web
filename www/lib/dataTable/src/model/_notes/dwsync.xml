@@ -56,4 +56,11 @@
 <file name="model.row.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180070000000" />
 <file name="model.search.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180070000000" />
 <file name="model.settings.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180070000000" />
+<file name="model.column.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406188010000000" />
+<file name="model.defaults.columns.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406188010000000" />
+<file name="model.defaults.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406188010000000" />
+<file name="model.ext.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406188010000000" />
+<file name="model.row.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406188020000000" />
+<file name="model.search.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406188020000000" />
+<file name="model.settings.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406188020000000" />
 </dwsync>

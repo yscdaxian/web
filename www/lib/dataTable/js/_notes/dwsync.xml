@@ -24,4 +24,7 @@
 <file name="jquery.dataTables.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180050000000" />
 <file name="jquery.dataTables.min.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180050000000" />
 <file name="jquery.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400180060000000" />
+<file name="jquery.dataTables.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187990000000" />
+<file name="jquery.dataTables.min.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187990000000" />
+<file name="jquery.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187990000000" />
 </dwsync>

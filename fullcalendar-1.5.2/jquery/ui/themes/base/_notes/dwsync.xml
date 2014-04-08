@@ -105,4 +105,19 @@
 <file name="jquery.ui.slider.css" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179510000000" />
 <file name="jquery.ui.tabs.css" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179510000000" />
 <file name="jquery.ui.theme.css" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179510000000" />
+<file name="demos.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.accordion.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.all.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.autocomplete.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.base.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.button.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.core.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.datepicker.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.dialog.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.progressbar.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.resizable.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.selectable.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.slider.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.tabs.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
+<file name="jquery.ui.theme.css" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187310000000" />
 </dwsync>

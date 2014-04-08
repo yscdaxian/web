@@ -94,6 +94,15 @@ function onAddAgentToRole(viewDataId,url){
                              	<input type="button"  onClick="onAddAgentToRole('look_record_view','<?php echo site_url('role/select_items/1/'.$role_id)?>')"  name='add_agent' value="编辑" class='btnAdd'>
                              </td>
                          </tr>
+                           <tr><td>工单查看</td>
+                        	<td><input name='order_check' type='checkbox'></td>
+                            <td>
+                            	<input id="order_view" name="order_agnet_data" class="view_data"  type='text' value='<?php echo $order_agent_data;?>'>
+                            </td>
+                            <td>
+                             	<input type="button"  onClick="onAddAgentToRole('order_view','<?php echo site_url('role/select_items/2/'.$role_id)?>')"  name='add_agent' value="编辑" class='btnAdd'>
+                             </td>
+                         </tr>
                     </table>
                 </center>
                 </fieldset>

@@ -21,4 +21,7 @@
 <file name="BitString.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
 <file name="JPGEncoder.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
 <file name="PNGEncoder.as" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179660000000" />
+<file name="BitString.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187490000000" />
+<file name="JPGEncoder.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187490000000" />
+<file name="PNGEncoder.as" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187500000000" />
 </dwsync>

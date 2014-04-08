@@ -42,4 +42,10 @@
 <file name="loading.gif" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179580000000" />
 <file name="media.gif" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179580000000" />
 <file name="rm.gif" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179580000000" />
+<file name="anchor.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187400000000" />
+<file name="blank.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187400000000" />
+<file name="flash.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187400000000" />
+<file name="loading.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187400000000" />
+<file name="media.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187400000000" />
+<file name="rm.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187400000000" />
 </dwsync>

@@ -24,4 +24,8 @@
 <file name="Cache_dummy.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179630000000" />
 <file name="Cache_file.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179630000000" />
 <file name="Cache_memcached.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179630000000" />
+<file name="Cache_apc.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
+<file name="Cache_dummy.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
+<file name="Cache_file.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
+<file name="Cache_memcached.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187460000000" />
 </dwsync>

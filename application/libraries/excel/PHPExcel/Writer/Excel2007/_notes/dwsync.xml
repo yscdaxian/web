@@ -66,4 +66,15 @@
 <file name="Workbook.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179440000000" />
 <file name="Worksheet.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179440000000" />
 <file name="WriterPart.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179440000000" />
+<file name="Comments.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187210000000" />
+<file name="ContentTypes.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187210000000" />
+<file name="DocProps.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187210000000" />
+<file name="Drawing.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187220000000" />
+<file name="Rels.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187220000000" />
+<file name="StringTable.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187220000000" />
+<file name="Style.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187220000000" />
+<file name="Theme.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187220000000" />
+<file name="Workbook.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187220000000" />
+<file name="Worksheet.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187220000000" />
+<file name="WriterPart.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187220000000" />
 </dwsync>

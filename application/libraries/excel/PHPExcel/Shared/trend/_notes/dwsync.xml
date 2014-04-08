@@ -42,4 +42,11 @@
 <file name="polynomialBestFitClass.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179410000000" />
 <file name="powerBestFitClass.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179410000000" />
 <file name="trendClass.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179410000000" />
+<file name="bestFitClass.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187190000000" />
+<file name="exponentialBestFitClass.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187190000000" />
+<file name="linearBestFitClass.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187190000000" />
+<file name="logarithmicBestFitClass.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187190000000" />
+<file name="polynomialBestFitClass.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187190000000" />
+<file name="powerBestFitClass.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187190000000" />
+<file name="trendClass.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187190000000" />
 </dwsync>

@@ -59,6 +59,16 @@ class Agent_helper
 		$CI->firephp->info($agents);
 		return array('and','set','client_agent',$agents);
 	  }
+	   function getOrderAgentsCanShow(){
+	  	$CI =&get_instance();
+		$agents=array();
+		
+	   	$agents=$CI->Users_model->getAllAgentsByRole($this->agent_id,2);
+		array_push($agents,$this->agent_id);//添加查看自己
+		
+		$CI->firephp->info($agents);
+		return array('and','set','owner',$agents);
+	  }
 	  
 	  function getReportAgentsCanShow(){
 	  	$CI =&get_instance();

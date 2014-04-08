@@ -21,4 +21,7 @@
 <file name="kindeditor-min.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179520000000" />
 <file name="kindeditor.js" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179520000000" />
 <file name="license.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179520000000" />
+<file name="kindeditor-min.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187320000000" />
+<file name="kindeditor.js" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187330000000" />
+<file name="license.txt" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187330000000" />
 </dwsync>

@@ -87,4 +87,18 @@
 <file name="routes.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179050000000" />
 <file name="smileys.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179050000000" />
 <file name="user_agents.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179050000000" />
+<file name="autoload.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="config.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="constants.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="database.php" server="172.17.1.11//var/www/html/CallCenter/" local="130394977899322487" remote="130406186790000000" />
+<file name="department.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="doctypes.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="foreign_chars.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="hooks.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="index.html" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="mimes.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="profiler.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="routes.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186790000000" />
+<file name="smileys.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186800000000" />
+<file name="user_agents.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186800000000" />
 </dwsync>

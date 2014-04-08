@@ -38,7 +38,7 @@
 <file name="pbx_model.php" server="172.17.1.16//var/www/html/CallCenter/" local="130026204871621120" remote="130365712010000000" />
 <file name="plan_model.php" server="172.17.1.16//var/www/html/CallCenter/" local="130078743730914980" remote="130365712010000000" />
 <file name="report_model.php" server="172.17.1.16//var/www/html/CallCenter/" local="130026204871621120" remote="130365712010000000" />
-<file name="role_model.php" server="172.17.1.16//var/www/html/CallCenter/" local="130394977592384932" remote="130394977460000000" />
+<file name="role_model.php" server="172.17.1.16//var/www/html/CallCenter/" local="130413261991986961" remote="130413261970000000" />
 <file name="users_model.php" server="172.17.1.16//var/www/html/CallCenter/" local="130305945498048510" remote="130365712020000000" />
 <file name="captcha_model.php" server="172.17.1.51//var/www/html/CallCenter/" local="129808491660000000" remote="129865746670000000" />
 <file name="clients_model.php" server="172.17.1.51//var/www/html/CallCenter/" local="129818715546460911" remote="129865746670000000" />
@@ -85,7 +85,7 @@
 <file name="report_model.php" server="172.17.1.26//var/www/html/CallCenter/" local="129817914637528314" remote="130011560990000000" />
 <file name="role_model.php" server="172.17.1.26//var/www/html/CallCenter/" local="129817915956133734" remote="130011560990000000" />
 <file name="users_model.php" server="172.17.1.26//var/www/html/CallCenter/" local="129994038568645269" remote="130011560990000000" />
-<file name="dynamicui_model.php" server="172.17.1.16//var/www/html/CallCenter/" local="130384609289441914" remote="130384609340000000" />
+<file name="dynamicui_model.php" server="172.17.1.16//var/www/html/CallCenter/" local="130407190234957621" remote="130407190230000000" />
 <file name="dynamicui_model.php" server="10.2.16.24//var/www/html/CallCenter/" local="130022562401540806" remote="130023564640000000" />
 <file name="captcha_model.php" server="192.168.20.171//var/www/html/CallCenter/" local="130026204871621120" remote="130397723550000000" />
 <file name="clients_model.php" server="192.168.20.171//var/www/html/CallCenter/" local="130305945498048510" remote="130397723550000000" />
@@ -119,4 +119,20 @@
 <file name="report_model.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179460000000" />
 <file name="role_model.php" server="192.168.0.2//var/www/html/CallCenter/" local="130394977592384932" remote="130400179460000000" />
 <file name="users_model.php" server="192.168.0.2//var/www/html/CallCenter/" local="130305945498048510" remote="130400179460000000" />
+<file name="captcha_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187250000000" />
+<file name="clients_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130305945498048510" remote="130406187250000000" />
+<file name="communicate_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187250000000" />
+<file name="department_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187250000000" />
+<file name="dictionary_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187250000000" />
+<file name="dictionary_tree_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187250000000" />
+<file name="dynamicui_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130384609289441914" remote="130406187250000000" />
+<file name="exten_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187250000000" />
+<file name="function_panel_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187250000000" />
+<file name="index.html" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187250000000" />
+<file name="notice_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130312887196957218" remote="130406187250000000" />
+<file name="pbx_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187250000000" />
+<file name="plan_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130078743730914980" remote="130406187250000000" />
+<file name="report_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187250000000" />
+<file name="role_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130394977592384932" remote="130406187250000000" />
+<file name="users_model.php" server="172.17.1.11//var/www/html/CallCenter/" local="130305945498048510" remote="130406187250000000" />
 </dwsync>

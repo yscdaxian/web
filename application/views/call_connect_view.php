@@ -102,12 +102,16 @@
 						modal: true,
 						buttons:{
 							"确认": function(){	
-									$req={'reciever':'','lastTime':'','ids':[],'values':[]}
+									$req={'reciever':'','lastTime':'','ids':[],'values':[],'client_id':'','owner':''}
 									$req.reciever=$('#workOrder-reciever').attr('value');
 									$req.lastTime=getYmdhmDateString('workOrder-ymd','workOrder-hour','workOrder-min');	
 									var bessDatas=$('#bussniessInfoTable').dynamicui.getTextDatas('#bussniessInfoTable');
 									$req.ids=bessDatas.ids;
-									$req.values=bessDatas.values;										
+									$req.values=bessDatas.values;
+									
+									$req.client_id=$('#clientBh').attr('value');
+									$req.owner=$('#agentId').attr('value');		
+																	
 									//设置预约时间
 									$.post('<?php echo site_url("order/createOrder")?>',$req,function(res){
 										if(res.isOk){
@@ -258,8 +262,8 @@
 		<div class='work-list'>			
 			<div class='tabs' style="padding-left:40px">		
 				<ul class="idTabs">   
-                	<li><a href="#personInfo">个人资料</a></li> 	    
-                	<li><a href="#bussniessInfo">业务信息</a></li>	             	          
+                	<li><a href="#bussniessInfo">业务信息</a></li>	
+                	<li><a href="#personInfo">个人资料</a></li> 	    	             	          
 					<li><a href="#connectInfo">沟通记录</a></li> 	
                     <li><a href="#helprDoc"> 知识库</a></li>  	                   
 				</ul> 

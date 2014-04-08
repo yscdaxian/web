@@ -18,4 +18,7 @@
 <file name="pfm2afm-src.tar.gz" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179360000000" />
 <file name="readme.txt" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179360000000" />
 <file name="ttf2ufm-src.tar.gz" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179360000000" />
+<file name="pfm2afm-src.tar.gz" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187140000000" />
+<file name="readme.txt" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187140000000" />
+<file name="ttf2ufm-src.tar.gz" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187140000000" />
 </dwsync>

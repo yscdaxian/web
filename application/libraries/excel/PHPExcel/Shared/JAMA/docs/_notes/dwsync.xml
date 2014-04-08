@@ -36,4 +36,10 @@
 <file name="index.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179150000000" />
 <file name="package.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179150000000" />
 <file name="test.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179150000000" />
+<file name="docs.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186910000000" />
+<file name="download.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186910000000" />
+<file name="example.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186910000000" />
+<file name="index.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186910000000" />
+<file name="package.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186910000000" />
+<file name="test.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186910000000" />
 </dwsync>

@@ -96,4 +96,20 @@
 <file name="tiger.ai" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179390000000" />
 <file name="tux.svg" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179390000000" />
 <file name="_blank.png" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179400000000" />
+<file name="alpha.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187150000000" />
+<file name="bug.eps" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187150000000" />
+<file name="image_demo.jpg" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187160000000" />
+<file name="image_with_alpha.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187160000000" />
+<file name="img.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187160000000" />
+<file name="logo_example.gif" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187160000000" />
+<file name="logo_example.jpg" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187170000000" />
+<file name="logo_example.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187170000000" />
+<file name="pelican.ai" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187170000000" />
+<file name="tcpdf_cell.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187170000000" />
+<file name="tcpdf_logo.jpg" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187170000000" />
+<file name="tcpdf_signature.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187170000000" />
+<file name="testsvg.svg" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187170000000" />
+<file name="tiger.ai" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187170000000" />
+<file name="tux.svg" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187170000000" />
+<file name="_blank.png" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406187180000000" />
 </dwsync>

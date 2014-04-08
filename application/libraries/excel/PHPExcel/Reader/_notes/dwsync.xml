@@ -61,4 +61,14 @@
 <file name="IReadFilter.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179130000000" />
 <file name="OOCalc.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179130000000" />
 <file name="SYLK.php" server="192.168.0.2//var/www/html/CallCenter/" local="130026204871621120" remote="130400179140000000" />
+<file name="CSV.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186890000000" />
+<file name="DefaultReadFilter.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186890000000" />
+<file name="Excel2003XML.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186890000000" />
+<file name="Excel2007.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186890000000" />
+<file name="Excel5.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186890000000" />
+<file name="Gnumeric.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186900000000" />
+<file name="IReader.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186900000000" />
+<file name="IReadFilter.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186900000000" />
+<file name="OOCalc.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186900000000" />
+<file name="SYLK.php" server="172.17.1.11//var/www/html/CallCenter/" local="130026204871621120" remote="130406186900000000" />
 </dwsync>
