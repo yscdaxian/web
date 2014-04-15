@@ -42,6 +42,13 @@ class Communicate extends CI_Controller
 		$modelName=$this->dynamicui->getDynamicuiModel();
 		$this->load->model($modelName);
 		
+		
+		$this->load->library('Agent_helper',array('agent_id'=>$agentId));
+		$agents=$this->agent_helper->getClientAgentsCanShow();
+		$this->load->model("Users_model");	
+		$showAgents=$this->Users_model->getNameValueByIds($agents[3]);
+		$data['targetAgents']=$showAgents;
+		
 		if($from == 'manulClick'){				
 			$data['phoneNumber']='';
 			$data['uniqueid']='';

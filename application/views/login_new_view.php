@@ -2,7 +2,7 @@
 <HTML xmlns="http://www.w3.org/1999/xHTML">
 <head>
 <meta http-equiv="Content-Type" content="text/HTML; charset=utf-8" />
-<title> 亚铭科技电话外呼管理系统</title>
+<title> 东捷科技电话外呼管理系统</title>
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" /> 
 <base href="<?php echo $this->config->item('base_url') ?>/www/"/>
 <link href="css/main.css" rel="stylesheet" type="text/css">
@@ -51,7 +51,7 @@ body{background: url(images/top_bg.jpg) no-repeat center -10px;height:100%}
         
         </div>
         
-        <div class="login_foot">CopyRight&copy;2010 - 2011  亚铭科技. All Rights Reserved </div>
+        <div class="login_foot">CopyRight&copy;2010 - 2011  东捷科技. All Rights Reserved </div>
 
   </form>
 

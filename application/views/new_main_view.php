@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>亚铭科技呼叫中心</title>
+<title>东捷科技呼叫中心</title>
 <base href="<?php echo $this->config->item('base_url') ?>/www/" />
 
 <link rel="stylesheet" href="css/layout.css" type="text/css" media="screen" />
@@ -259,7 +259,7 @@ var $tabs = $("#tabs").tabs({
 <div id="yuyue-prompt" class="jGrowl bottom-right"></div>
 <div id="frame-header" class="frame-header">
 <div class="head_menu" ondragstart='return false' >
-	<div class="logo" title="亚铭科技电话外呼管理系统" onClick="tab_frame('index');"></div>
+	<div class="logo" title="东捷科技电话外呼管理系统" onClick="tab_frame('index');"></div>
     <div class="head_info"> 
     	 <div class="round_" title="其他信息">
         	<div class="round_main">
@@ -329,7 +329,7 @@ var $tabs = $("#tabs").tabs({
 <div class="footer">
 	<div class="footer" oncontextmenu='return false' ondragstart='return false' onselectstart ='return false' onselect='document.selection.empty()'oncopy='document.selection.empty()' onbeforecopy='return false' onmouseup='document.selection.empty()'>
 	<div class="welcome"><img src="images/welcome.jpg" width="101" height="27" /></div>
-    <div class="copyright">CopyRight&copy;2010 - 2011 . All Rights Reserved(技术支持:18963060404 qq:40109903) </div>
+    <div class="copyright">CopyRight&copy;2010 - 2011 . All Rights Reserved(技术支持:15688880173 qq:40109903) </div>
     <div class="version"></div>
 </div>
 </div>

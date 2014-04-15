@@ -63,7 +63,16 @@
 			//$('body').everyTime('10s',function(){
 				//$.jGrowl("超过5分钟，请留意时间！",{'theme':'jGrowl bottom-right'});
 			//},1);	
-			
+			var gTargetAgents=<?php echo json_encode($targetAgents);?>;
+			$.each(gTargetAgents,function(index,row){
+				if(row.name_text !='全部'){
+					if(row.name_text != '未填写')
+						$('#workOrder-reciever').append("<option value='"+row.name_value+"'>"+row.name_text+"</option>");
+						else
+						$('#workOrder-reciever').append("<option selected='selected' value='"+row.name_value+"'>"+row.name_text+"</option>");
+				}
+			});
+	
 			setDatePickerLanguageCn();			
 			$("#yuyue-ymd").datepicker(); 
 			$('#btnYuyue').click(function(){
@@ -195,7 +204,7 @@
 			  else
 			  	 $('td:eq(2)', nRow).html("呼出");
 			 
-			  $('td:eq(5)', nRow).html("<a href='javascript:listenRecord(\""+aData[5]+"\")'>收听</a>");
+			  $('td:eq(6)', nRow).html("<a href='javascript:listenRecord(\""+aData[6]+"\")'>收听</a>");
 			  
     		},"aoColumns": [
 				{"bSortable":false,"mDataProp":"0"},
@@ -203,7 +212,8 @@
 				{"mDataProp":"2"},
 				{"mDataProp":"3"},
 				{"mDataProp":"4"},
-				{"mDataProp":"5"}
+				{"mDataProp":"5"},
+				{"mDataProp":"6"}
 			],"fnServerParams": function (aoData) {
 				var externData={ "name": "agentId", "value": "my_value" };
 				var externPhoneData={"name": "phone", "value": "<?php echo isset($clientItem[0]['client_phone'])?$clientItem[0]['client_phone']:'';?>" };
@@ -235,7 +245,7 @@
 	预约时间:<input id='yuyue-ymd' type="text" style="width:90px" value="<?php echo $yuyue['ymh']?>">&nbsp;<?php echo form_dropdown('s_hour',$yuyue['hourOptions'],$yuyue['hourDef'],'id="yuyue-hour"')?>&nbsp;<?php echo form_dropdown('s_min',$yuyue['minOptions'],$yuyue['minDef'],'id="yuyue-min"')?>
 </div>
 <div id="createWorkOrder-dialog"  style="display:none">
-	&nbsp;&nbsp;&nbsp;接收人:<input id="workOrder-reciever" type="text" style="width:180px" value="" />
+	&nbsp;&nbsp;&nbsp;接收人:<select id="workOrder-reciever"></select>
     <br>
 	截止时间:<input id='workOrder-ymd' type="text" style="width:90px" value="<?php echo $yuyue['ymh']?>">&nbsp;<?php echo form_dropdown('s_hour',$yuyue['hourOptions'],$yuyue['hourDef'],'id="workOrder-hour"')?>&nbsp;<?php echo form_dropdown('s_min',$yuyue['minOptions'],$yuyue['minDef'],'id="workOrder-min"')?>
 </div>
